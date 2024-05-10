@@ -1,7 +1,5 @@
 package model;
 
-import java.util.Objects;
-
 public final class SearchResultData {
     public final String value;
     public final int index;

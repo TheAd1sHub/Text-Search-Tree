@@ -81,7 +81,7 @@ public final class TextBinarySearchTree {
             this.value = value;
             this.index = index;
 
-            System.out.println("'" + this.value + "'");
+            //System.out.println("'" + this.value + "'");
         }
 
         @Override
@@ -117,10 +117,19 @@ public final class TextBinarySearchTree {
             }
         }
         
-        // TODO: Find the way to make getLeavesWithValue() and getLeavesWithValueIgnoreCase() work in accordance with DRY principle
-        // Template method!
+
         private ArrayList<Node> getChildNodesWithValue(String value, Boolean ignoreCase) {
             ArrayList<Node> result = new ArrayList<>();
+
+            System.out.println(this.value);
+            if (this.left != null) {
+                System.out.println("Left = " + this.left.value);
+            }
+            if (this.right != null) {
+                System.out.println("Right = " + this.right.value);
+            }
+
+
 
             if (ignoreCase && this.value.compareToIgnoreCase(value) == 0) {
                 result.add(this);
@@ -128,7 +137,7 @@ public final class TextBinarySearchTree {
                 result.add(this);
             }
 
-            if (this.value.compareTo(value) >= 0 && right != null) {
+            if (value.compareTo(this.value) >= 0 && right != null) {
                 result.addAll(right.getChildNodesWithValue(value, ignoreCase));
             } else if (left != null) {
                 result.addAll(left.getChildNodesWithValue(value, ignoreCase));
@@ -141,11 +150,11 @@ public final class TextBinarySearchTree {
             return getChildNodesWithValue(value, false);
         }
 
-
+        // TODO: Find the way to make getLeavesWithValue() and getLeavesWithValueIgnoreCase() work in accordance with DRY principle
+        // DONE: Wrote a whole new method instead of these two.
         @Deprecated
         private ArrayList<Node> getLeavesWithValue(String value) {
             ArrayList<Node> result = new ArrayList<>();
-
 
             if (this.value.compareTo(value) == 0) {
                 result.add(this);
