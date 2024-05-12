@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 // TODO: Implement logging into file
 public final class MainLogger {
@@ -21,6 +22,9 @@ public final class MainLogger {
     static {
         try {
             handler = new FileHandler(logFileName, true);
+            handler.setFormatter(new SimpleFormatter());
+
+            logger.addHandler(handler);
         } catch(IOException ex) {
             logWarning(
                     "Failed to initialize FileHandler for logging purposes.\n" +
@@ -36,15 +40,15 @@ public final class MainLogger {
     }
 
     public static void logMessage(String message) {
-        logger.log(Level.INFO, "Message:\n" + message);
+        logger.log(Level.INFO, message);
     }
 
     public static void logWarning(String message) {
-        logger.log(Level.WARNING, "Warning. Attention required:\n" + message);
+        logger.log(Level.WARNING, message);
     }
 
     public static void logSevere(Throwable ex) {
-        logger.log(Level.SEVERE, "A severe exception occurred!\n", ex);
+        logger.log(Level.SEVERE, "Exception occurred!\n", ex);
     }
 
 

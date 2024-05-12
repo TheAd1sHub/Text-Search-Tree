@@ -7,6 +7,7 @@ import java.util.List;
 
 import model.SearchResultData;
 import model.TextBinarySearchTree;
+import model.logs.MainLogger;
 import model.text.TextParser;
 import view.SearchResultPrinter;
 
@@ -14,6 +15,8 @@ import view.SearchResultPrinter;
 public class Main {
 	@SuppressWarnings("SpellCheckingInspection")
     public static void main(String[] args) {
+		MainLogger.logMessage("Application launched.");
+
         //String[] arr = new String[] {"азбука", "заяц", "борис", "фаренгейт", "краюшка"};
         //TextBinarySearchTree binTree = new TextBinarySearchTree(Arrays.asList(arr));
 
@@ -29,11 +32,8 @@ public class Main {
 			ArrayList<SearchResultData> hitsList = binTree.findWith(token);
 
 			SearchResultPrinter.displayFormatted(hitsList);
-
-			//System.out.println(binTree.toString());
-
-		} catch (Exception ex) {
-			System.out.println(ex.getClass() + ": " + ex.getMessage());
+		} catch (Throwable ex) {
+			MainLogger.logSevere(ex);
 		}
     }
     
