@@ -9,7 +9,7 @@ import model.filework.FileValidator;
 import view.MessagePrinter;
 
 public final class FileNameInputReader extends BaseUserInputReader {
-    private static Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
 
     private FileNameInputReader() {
         ;

@@ -9,7 +9,8 @@ public final class TextBinarySearchTree {
 
     private int count = 0;
 
-    public TextBinarySearchTree(Collection<String> values) {
+
+    public TextBinarySearchTree(Iterable<String> values) {
         for (String value : values) {
             insert(value);
         }
@@ -70,12 +71,14 @@ public final class TextBinarySearchTree {
         return result;
     }
 
+
     private final class Node {
         public final String value;
         public final int index;
 
         private Node left;
         private Node right;
+
 
         public Node(String value, int index) {
             this.value = value;
@@ -101,6 +104,7 @@ public final class TextBinarySearchTree {
             return result;
         }
 
+
         private void insertLeave(Node newNode) {
             if (newNode.value.compareTo(this.value) < 0) {
                 if (left == null) {
@@ -116,7 +120,6 @@ public final class TextBinarySearchTree {
                 }
             }
         }
-        
 
         private ArrayList<Node> getChildNodesWithValue(String value) {
             ArrayList<Node> result = new ArrayList<>();
@@ -134,9 +137,7 @@ public final class TextBinarySearchTree {
             return result;
         }
 
-        // TODO: Find the way to make getLeavesWithValue() and getLeavesWithValueIgnoreCase() work in accordance with DRY principle
-        // DONE: Wrote a whole new method instead of these two.
-        @Deprecated
+        @Deprecated(forRemoval = true)
         private ArrayList<Node> getLeavesWithValue(String value) {
             ArrayList<Node> result = new ArrayList<>();
 
@@ -153,7 +154,7 @@ public final class TextBinarySearchTree {
             return result;
         }
 
-        @Deprecated
+        @Deprecated(forRemoval = true)
         private ArrayList<Node> getLeavesWithValueIgnoreCase(String value) {        	
         	ArrayList<Node> result = new ArrayList<>();
             

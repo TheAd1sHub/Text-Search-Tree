@@ -6,7 +6,7 @@ import java.util.Scanner;
 import model.AllowedValues;
 
 public final class UserInputReader {
-	private static Scanner scanner = new Scanner(System.in);
+	private static final Scanner scanner = new Scanner(System.in);
 
 	private UserInputReader() {
 		;

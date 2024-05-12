@@ -1,4 +1,4 @@
-package tests;
+package debug.tests;
 
 import model.SearchResultData;
 import model.TextBinarySearchTree;

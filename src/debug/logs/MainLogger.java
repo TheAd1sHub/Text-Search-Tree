@@ -1,4 +1,4 @@
-package model.logs;
+package debug.logs;
 
 import java.io.IOException;
 import java.time.LocalDate;

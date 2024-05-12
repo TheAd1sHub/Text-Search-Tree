@@ -6,7 +6,7 @@ import java.util.Scanner;
 import model.AllowedValues;
 
 public final class IgnoreCaseAnswerInputReader extends BaseClosedQuestionAnswerInputReader {
-	private static Scanner scanner = new Scanner(System.in);
+	private static final Scanner scanner = new Scanner(System.in);
 
 	private IgnoreCaseAnswerInputReader() {
 		;
