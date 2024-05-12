@@ -12,22 +12,21 @@ import view.SearchResultPrinter;
 
 
 public class Main {
+	@SuppressWarnings("SpellCheckingInspection")
     public static void main(String[] args) {
         //String[] arr = new String[] {"азбука", "заяц", "борис", "фаренгейт", "краюшка"};
         //TextBinarySearchTree binTree = new TextBinarySearchTree(Arrays.asList(arr));
 
-		@SuppressWarnings("SpellCheckingInspection") String fileName = "C:\\Users\\yusere\\Documents\\Java Projects\\Text Search Tree\\src\\testfile.txt";
-		String token = "Папа";
-		boolean ignoreTokenCase = false;
+		String fileName = "C:\\Users\\Ad1s\\AppData\\Local\\Programs\\Java\\Projects\\Text-Search-Tree\\src\\testfile.txt";
+		String token = "Слово";
 
 		try {
-
             String text = Files.readString(Path.of(fileName));
 			List<String> words = TextParser.getWords(text);
 
 			TextBinarySearchTree binTree = new TextBinarySearchTree(words);
 
-			ArrayList<SearchResultData> hitsList = binTree.findWith(token, ignoreTokenCase);
+			ArrayList<SearchResultData> hitsList = binTree.findWith(token);
 
 			SearchResultPrinter.displayFormatted(hitsList);
 

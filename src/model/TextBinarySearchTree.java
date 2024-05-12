@@ -19,6 +19,7 @@ public final class TextBinarySearchTree {
         this(new ArrayList<String>());
     }
 
+
     public void insert(String value) {
         Node newNode = new Node(value, ++count);
 
@@ -39,7 +40,7 @@ public final class TextBinarySearchTree {
 
         ArrayList<Node> rawSearchHits;
 
-        rawSearchHits = root.getChildNodesWithValue(value, ignoreCase);
+        rawSearchHits = root.getChildNodesWithValue(value);
 
         ArrayList<SearchResultData> result = new ArrayList<>(rawSearchHits.size());
         
@@ -68,7 +69,6 @@ public final class TextBinarySearchTree {
 
         return result;
     }
-
 
     private final class Node {
         public final String value;
@@ -118,36 +118,20 @@ public final class TextBinarySearchTree {
         }
         
 
-        private ArrayList<Node> getChildNodesWithValue(String value, Boolean ignoreCase) {
+        private ArrayList<Node> getChildNodesWithValue(String value) {
             ArrayList<Node> result = new ArrayList<>();
 
-            System.out.println(this.value);
-            if (this.left != null) {
-                System.out.println("Left = " + this.left.value);
-            }
-            if (this.right != null) {
-                System.out.println("Right = " + this.right.value);
-            }
-
-
-
-            if (ignoreCase && this.value.compareToIgnoreCase(value) == 0) {
-                result.add(this);
-            } else if (this.value.compareTo(value) == 0) {
+            if (this.value.compareTo(value) == 0) {
                 result.add(this);
             }
 
             if (value.compareTo(this.value) >= 0 && right != null) {
-                result.addAll(right.getChildNodesWithValue(value, ignoreCase));
+                result.addAll(right.getChildNodesWithValue(value));
             } else if (left != null) {
-                result.addAll(left.getChildNodesWithValue(value, ignoreCase));
+                result.addAll(left.getChildNodesWithValue(value));
             }
 
             return result;
-        }
-
-        private ArrayList<Node> getChildNodesWithValue(String value) {
-            return getChildNodesWithValue(value, false);
         }
 
         // TODO: Find the way to make getLeavesWithValue() and getLeavesWithValueIgnoreCase() work in accordance with DRY principle
