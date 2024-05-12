@@ -33,6 +33,8 @@ public class Main {
 		} catch (Throwable ex) {
 			MainLogger.logSevere(ex);
 		}
+
+		MainLogger.logMessage("Application work finished.");
     }
     
 }
