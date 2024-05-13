@@ -17,7 +17,7 @@ public class Main {
     public static void main(String[] args) {
 		MainLogger.logMessage("Application launched.");
 
-		String fileName = "C:\\Users\\Ad1s\\AppData\\Local\\Programs\\Java\\Projects\\Text-Search-Tree\\src\\testfile.txt";
+		String fileName = "C:\\Users\\yusere\\Documents\\Java Projects\\Text Search Tree\\src\\testfile.txt";
 		String token = "Слово";
 
 		try {
@@ -36,5 +36,5 @@ public class Main {
 
 		MainLogger.logMessage("Application work finished.");
     }
-    
+
 }
