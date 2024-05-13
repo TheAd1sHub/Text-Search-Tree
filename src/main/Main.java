@@ -11,6 +11,8 @@ import debug.logs.MainLogger;
 import model.text.TextParser;
 import view.SearchResultPrinter;
 
+import javax.lang.model.type.NullType;
+
 
 public class Main {
 	@SuppressWarnings("SpellCheckingInspection")

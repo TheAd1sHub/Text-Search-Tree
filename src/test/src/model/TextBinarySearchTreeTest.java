@@ -3,6 +3,7 @@ package test.src.model;
 import model.SearchResultData;
 import model.TextBinarySearchTree;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 
@@ -13,7 +14,6 @@ public final class TextBinarySearchTreeTest {
 
     private final String[] emptyDataset = new String[] { };
     private final SearchResultData[] emptySearchResultData = new SearchResultData[] { };
-
 
     private final String[] alphabetDataset = new String[] {
         "A", "B", "C", "D", "E", "F", "G",
@@ -102,7 +102,7 @@ public final class TextBinarySearchTreeTest {
     }
 
     @Test
-    @DisplayName("Test of an unsuccessful search in a tree containing single element")
+    @DisplayName("Test of an unsuccessful search in a tree with uppercase EN alphabet letters")
     public void oneElementTreeUnsuccessfulSearchTest() {
         //Arrange
         TextBinarySearchTree tree = new TextBinarySearchTree(List.of(alphabetDataset));
