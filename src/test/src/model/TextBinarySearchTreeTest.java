@@ -1,11 +1,10 @@
-package debug.tests;
+package test.src.model;
 
 import model.SearchResultData;
 import model.TextBinarySearchTree;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
 
 import java.util.ArrayList;
 import java.util.List;
