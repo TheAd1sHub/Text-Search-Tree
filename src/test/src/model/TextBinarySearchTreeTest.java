@@ -46,7 +46,7 @@ public final class TextBinarySearchTreeTest {
 
     @Test
     @DisplayName("Test of a size() method in a tree with no elements inserted")
-    public void emptyTreeSizeMethodTest() {
+    public void testEmptyTreeSizeMethod() {
         //Arrange
         TextBinarySearchTree tree = new TextBinarySearchTree();
         final int expectedReturn = emptySearchResultData.length;
@@ -60,7 +60,7 @@ public final class TextBinarySearchTreeTest {
 
     @Test
     @DisplayName("Test of a size() method in a tree with empty collection given in constructor.")
-    public void treeWithEmptyCollectionGivenSizeMethodTest() {
+    public void testTreeWithEmptyCollectionGivenSizeMethod() {
         //Arrange
         TextBinarySearchTree tree = new TextBinarySearchTree(List.of(emptyDataset));
         final int expectedReturn = emptySearchResultData.length;
@@ -74,7 +74,7 @@ public final class TextBinarySearchTreeTest {
 
     @Test
     @DisplayName("Test of a size() method in a tree with dataset elements inserted")
-    public void nonEmptyTreeSizeMethodTest() {
+    public void testNonEmptyTreeSizeMethod() {
         //Arrange
         TextBinarySearchTree tree = new TextBinarySearchTree(List.of(alphabetDataset));
         final int expectedReturn = alphabetDataset.length;
@@ -88,7 +88,7 @@ public final class TextBinarySearchTreeTest {
 
     @Test
     @DisplayName("Test of a positive search in a tree with uppercase EN alphabet letters")
-    public void oneElementTreeSuccessfulSearchTest() {
+    public void testOneElementTreeSuccessfulSearch() {
         //Arrange
         TextBinarySearchTree tree = new TextBinarySearchTree(List.of(alphabetDataset));
         final String searchedValue = capitalMLetterToken;
@@ -103,7 +103,7 @@ public final class TextBinarySearchTreeTest {
 
     @Test
     @DisplayName("Test of an unsuccessful search in a tree with uppercase EN alphabet letters")
-    public void oneElementTreeUnsuccessfulSearchTest() {
+    public void testOneElementTreeUnsuccessfulSearch() {
         //Arrange
         TextBinarySearchTree tree = new TextBinarySearchTree(List.of(alphabetDataset));
         final String searchedValue = smallMLetterToken;
