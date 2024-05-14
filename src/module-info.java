@@ -12,4 +12,6 @@ module TestSearcher {
     requires org.junit.jupiter.api;
     requires hamcrest.core;
     requires java.compiler;
+
+    exports test.src.model; // For JUnit
 }
