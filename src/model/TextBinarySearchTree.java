@@ -1,7 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 // If the element is less than the current node = we go left. Else - we go right.
 public final class TextBinarySearchTree {
@@ -25,23 +24,40 @@ public final class TextBinarySearchTree {
         Node newNode = new Node(value, ++count);
 
         // if the new node is the first one in the tree...
-        if (count == 1) {
+        if (root == null) {
             root = newNode;
 
             return;
         }
 
-        root.insertLeave(newNode);
+        root.insertLeaf(newNode);
     }
 
-    public ArrayList<SearchResultData> findWith(String value, boolean ignoreCase) {
+    public ArrayList<SearchResultData> remove(String value) {
         if (root == null) {
             return new ArrayList<SearchResultData>();
         }
 
-        ArrayList<Node> rawSearchHits;
+        ArrayList<Node> nodesToRemove = findWithRaw(value);
+        if (nodesToRemove.isEmpty()) {
+            return new ArrayList<SearchResultData>();
+        }
 
-        rawSearchHits = root.getChildNodesWithValue(value);
+        ArrayList<SearchResultData> removedNodesData = new ArrayList<>(nodesToRemove.size());
+        for (Node node : nodesToRemove) {
+            Node removedNode = node.removeSelf();
+            removedNodesData.add(new SearchResultData(removedNode.value, removedNode.index));
+        }
+
+        return removedNodesData;
+    }
+
+    public ArrayList<SearchResultData> findWith(String value) {
+        if (root == null) {
+            return new ArrayList<SearchResultData>();
+        }
+
+        ArrayList<Node> rawSearchHits = findWithRaw(value);
 
         ArrayList<SearchResultData> result = new ArrayList<>(rawSearchHits.size());
         
@@ -52,12 +68,9 @@ public final class TextBinarySearchTree {
         return result;
     }
 
+
     public int size() {
         return count;
-    }
-    
-    public ArrayList<SearchResultData> findWith(String value) {
-    	return findWith(value, false);
     }
 
     @Override
@@ -66,25 +79,30 @@ public final class TextBinarySearchTree {
             return "[ EMPTY ]";
         }
 
-        String result = "[" + root.toString() + "]";
+        return "[" + root.toString() + "]";
+    }
 
-        return result;
+
+    private ArrayList<Node> findWithRaw(String value) {
+        if (root == null) {
+            return new ArrayList<Node>();
+        }
+
+        return root.getChildNodesWithValue(value);
     }
 
 
     private final class Node {
-        public final String value;
-        public final int index;
+        public String value;
+        public int index;
 
+        private Node parent;
         private Node left;
         private Node right;
-
 
         public Node(String value, int index) {
             this.value = value;
             this.index = index;
-
-            //System.out.println("'" + this.value + "'");
         }
 
         @Override
@@ -105,20 +123,51 @@ public final class TextBinarySearchTree {
         }
 
 
-        private void insertLeave(Node newNode) {
+        private void insertLeaf(Node newNode) {
+            newNode.parent = this;
+
             if (newNode.value.compareTo(this.value) < 0) {
                 if (left == null) {
                     left = newNode;
                 } else {
-                    left.insertLeave(newNode);
+                    left.insertLeaf(newNode);
                 }
             } else {
                 if (right == null) {
                     right = newNode;
                 } else {
-                    right.insertLeave(newNode);
+                    right.insertLeaf(newNode);
                 }
             }
+        }
+
+        private Node removeSelf() {
+            // No children
+            if (isLeaf()) {
+                if (parent.left == this) {
+                    parent.left = null;
+                } else {
+                    parent.right = null;
+                }
+
+                return this;
+            }
+
+            // One child
+            if (left == null && right != null) {
+                parent.insertLeaf(right);
+            } else if (left != null && right == null) {
+                parent.insertLeaf(left);
+            }
+
+            // Two children
+            Node maxNodeInLeft = left.getMaxNodeInSubbranch();
+            this.index = maxNodeInLeft.index;
+            this.value = maxNodeInLeft.value;
+
+            maxNodeInLeft.removeSelf();
+
+            return this;
         }
 
         private ArrayList<Node> getChildNodesWithValue(String value) {
@@ -137,38 +186,29 @@ public final class TextBinarySearchTree {
             return result;
         }
 
-        @Deprecated(forRemoval = true)
-        private ArrayList<Node> getLeavesWithValue(String value) {
-            ArrayList<Node> result = new ArrayList<>();
-
-            if (this.value.compareTo(value) == 0) {
-                result.add(this);
+        private Node getMinNodeInSubbranch() {
+            if (left == null) {
+                return this;
+            } else {
+                return left.getMinNodeInSubbranch();
             }
-
-            if (this.value.compareTo(value) >= 0 && right != null) {
-                result.addAll(right.getLeavesWithValue(value));
-            } else if (left != null) {
-                result.addAll(left.getLeavesWithValue(value));
-            }
-
-            return result;
         }
 
-        @Deprecated(forRemoval = true)
-        private ArrayList<Node> getLeavesWithValueIgnoreCase(String value) {        	
-        	ArrayList<Node> result = new ArrayList<>();
-            
-            if (this.value.compareToIgnoreCase(value) == 0) {
-                result.add(this);
+        private Node getMaxNodeInSubbranch() {
+            if (right == null) {
+                return this;
+            } else {
+                return right.getMaxNodeInSubbranch();
             }
+        }
 
-            if (this.value.compareTo(value) < 0 && left != null) {
-                result.addAll(left.getLeavesWithValueIgnoreCase(value));
-            } else if (right != null) {
-                result.addAll(right.getLeavesWithValueIgnoreCase(value));
-            }
 
-            return result;
+        private boolean isLeaf() {
+            return left == null && right == null;
+        }
+
+        private boolean isRoot() {
+            return this == root;
         }
         
     } 

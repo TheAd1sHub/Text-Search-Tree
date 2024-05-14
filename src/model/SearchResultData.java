@@ -18,4 +18,9 @@ public final class SearchResultData {
 
         return false;
     }
+
+    @Override
+    public int hashCode() {
+        return this.value.hashCode() | this.index;
+    }
 }
