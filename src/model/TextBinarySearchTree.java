@@ -1,5 +1,6 @@
 package model;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 // If the element is less than the current node = we go left. Else - we go right.
@@ -68,6 +69,20 @@ public final class TextBinarySearchTree {
         return result;
     }
 
+    public ArrayList<SearchResultData> getAllValues() {
+        if (root == null) {
+            return new ArrayList<SearchResultData>();
+        }
+
+        ArrayList<SearchResultData> allValues = new ArrayList<>(size());
+
+        for (Node node : root.getAllChildNodes(true)) {
+            allValues.add(new SearchResultData(node.value, node.index));
+        }
+
+        return allValues;
+    }
+
 
     public int size() {
         return count;
@@ -80,6 +95,47 @@ public final class TextBinarySearchTree {
         }
 
         return "[" + root.toString() + "]";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof TextBinarySearchTree other) {
+            if (this.size() != other.size()) {
+                return false;
+            }
+
+            ArrayList<SearchResultData> thisContents = this.getAllValues(),
+                                        otherContents = other.getAllValues();
+
+            for (int i = 0; i < thisContents.size(); i++) {
+                SearchResultData thisElement = thisContents.get(i),
+                                 otherElement = otherContents.get(i);
+
+                if (!thisElement.equals(otherElement)) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+
+        ArrayList<SearchResultData> allNodesData = getAllValues();
+        for (int i = 0; i < allNodesData.size(); i++) {
+            if (i % 2 == 0) {
+                hash |= allNodesData.get(i).hashCode();
+            } else {
+                hash &= allNodesData.get(i).hashCode();
+            }
+        }
+
+        return hash;
     }
 
 
@@ -142,13 +198,17 @@ public final class TextBinarySearchTree {
         }
 
         private Node removeSelf() {
+            // De-attaching the removed Node from its tree
+            if (parent.left == this) {
+                parent.left = null;
+            } else {
+                parent.right = null;
+            }
+
+            // Replacing the removed node with its children nodes in case...
+
             // No children
             if (isLeaf()) {
-                if (parent.left == this) {
-                    parent.left = null;
-                } else {
-                    parent.right = null;
-                }
 
                 return this;
             }
@@ -156,8 +216,12 @@ public final class TextBinarySearchTree {
             // One child
             if (left == null && right != null) {
                 parent.insertLeaf(right);
+
+                return this;
             } else if (left != null && right == null) {
                 parent.insertLeaf(left);
+
+                return this;
             }
 
             // Two children
@@ -181,6 +245,24 @@ public final class TextBinarySearchTree {
                 result.addAll(right.getChildNodesWithValue(value));
             } else if (left != null) {
                 result.addAll(left.getChildNodesWithValue(value));
+            }
+
+            return result;
+        }
+
+        private ArrayList<Node> getAllChildNodes(boolean addSelf) {
+            ArrayList<Node> result = new ArrayList<>(size());
+
+            if (addSelf) {
+                result.add(this);
+            }
+
+            if (right != null) {
+                result.addAll(right.getAllChildNodes(addSelf));
+            }
+
+            if (left != null) {
+                result.addAll(left.getAllChildNodes(addSelf));
             }
 
             return result;

@@ -2,14 +2,17 @@ package test.src.model;
 
 import model.SearchResultData;
 import model.TextBinarySearchTree;
-import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.DisplayName;
+import view.SearchResultPrinter;
+
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
+@SuppressWarnings("UnnecessaryLocalVariable")
 public final class TextBinarySearchTreeTest {
 
     private final String[] emptyDataset = new String[] { };
@@ -42,10 +45,28 @@ public final class TextBinarySearchTreeTest {
             "proident", "sunt", "in", "culpa", "qui", "officia", "deserunt",
             "mollit", "anim", "id", "est", "laborum"
     };
+    private final String inWordToken = "in";
+    private final SearchResultData[] inWordInstancesSearchResultData = new SearchResultData[] {
+            new SearchResultData(inWordToken, 41),
+            new SearchResultData(inWordToken, 43),
+            new SearchResultData(inWordToken, 60)
+    };
+    private final String nonExistingWordToken = "non-findable";
+    private final SearchResultData[] nonExistingWordInstancesSearchResultData = emptySearchResultData;
+
+    private final String[] citiesDataset = new String[] {
+            "Moscow", "Berlin", "Vilnius", "Riga", "Novosibirsk"
+    };
+    private final SearchResultData[] citiesInstancesSearchResultData = new SearchResultData[] {
+            new SearchResultData("Moscow", 1),
+            new SearchResultData("Berlin", 2),
+            new SearchResultData("Vilnius", 3),
+            new SearchResultData("Riga", 4),
+            new SearchResultData("Novosibirsk", 5),
+    };
 
 
     @Test
-    @DisplayName("Test of a size() method in a tree with no elements inserted")
     public void testEmptyTreeSizeMethod() {
         //Arrange
         TextBinarySearchTree tree = new TextBinarySearchTree();
@@ -55,12 +76,11 @@ public final class TextBinarySearchTreeTest {
         final int treeSize = tree.size();
 
         //Assert
-        Assert.assertEquals(expectedReturn, treeSize);
+        assertEquals(expectedReturn, treeSize);
     }
 
     @Test
-    @DisplayName("Test of a size() method in a tree with empty collection given in constructor.")
-    public void testTreeWithEmptyCollectionGivenSizeMethod() {
+    public void testTreeConstructedWithEmptyCollectionSizeMethod() {
         //Arrange
         TextBinarySearchTree tree = new TextBinarySearchTree(List.of(emptyDataset));
         final int expectedReturn = emptySearchResultData.length;
@@ -69,11 +89,10 @@ public final class TextBinarySearchTreeTest {
         final int treeSize = tree.size();
 
         //Assert
-        Assert.assertEquals(expectedReturn, treeSize);
+        assertEquals(expectedReturn, treeSize);
     }
 
     @Test
-    @DisplayName("Test of a size() method in a tree with dataset elements inserted")
     public void testNonEmptyTreeSizeMethod() {
         //Arrange
         TextBinarySearchTree tree = new TextBinarySearchTree(List.of(alphabetDataset));
@@ -83,11 +102,10 @@ public final class TextBinarySearchTreeTest {
         final int treeSize = tree.size();
 
         //Assert
-        Assert.assertEquals(expectedReturn, treeSize);
+        assertEquals(expectedReturn, treeSize);
     }
 
     @Test
-    @DisplayName("Test of a positive search in a tree with uppercase EN alphabet letters")
     public void testOneElementTreeSuccessfulSearch() {
         //Arrange
         TextBinarySearchTree tree = new TextBinarySearchTree(List.of(alphabetDataset));
@@ -98,11 +116,10 @@ public final class TextBinarySearchTreeTest {
         ArrayList<SearchResultData> result = tree.findWith(searchedValue);
 
         //Assert
-        Assert.assertArrayEquals(result.toArray(), expectedReturn);
+        assertArrayEquals(expectedReturn, result.toArray());
     }
 
     @Test
-    @DisplayName("Test of an unsuccessful search in a tree with uppercase EN alphabet letters")
     public void testOneElementTreeUnsuccessfulSearch() {
         //Arrange
         TextBinarySearchTree tree = new TextBinarySearchTree(List.of(alphabetDataset));
@@ -113,6 +130,78 @@ public final class TextBinarySearchTreeTest {
         ArrayList<SearchResultData> result = tree.findWith(searchedValue);
 
         //Assert
-        Assert.assertArrayEquals(result.toArray(), expectedReturn);
+        assertArrayEquals(expectedReturn, result.toArray());
+    }
+
+    @Test
+    public void testLoremIpsumTextSuccessfulSearch() {
+        //Arrange
+        TextBinarySearchTree tree = new TextBinarySearchTree(List.of(loremIpsumDataset));
+        final String searchedValue = inWordToken;
+        final SearchResultData[] expectedReturn = inWordInstancesSearchResultData;
+
+        //Act
+        ArrayList<SearchResultData> result = tree.findWith(searchedValue);
+
+        //Assert
+        assertArrayEquals(expectedReturn, result.toArray());
+    }
+
+    @Test
+    public void testLoremIpsumTextUnsuccessfulSearch() {
+        //Arrange
+        TextBinarySearchTree tree = new TextBinarySearchTree(List.of(loremIpsumDataset));
+        final String searchedValue = nonExistingWordToken;
+        final SearchResultData[] expectedReturn = nonExistingWordInstancesSearchResultData;
+
+        //Act
+        ArrayList<SearchResultData> result = tree.findWith(searchedValue);
+
+        //Assert
+        assertArrayEquals(expectedReturn, result.toArray());
+    }
+
+    @Test
+    public void testRemovalFunctionWithAlphabetLetter() {
+        //Arrange
+        TextBinarySearchTree tree = new TextBinarySearchTree(List.of(alphabetDataset));
+        final String searchedValue = capitalMLetterToken;
+        final SearchResultData[] expectedReturn = emptySearchResultData;
+
+        //Act
+        tree.remove(searchedValue);
+        ArrayList<SearchResultData> result = tree.findWith(searchedValue);
+
+        //Assert
+        assertArrayEquals(expectedReturn, result.toArray());
+    }
+
+    @Test
+    public void testRemovalFunctionWithLoremIpsumText() {
+        //Arrange
+        TextBinarySearchTree tree = new TextBinarySearchTree(List.of(loremIpsumDataset));
+        final String searchedValue = inWordToken;
+        final SearchResultData[] expectedReturn = emptySearchResultData;
+
+        //Act
+        tree.remove(searchedValue);
+        ArrayList<SearchResultData> result = tree.findWith(searchedValue);
+
+        //Assert
+        assertArrayEquals(expectedReturn, result.toArray());
+    }
+
+    @Test
+    public void testGetContentsFunctionWithCities() {
+        //Arrange
+        TextBinarySearchTree tree = new TextBinarySearchTree(List.of(citiesDataset));
+        final SearchResultData[] expectedReturn = citiesInstancesSearchResultData;
+
+        //Act
+        ArrayList<SearchResultData> result = tree.getAllValues();
+        result.sort(Comparator.comparingInt(data -> data.index));
+
+        //Assert
+        assertArrayEquals(expectedReturn, result.toArray());
     }
 }
