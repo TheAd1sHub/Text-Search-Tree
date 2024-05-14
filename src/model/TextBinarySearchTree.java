@@ -2,6 +2,7 @@ package model;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 // If the element is less than the current node = we go left. Else - we go right.
 public final class TextBinarySearchTree {
@@ -32,6 +33,12 @@ public final class TextBinarySearchTree {
         }
 
         root.insertLeaf(newNode);
+    }
+
+    public void insertAll(List<String> values) {
+        for (String value : values) {
+            insert(value);
+        }
     }
 
     public ArrayList<SearchResultData> remove(String value) {
@@ -205,7 +212,7 @@ public final class TextBinarySearchTree {
                 parent.right = null;
             }
 
-            // Replacing the removed node with its children nodes in case...
+            // Replacing the removed node with its children nodes in case ofобнять...
 
             // No children
             if (isLeaf()) {
