@@ -12,9 +12,13 @@ public final class MessagePrinter {
     public static void printElementToSearchRequest() {
         System.out.print("State the sought-for value\n> ");
     }
-    
+
+    @Deprecated
     public static void printIgnoreCaseToggleRequest() {
-    	System.out.print("State the sought-for value\n> ");
+    	System.out.print("Ignore case while searching?\n> ");
     }
-    
+
+    public static void printUrlRequest() {
+        System.out.print("State the URL of the file\n> ");
+    }
 }

@@ -212,7 +212,7 @@ public final class TextBinarySearchTree {
                 parent.right = null;
             }
 
-            // Replacing the removed node with its children nodes in case ofобнять...
+            // Replacing the removed node with its children nodes in case of...
 
             // No children
             if (isLeaf()) {

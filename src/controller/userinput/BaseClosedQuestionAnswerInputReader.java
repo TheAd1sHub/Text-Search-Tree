@@ -4,6 +4,7 @@ import java.util.InputMismatchException;
 
 import model.AllowedValues;
 
+@Deprecated
 public abstract class BaseClosedQuestionAnswerInputReader extends BaseUserInputReader {
 	public static boolean readAsBool() throws InputMismatchException {
         String userAnswer = System.console().readLine();

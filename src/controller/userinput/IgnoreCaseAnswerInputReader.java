@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import model.AllowedValues;
 
+@Deprecated
 public final class IgnoreCaseAnswerInputReader extends BaseClosedQuestionAnswerInputReader {
 	private static final Scanner scanner = new Scanner(System.in);
 

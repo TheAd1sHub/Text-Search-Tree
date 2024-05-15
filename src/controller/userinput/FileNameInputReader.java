@@ -15,11 +15,11 @@ public final class FileNameInputReader extends BaseUserInputReader {
         ;
     }
 
-    public static String read(boolean validateExistance, boolean validateExtension)
+    public static String read(boolean validateExistence, boolean validateExtension)
     					throws IOException, FileNotFoundException {
         String fileName = read();
 
-        if (validateExistance) {
+        if (validateExistence) {
             FileValidator.validateExistance(fileName);
         }
 

@@ -1,9 +1,5 @@
 package main;
 
-import java.lang.reflect.Array;
-import java.net.http.HttpResponse;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,8 +7,8 @@ import debug.exceptions.HTTPReadingSessionFailException;
 import model.SearchResultData;
 import model.TextBinarySearchTree;
 import debug.logs.MainLogger;
-import model.net.HTTPRequestSender;
-import model.net.HTTPResponseLazyReader;
+import model.iterators.ExternalDataIterator;
+import model.iterators.RawUrlDataIterator;
 import model.text.TextParser;
 import view.SearchResultPrinter;
 
@@ -20,45 +16,39 @@ import view.SearchResultPrinter;
 public class Main {
 	@SuppressWarnings("SpellCheckingInspection")
     public static void main(String[] args) {
-		MainLogger.logMessage("Application launched.");
+        MainLogger.logMessage("Application launched.");
 
 
+        String url = "https://pastebin.com/raw/r5KfUNn0"; // "Папа у Васи..."
+        String url2 = "https://pastebin.com/raw/s5bFXyaM"; // О добром медведе
+        String url2s = "https://pastebin.com/raw/Liy8Gqw6"; // Первое предложение из текста О добром медведе
+        String url3 = "https://pastebin.com/raw/X5r6xFs5"; // Числительные с "Первое" по "Десятое"
+        String token = "Восьмое";
 
-		String url = "https://pastebin.com/raw/r5KfUNn0";
-		String token = "Папа";
+        TextBinarySearchTree binTree = new TextBinarySearchTree();
 
-		TextBinarySearchTree binTree = new TextBinarySearchTree();
+        try (ExternalDataIterator iterator = new RawUrlDataIterator(url3)) {
 
-		try {
-			HTTPRequestSender sender = new HTTPRequestSender();
-			HttpResponse<String> textResponse = sender.getResponseFromUrl(url);
-
-            try (HTTPResponseLazyReader reader = new HTTPResponseLazyReader(textResponse)) {
-                while (reader.hasNext()) {
-                    String line = reader.next();
-
-					System.out.println(line);
-
-					List<String> words = TextParser.getWords(line);
-					binTree.insertAll(words);
-                }
-            }
+			List<String> words;
+			while (iterator.hasNext()) {
+				String line = iterator.next();
+				words = TextParser.getWords(line);
+				binTree.insertAll(words);
+			}
 
 			ArrayList<SearchResultData> hitsList = binTree.findWith(token);
 
 			SearchResultPrinter.displayFormatted(hitsList);
 
-			//System.out.println(binTree.toString());
+        } catch (HTTPReadingSessionFailException ex) {
+            MainLogger.logSevere(ex);
+        } catch (Throwable ex) {
+            MainLogger.logSevere(ex);
+        }
 
-		} catch (HTTPReadingSessionFailException ex) {
+        MainLogger.logMessage("Application work finished.");
 
-		} catch (Throwable ex) {
-			MainLogger.logSevere(ex);
-		}
-
-		MainLogger.logMessage("Application work finished.");
-
-		return;
+        return;
 
 		/*
 		String fileName = "C:\\Users\\yusere\\Documents\\Java Projects\\Text Search Tree\\src\\testfile.txt";

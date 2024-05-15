@@ -59,10 +59,10 @@ public final class TextBinarySearchTreeTest {
     };
     private final SearchResultData[] citiesInstancesSearchResultData = new SearchResultData[] {
             new SearchResultData("Moscow", 1),
-            new SearchResultData("Berlin", 2),
             new SearchResultData("Vilnius", 3),
             new SearchResultData("Riga", 4),
             new SearchResultData("Novosibirsk", 5),
+            new SearchResultData("Berlin", 2),
     };
 
 
@@ -199,7 +199,6 @@ public final class TextBinarySearchTreeTest {
 
         //Act
         ArrayList<SearchResultData> result = tree.getAllValues();
-        result.sort(Comparator.comparingInt(data -> data.index));
 
         //Assert
         assertArrayEquals(expectedReturn, result.toArray());

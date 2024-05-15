@@ -2,22 +2,25 @@ package model.net;
 
 import debug.exceptions.HTTPReadingSessionFailException;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.StringReader;
+import java.io.*;
 import java.net.http.HttpResponse;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.function.Consumer;
 
+@Deprecated
 public final class HTTPResponseLazyReader
                             implements Iterator<String>, AutoCloseable {
     private final BufferedReader reader;
     private String nextLine;
 
+    private final InputStream inputStream;
+
     public HTTPResponseLazyReader(HttpResponse<String> response) throws IOException {
         reader = new BufferedReader(new StringReader(response.body()));
         getNextLine();
+
+        inputStream = new ByteArrayInputStream(response.body().getBytes());
     }
 
     private void getNextLine() throws IOException {
