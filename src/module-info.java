@@ -15,5 +15,6 @@ module TestSearcher {
     requires junit;
     requires java.net.http;
     requires java.desktop;
+    requires org.jsoup;
     exports test.src.model;
 }

@@ -6,13 +6,16 @@ import model.net.UrlStreamReceiver;
 import java.io.IOException;
 import java.net.URL;
 
-public class UrlDataIterator implements ExternalDataIterator {
-
-    private final RawUrlDataIterator iterator;
+public final class UrlDataIterator implements ExternalDataIterator {
+    private final UrlStreamReceiver receiver;
+    private final HttpResponseStreamReader streamReader;
 
 
     public UrlDataIterator(URL pageUrl) throws IOException {
-        iterator = new RawUrlDataIterator(pageUrl);
+        //iterator = new RawUrlDataIterator(pageUrl);
+
+        receiver = new UrlStreamReceiver(pageUrl);
+        streamReader = new HttpResponseStreamReader(receiver.openStream());
     }
 
     public UrlDataIterator(String pageUrl) throws IOException {

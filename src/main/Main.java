@@ -1,5 +1,9 @@
 package main;
 
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +13,9 @@ import model.TextBinarySearchTree;
 import debug.logs.MainLogger;
 import model.iterators.ExternalDataIterator;
 import model.iterators.RawUrlDataIterator;
+import model.net.BorderedHttpResponseStreamReader;
+import model.net.FullScopeHttpResponseStreamReader;
+import model.net.UrlStreamReceiver;
 import model.text.TextParser;
 import view.SearchResultPrinter;
 
@@ -24,6 +31,18 @@ public class Main {
         String url2s = "https://pastebin.com/raw/Liy8Gqw6"; // Первое предложение из текста О добром медведе
         String url3 = "https://pastebin.com/raw/X5r6xFs5"; // Числительные с "Первое" по "Десятое"
         String token = "Восьмое";
+
+        try {
+            InputStream stream = new UrlStreamReceiver(new URL(url)).openStream();
+            BorderedHttpResponseStreamReader reader = new BorderedHttpResponseStreamReader(stream, "Папа", "Папа");
+
+            while (reader.hasNext()) {
+                System.out.println(reader.next());
+            }
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         TextBinarySearchTree binTree = new TextBinarySearchTree();
 
