@@ -1,6 +1,6 @@
-package model.net;
+package model.readers.http;
 
-import debug.exceptions.HTTPReadingSessionFailException;
+import debug.exceptions.ReadingSessionFailException;
 import debug.logs.MainLogger;
 
 import java.io.BufferedReader;
@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
 import java.util.Iterator;
 
 public class HttpResponseStreamReader
-                    implements AutoCloseable, Iterator<String> {
+            implements AutoCloseable, Iterator<String> {
 
     private @Deprecated static final int DEFAULT_BUFFER_SIZE_CHARS = 1024;
     private @Deprecated static final int READING_STEP_CHARS = 32;
@@ -75,7 +75,7 @@ public class HttpResponseStreamReader
             return line;
         } catch (IOException ex) {
             MainLogger.logSevere(
-                    new HTTPReadingSessionFailException(
+                    new ReadingSessionFailException(
                             "An exception occurred while reading the URL contents!",
                             ex
                     )

@@ -1,10 +1,8 @@
 package model.net;
 
-import debug.exceptions.HTTPReadingSessionFailException;
+import debug.exceptions.ReadingSessionFailException;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.StringReader;
 import java.net.*;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -25,7 +23,7 @@ public final class HTTPRequestSender {
             return response;
 
         } catch (URISyntaxException | IOException | InterruptedException ex) {
-            throw new HTTPReadingSessionFailException(ex, false);
+            throw new ReadingSessionFailException(ex, false);
         }
     }
 }

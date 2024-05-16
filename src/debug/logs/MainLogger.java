@@ -7,7 +7,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
-// TODO: Implement logging into file
 public final class MainLogger {
     private static final String logFileName = constructLogFilename();
 

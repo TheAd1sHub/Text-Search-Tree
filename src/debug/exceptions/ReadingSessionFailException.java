@@ -1,13 +1,13 @@
 package debug.exceptions;
 
-public class HTTPReadingSessionFailException extends RuntimeException {
-    private static final String DEFAULT_MESSAGE = "An exception occurred during the HTTP data reading session.";
+public class ReadingSessionFailException extends RuntimeException {
+    private static final String DEFAULT_MESSAGE = "An exception occurred during the data reading session.";
 
     private final Exception innerException;
     private final String message;
 
 
-    public HTTPReadingSessionFailException(String message, Exception exceptionToEncapsulate, boolean hideCallStack) {
+    public ReadingSessionFailException(String message, Exception exceptionToEncapsulate, boolean hideCallStack) {
         super();
 
         this.message = message;
@@ -30,23 +30,23 @@ public class HTTPReadingSessionFailException extends RuntimeException {
         );
     }
 
-    public HTTPReadingSessionFailException(String message, Exception exceptionToEncapsulate) {
+    public ReadingSessionFailException(String message, Exception exceptionToEncapsulate) {
         this(message, exceptionToEncapsulate, false);
     }
 
-    public HTTPReadingSessionFailException(Exception exceptionToEncapsulate, boolean hideCallStack) {
+    public ReadingSessionFailException(Exception exceptionToEncapsulate, boolean hideCallStack) {
         this(DEFAULT_MESSAGE, exceptionToEncapsulate, hideCallStack);
     }
 
-    public HTTPReadingSessionFailException(String message) {
+    public ReadingSessionFailException(String message) {
         this(message, null);
     }
 
-    public HTTPReadingSessionFailException(Exception exceptionToEncapsulate) {
+    public ReadingSessionFailException(Exception exceptionToEncapsulate) {
         this(DEFAULT_MESSAGE, exceptionToEncapsulate);
     }
 
-    public HTTPReadingSessionFailException() {
+    public ReadingSessionFailException() {
         this(DEFAULT_MESSAGE);
     }
 

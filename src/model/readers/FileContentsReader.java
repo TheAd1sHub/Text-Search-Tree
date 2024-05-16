@@ -1,20 +1,12 @@
-package model.filework;
+package model.readers;
 
-import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-import model.SearchResultData;
-import model.TextBinarySearchTree;
-
+@Deprecated
 public final class FileContentsReader {
-	private FileContentsReader() {
-		;
-	}
     
     public static String read(String fileName) throws FileNotFoundException, IOException {
     	

@@ -1,12 +1,12 @@
-package model.iterators;
+package model.readers.http;
 
-import model.net.HttpResponseStreamReader;
 import model.net.UrlStreamReceiver;
+import model.readers.iterators.ExternalTextDataIterator;
 
 import java.io.IOException;
 import java.net.URL;
 
-public final class UrlDataIterator implements ExternalDataIterator {
+public final class UrlDataIterator implements ExternalTextDataIterator {
     private final UrlStreamReceiver receiver;
     private final HttpResponseStreamReader streamReader;
 

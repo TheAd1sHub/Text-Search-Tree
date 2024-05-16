@@ -14,12 +14,14 @@ public final class AllowedValues {
         ".txt"
     };
     
-    private static final Map<String, Boolean> closedQuestionsAnswers = new HashMap<>() {{
-    	put("yes", true);
-    	put("y", true);
-    	put("no", true);
-    	put("n", true);
-    }};
+    private static final Map<String, Boolean> closedQuestionsAnswers = new HashMap<>() {
+        {
+            put("yes", true);
+            put("y", true);
+            put("no", false);
+            put("n", false);
+        }
+    };
     
 
     public static List<String> getAllowedExtensionsList() {

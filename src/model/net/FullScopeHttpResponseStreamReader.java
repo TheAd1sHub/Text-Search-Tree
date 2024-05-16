@@ -5,6 +5,7 @@ import org.jsoup.Jsoup;
 
 import java.io.IOException;
 
+@Deprecated
 public final class FullScopeHttpResponseStreamReader {
 
     public FullScopeHttpResponseStreamReader(String url) throws IOException {

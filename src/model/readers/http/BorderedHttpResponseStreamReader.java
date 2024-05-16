@@ -1,7 +1,10 @@
-package model.net;
+package model.readers.http;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.BufferOverflowException;
 import java.util.Iterator;
 
 public final class BorderedHttpResponseStreamReader
@@ -18,10 +21,14 @@ public final class BorderedHttpResponseStreamReader
     private boolean reachedRightBorder = false;
 
 
-    public BorderedHttpResponseStreamReader(InputStream inputStream, String leftBorder, String rightBorder,
+    public BorderedHttpResponseStreamReader(InputStream inputStream, @NotNull String leftBorder, String rightBorder,
                                             int bufferSizeChars) throws IOException, IllegalArgumentException {
         this.leftBorder = leftBorder;
         this.rightBorder = rightBorder;
+
+        if (bufferSizeChars <= 0) {
+            throw new IllegalArgumentException("The size of a buffer cannot be (" + bufferSizeChars + "). Positive number expected!");
+        }
 
         this.bufferSizeChars = bufferSizeChars;
         buffer = new StringBuilder(this.bufferSizeChars);
@@ -31,7 +38,7 @@ public final class BorderedHttpResponseStreamReader
         reachLeftBorder();
     }
 
-    public BorderedHttpResponseStreamReader(InputStream inputStream, String leftBorder,
+    public BorderedHttpResponseStreamReader(InputStream inputStream, @NotNull String leftBorder,
                                             String rightBorder) throws IOException, IllegalArgumentException {
         this(inputStream, leftBorder, rightBorder, DEFAULT_BUFFER_SIZE_CHARS);
     }
@@ -51,46 +58,62 @@ public final class BorderedHttpResponseStreamReader
             }
 
             buffer.append(currentLine);
-
-            System.exit(228);
         }
 
-        if (buffer.indexOf(leftBorder) == -1) {
-            throw new IllegalArgumentException("The given stream data does not contain the given left border substring.");
+        int leftBorderBeginningIndex = buffer.indexOf(leftBorder);
+        if (leftBorderBeginningIndex == -1) {
+            throw new IllegalArgumentException("The data from the given stream does not contain the required left border substring.");
         }
+
+
+        String textAfterLeftBorder = "";
+
+        if (leftBorderBeginningIndex + leftBorder.length() != buffer.length()) {
+            textAfterLeftBorder = buffer.substring(leftBorderBeginningIndex + leftBorder.length());
+        }
+
+        clearBuffer();
+        buffer.append(textAfterLeftBorder);
+
     }
 
     private String readNext() {
-        String currentLine = next();
+        String currentLine = reader.next();
 
         if (currentLine.length() + buffer.length() > bufferSizeChars) {
-            String possibleSubpattern = getCroppedStringPartFromBuffer(rightBorder);
+            String possibleRightBorderPart = getCroppedStringPartFromBuffer(rightBorder);
+
+            if (bufferSizeChars - possibleRightBorderPart.length() < currentLine.length()) {
+                throw new BufferOverflowException();
+            }
 
             clearBuffer();
-            buffer.append(possibleSubpattern);
-            buffer.append(currentLine);
+            buffer.append(possibleRightBorderPart);
         }
 
+        buffer.append(currentLine);
 
-        int indexOfOuterElement = buffer.indexOf(rightBorder);
-        if (indexOfOuterElement == -1) {
+        int indexOfRightBorderElement = buffer.indexOf(rightBorder);
+        if (indexOfRightBorderElement == -1 || rightBorder.isBlank()) {
 
             return currentLine;
         } else {
             reachedRightBorder = true;
 
-            return currentLine.substring(0, indexOfOuterElement);
+
+
+            return buffer.substring(0, indexOfRightBorderElement);
         }
     }
 
     private void clearBuffer() {
         buffer.setLength(0);
-        buffer.setLength(bufferSizeChars);
+        //buffer.setLength(bufferSizeChars);
     }
 
-    private String getCroppedStringPartFromBuffer(String str) {
-        for (int substringLength = str.length() - 1; substringLength >= 0; substringLength--) {
-            String patternSubstring = str.substring(0, substringLength + 1);
+    private String getCroppedStringPartFromBuffer(@NotNull String pattern) {
+        for (int substringLength = pattern.length() - 1; substringLength >= 0; substringLength--) {
+            String patternSubstring = pattern.substring(0, substringLength + 1);
             int indexOfLastOccurrence = buffer.lastIndexOf(patternSubstring);
             if (indexOfLastOccurrence == -1) {
 

@@ -1,15 +1,14 @@
-package model.iterators;
+package model.readers.http;
 
-import model.net.HttpResponseStreamReader;
 import model.net.UrlStreamReceiver;
+import model.readers.iterators.ExternalTextDataIterator;
 
 import java.io.IOException;
 import java.net.URL;
 
-public final class RawUrlDataIterator implements ExternalDataIterator {
+public final class RawUrlDataIterator implements ExternalTextDataIterator {
     private final UrlStreamReceiver receiver;
     private final HttpResponseStreamReader streamReader;
-
 
     public RawUrlDataIterator(URL pageUrl) throws IOException {
         receiver = new UrlStreamReceiver(pageUrl);
@@ -19,7 +18,6 @@ public final class RawUrlDataIterator implements ExternalDataIterator {
     public RawUrlDataIterator(String pageUrl) throws IOException {
         this(new URL(pageUrl));
     }
-
 
     @Override
     public boolean hasNext() {

@@ -1,6 +1,6 @@
 package model.net;
 
-import debug.exceptions.HTTPReadingSessionFailException;
+import debug.exceptions.ReadingSessionFailException;
 
 import java.io.*;
 import java.net.http.HttpResponse;
@@ -43,7 +43,7 @@ public final class HTTPResponseLazyReader
         try {
             getNextLine();
         } catch (IOException e) {
-            throw new HTTPReadingSessionFailException(e);
+            throw new ReadingSessionFailException(e);
         }
         return line;
     }
