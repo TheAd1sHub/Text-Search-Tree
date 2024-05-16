@@ -1,21 +1,22 @@
 package model.readers.http;
 
 import model.net.UrlStreamReceiver;
-import model.readers.iterators.ExternalTextDataIterator;
+import model.readers.ExternalTextDataReader;
+import model.readers.iterators.HttpResponseStreamIterator;
 
 import java.io.IOException;
 import java.net.URL;
 
-public final class RawUrlDataIterator implements ExternalTextDataIterator {
+public final class RawUrlDataReader implements ExternalTextDataReader {
     private final UrlStreamReceiver receiver;
-    private final HttpResponseStreamReader streamReader;
+    private final HttpResponseStreamIterator streamReader;
 
-    public RawUrlDataIterator(URL pageUrl) throws IOException {
+    public RawUrlDataReader(URL pageUrl) throws IOException {
         receiver = new UrlStreamReceiver(pageUrl);
-        streamReader = new HttpResponseStreamReader(receiver.openStream());
+        streamReader = new HttpResponseStreamIterator(receiver.openStream());
     }
 
-    public RawUrlDataIterator(String pageUrl) throws IOException {
+    public RawUrlDataReader(String pageUrl) throws IOException {
         this(new URL(pageUrl));
     }
 

@@ -1,4 +1,4 @@
-package model.readers.http;
+package model.readers.iterators;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -7,13 +7,13 @@ import java.io.InputStream;
 import java.nio.BufferOverflowException;
 import java.util.Iterator;
 
-public final class BorderedHttpResponseStreamReader
+public final class BorderedHttpResponseStreamIterator
         implements AutoCloseable, Iterator<String> {
     private static final int DEFAULT_BUFFER_SIZE_CHARS = 1024;
 
     private final int bufferSizeChars;
 
-    private final HttpResponseStreamReader reader;
+    private final HttpResponseStreamIterator reader;
     private final String leftBorder, rightBorder;
 
     private final StringBuilder buffer;
@@ -21,8 +21,8 @@ public final class BorderedHttpResponseStreamReader
     private boolean reachedRightBorder = false;
 
 
-    public BorderedHttpResponseStreamReader(InputStream inputStream, @NotNull String leftBorder, String rightBorder,
-                                            int bufferSizeChars) throws IOException, IllegalArgumentException {
+    public BorderedHttpResponseStreamIterator(InputStream inputStream, @NotNull String leftBorder, String rightBorder,
+                                              int bufferSizeChars) throws IOException, IllegalArgumentException {
         this.leftBorder = leftBorder;
         this.rightBorder = rightBorder;
 
@@ -33,13 +33,13 @@ public final class BorderedHttpResponseStreamReader
         this.bufferSizeChars = bufferSizeChars;
         buffer = new StringBuilder(this.bufferSizeChars);
 
-        reader = new HttpResponseStreamReader(inputStream);
+        reader = new HttpResponseStreamIterator(inputStream);
 
         reachLeftBorder();
     }
 
-    public BorderedHttpResponseStreamReader(InputStream inputStream, @NotNull String leftBorder,
-                                            String rightBorder) throws IOException, IllegalArgumentException {
+    public BorderedHttpResponseStreamIterator(InputStream inputStream, @NotNull String leftBorder,
+                                              String rightBorder) throws IOException, IllegalArgumentException {
         this(inputStream, leftBorder, rightBorder, DEFAULT_BUFFER_SIZE_CHARS);
     }
 

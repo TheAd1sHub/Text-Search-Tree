@@ -5,34 +5,40 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
-import java.util.Iterator;
 import java.util.List;
 
 import controller.userinput.CommandRequester;
 import debug.exceptions.ReadingSessionFailException;
-import model.readers.filework.FileDataStreamReader;
-import model.readers.iterators.ExternalTextDataIterator;
+import model.ExitStatuses;
 import model.MessageTexts;
 import model.SearchResultData;
 import model.TextBinarySearchTree;
 import debug.logs.MainLogger;
 import model.input.interpreters.IntegerInputInterpreter;
 import model.input.interpreters.NumericInputInterpreter;
-import model.readers.iterators.ExternalDataIterator;
-import model.readers.http.RawUrlDataIterator;
-import model.readers.http.BorderedHttpResponseStreamReader;
+import model.readers.ExternalDataReader;
+import model.readers.ExternalTextDataReader;
+import model.readers.filework.FileDataReader;
+import model.readers.http.RawUrlDataReader;
+import model.readers.http.UrlDataReader;
+import model.readers.iterators.BorderedHttpResponseStreamIterator;
 import model.net.UrlStreamReceiver;
-import model.readers.http.HttpResponseStreamReader;
 import model.text.TextParser;
 import model.validators.FileNameValidator;
+import model.validators.UrlValidator;
 import model.validators.Validator;
 import view.MessagePrinter;
 import view.SearchResultPrinter;
+
+import javax.naming.OperationNotSupportedException;
 
 
 @SuppressWarnings("SpellCheckingInspection")
 public class Main {
     public static void init() {
+        MainLogger.logMessage("Application launched.");
+
+        ExitStatuses exitStatus = ExitStatuses.SUCCESS;
 
         MessagePrinter invalidInputNotificator = new MessagePrinter(
                 MessageTexts.invalidInputNotificationText,
@@ -41,37 +47,42 @@ public class Main {
 
         int userSelection;
         try {
+            // Logical block 1: Start menu; Reading option selection
             CommandRequester textSourceTypeRequester = new CommandRequester(MessageTexts.initialMenuText);
             String rawUserInput = textSourceTypeRequester.requestCommand();
 
-            NumericInputInterpreter<Integer> interpreter = new IntegerInputInterpreter();
+            IntegerInputInterpreter interpreter = new IntegerInputInterpreter();
             userSelection = interpreter.interpret(rawUserInput);
 
+            // Logical block 2: Selected option interpretation; Toolset preparation
             Validator validator = null;
-            Iterator<String> reader = null;
+            ExternalTextDataReader reader = null;
 
-            CommandRequester sourceDataRequester = null;
+            String dataSourceRequestMessage = null;
+            CommandRequester dataSourceRequester = null;
 
-            // TODO: Change this switch() to a State Machine; Extract in a separate method
+            // TODO: Change this switch() to a State Machine (?); Divide into separate methods
             switch (userSelection) {
                 case 1: // Local file
                     validator = new FileNameValidator();
-                    reader = new FileDataStreamReader("");
 
-                    sourceDataRequester = new CommandRequester(MessageTexts.localFilePathRequestText);
+                    dataSourceRequestMessage = MessageTexts.localFilePathRequestText;
                     break;
 
                 case 2: // Web File
+                    throw new OperationNotSupportedException();
 
-                    break;
+                    //break;
 
                 case 3: // Web page contents
+                    validator = new UrlValidator();
+                    dataSourceRequestMessage = MessageTexts.webPageUrlAddressRequestText;
 
                     break;
 
                 case 4: // Web page contents (RAW)
-                    InputStream readStream = null;
-                    reader = new HttpResponseStreamReader(readStream);
+                    validator = new UrlValidator();
+                    dataSourceRequestMessage = MessageTexts.webPageUrlAddressRequestText;
 
                     break;
 
@@ -79,35 +90,76 @@ public class Main {
                     throw new InputMismatchException();
             }
 
-            String source = sourceDataRequester.requestCommand();
+            // Logical block 3: Getting additional option-specific information; Validating input
+            dataSourceRequester = new CommandRequester(dataSourceRequestMessage);
+            String source = dataSourceRequester.requestCommand();
 
             if (!validator.isValid(source)) {
                 throw new InputMismatchException();
             }
 
+            CommandRequester tokenRequester = new CommandRequester(MessageTexts.soughtForTokenRequestText);
+            String soughtForToken = tokenRequester.requestCommand();
+
+            // Logical block 4: Initializing the exact readers
+            switch (userSelection) {
+                case 1:
+                    reader = new FileDataReader(source);
+                    break;
+
+                case 2:
+                    throw new UnsupportedOperationException();
+
+                case 3:
+                    reader = new UrlDataReader(source);
+                    throw new OperationNotSupportedException();
+
+                case 4:
+                    reader = new RawUrlDataReader(source);
+                    break;
+
+                default:
+                    throw new InputMismatchException();
+
+            }
 
 
+            // Logical block 5: Reading the given data and filling the tree
             TextBinarySearchTree binTree = new TextBinarySearchTree();
             while (reader.hasNext()) {
                 List<String> words = TextParser.getWords(reader.next());
                 binTree.insertAll(words);
             }
+            reader.close();
 
-        } catch(InputMismatchException ex) {
+            // Logical block 6: Running the search
+            ArrayList<SearchResultData> hitsList = binTree.findWith(soughtForToken);
+
+            // Logical block 6: Printing the search results
+            SearchResultPrinter.displayFormatted(hitsList);
+
+        } catch (InputMismatchException ex) {
             invalidInputNotificator.print();
 
-            System.exit(1);
+            exitStatus = ExitStatuses.INVALID_INPUT;
         } catch (IOException e) {
 
-            System.exit(-1);
+            exitStatus = ExitStatuses.DATA_READING_FAILURE;
+        } catch (OperationNotSupportedException e) {
+
+            exitStatus = ExitStatuses.NOT_IMPLEMENTED;
+        } catch (Exception e) {
+
+            exitStatus = ExitStatuses.UNKNOWN_ERROR;
         }
 
+        MainLogger.logMessage("Application work finished.");
+        System.exit(exitStatus.code);
 
-        System.exit(0);
     }
 
     public static void main(String[] args) {
-        MainLogger.logMessage("Application launched.");
+        init();
 
         String url = "https://pastebin.com/raw/r5KfUNn0"; // "Папа у Васи..."
         String url2 = "https://pastebin.com/raw/s5bFXyaM"; // О добром медведе
@@ -118,7 +170,7 @@ public class Main {
         try {
             UrlStreamReceiver receiver = new UrlStreamReceiver(new URL(url));
             InputStream stream = receiver.openStream();
-            BorderedHttpResponseStreamReader reader = new BorderedHttpResponseStreamReader(stream, "Папа", "класс");
+            BorderedHttpResponseStreamIterator reader = new BorderedHttpResponseStreamIterator(stream, "Папа", "класс");
 
             while (reader.hasNext()) {
                 System.out.println(reader.next());
@@ -136,7 +188,7 @@ public class Main {
 
         TextBinarySearchTree binTree = new TextBinarySearchTree();
 
-        try (ExternalDataIterator iterator = new RawUrlDataIterator(url3)) {
+        try (ExternalTextDataReader iterator = new RawUrlDataReader(url3)) {
 
 			List<String> words;
 			while (iterator.hasNext()) {

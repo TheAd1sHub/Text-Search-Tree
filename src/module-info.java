@@ -17,5 +17,6 @@ module TestSearcher {
     requires java.desktop;
     requires org.jsoup;
     requires org.jetbrains.annotations;
+    requires java.naming;
     exports test.src.model;
 }

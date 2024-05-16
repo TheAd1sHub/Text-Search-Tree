@@ -1,7 +1,8 @@
-package model.readers.http;
+package model.readers.iterators;
 
 import debug.exceptions.ReadingSessionFailException;
 import debug.logs.MainLogger;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,15 +10,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Iterator;
 
-public class HttpResponseStreamReader
+public class HttpResponseStreamIterator
             implements AutoCloseable, Iterator<String> {
-
-    private @Deprecated static final int DEFAULT_BUFFER_SIZE_CHARS = 1024;
-    private @Deprecated static final int READING_STEP_CHARS = 32;
-
-    private @Deprecated StringBuilder buffer;
-    private @Deprecated int bufferSizeChars;
-
     private InputStream inputStream;
 
     BufferedReader reader;
@@ -29,7 +23,7 @@ public class HttpResponseStreamReader
     private boolean hasReadAll = false;
 
 
-    public HttpResponseStreamReader(InputStream inputStream) throws IOException {
+    public HttpResponseStreamIterator(@NotNull InputStream inputStream) throws IOException {
         this.inputStream = inputStream;
         reader = new BufferedReader(new InputStreamReader(this.inputStream));
 
@@ -45,13 +39,6 @@ public class HttpResponseStreamReader
         }
 
         return currentLine;
-    }
-
-
-    @Deprecated
-    private void clearBuffer() {
-        buffer.setLength(0);
-        buffer.setLength(bufferSizeChars);
     }
 
     @Override
