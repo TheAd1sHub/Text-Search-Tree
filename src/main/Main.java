@@ -3,7 +3,9 @@ package main;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.List;
 
@@ -15,10 +17,9 @@ import model.SearchResultData;
 import model.TextBinarySearchTree;
 import debug.logs.MainLogger;
 import model.input.interpreters.IntegerInputInterpreter;
-import model.input.interpreters.NumericInputInterpreter;
-import model.readers.ExternalDataReader;
 import model.readers.ExternalTextDataReader;
 import model.readers.filework.FileDataReader;
+import model.readers.filework.InputStreamFileDownloader;
 import model.readers.http.RawUrlDataReader;
 import model.readers.http.UrlDataReader;
 import model.readers.iterators.BorderedHttpResponseStreamIterator;
@@ -31,11 +32,17 @@ import view.MessagePrinter;
 import view.SearchResultPrinter;
 
 import javax.naming.OperationNotSupportedException;
+import javax.swing.*;
 
+// https://file.io/hvq2zCCV9Obc
 
 @SuppressWarnings("SpellCheckingInspection")
 public class Main {
-    public static void init() {
+
+    private static final String tempFilePath = System.getProperty("java.io.tmpdir") + "\\BTS-source.txt";
+
+    // TODO: Change this method to a State Machine; Divide into separate methods
+    public static void launch() {
         MainLogger.logMessage("Application launched.");
 
         ExitStatuses exitStatus = ExitStatuses.SUCCESS;
@@ -61,7 +68,6 @@ public class Main {
             String dataSourceRequestMessage = null;
             CommandRequester dataSourceRequester = null;
 
-            // TODO: Change this switch() to a State Machine (?); Divide into separate methods
             switch (userSelection) {
                 case 1: // Local file
                     validator = new FileNameValidator();
@@ -70,9 +76,8 @@ public class Main {
                     break;
 
                 case 2: // Web File
-                    throw new OperationNotSupportedException();
-
-                    //break;
+                    validator = new UrlValidator();
+                    dataSourceRequestMessage = MessageTexts.webPageUrlAddressRequestText;
 
                 case 3: // Web page contents
                     validator = new UrlValidator();
@@ -101,14 +106,20 @@ public class Main {
             CommandRequester tokenRequester = new CommandRequester(MessageTexts.soughtForTokenRequestText);
             String soughtForToken = tokenRequester.requestCommand();
 
-            // Logical block 4: Initializing the exact readers
+            // Logical block 4: Initializing the exact reader for the given content
             switch (userSelection) {
                 case 1:
                     reader = new FileDataReader(source);
                     break;
 
                 case 2:
-                    throw new UnsupportedOperationException();
+                    InputStream inputStream = new UrlStreamReceiver(new URL(source)).openStream();
+                    InputStreamFileDownloader downloader = new InputStreamFileDownloader(inputStream, tempFilePath);
+                    downloader.download();
+                    downloader.close();
+
+                    reader = new FileDataReader(tempFilePath);
+                    break;
 
                 case 3:
                     reader = new UrlDataReader(source);
@@ -139,27 +150,36 @@ public class Main {
             SearchResultPrinter.displayFormatted(hitsList);
 
         } catch (InputMismatchException ex) {
+            MainLogger.logMessage("Wrong input by user! Stopping work!");
+
             invalidInputNotificator.print();
 
             exitStatus = ExitStatuses.INVALID_INPUT;
-        } catch (IOException e) {
+        } catch (IOException ex) {
+            MainLogger.logSevere(ex);
 
             exitStatus = ExitStatuses.DATA_READING_FAILURE;
-        } catch (OperationNotSupportedException e) {
+        } catch (OperationNotSupportedException ex) {
+            MainLogger.logMessage("Not supported option chosen by user. Stopping work!");
 
             exitStatus = ExitStatuses.NOT_IMPLEMENTED;
-        } catch (Exception e) {
+        } catch (ReadingSessionFailException ex) {
+            MainLogger.logSevere(ex.getInnerException());
+
+        } catch (Exception ex) {
+            MainLogger.logSevere(ex);
 
             exitStatus = ExitStatuses.UNKNOWN_ERROR;
         }
 
         MainLogger.logMessage("Application work finished.");
+        MainLogger.logMessage("Exit code: " + exitStatus.code + " (" + exitStatus.toString() + ")");
         System.exit(exitStatus.code);
 
     }
 
     public static void main(String[] args) {
-        init();
+        launch();
 
         String url = "https://pastebin.com/raw/r5KfUNn0"; // "Папа у Васи..."
         String url2 = "https://pastebin.com/raw/s5bFXyaM"; // О добром медведе
