@@ -17,9 +17,6 @@ public class HttpResponseStreamIterator
     BufferedReader reader;
     private String currentLine;
 
-    // TODO: Find the size of a character dynamically depending on the encoding of opened webpage
-    private @Deprecated int charSizeBytes = 1;
-
     private boolean hasReadAll = false;
 
 

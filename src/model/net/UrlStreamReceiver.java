@@ -11,9 +11,11 @@ public final class UrlStreamReceiver implements AutoCloseable {
 
     private InputStream openedStream;
 
+
     public UrlStreamReceiver(URL url) {
         sourceUrl = url;
     }
+
 
     public InputStream openStream() throws IOException {
         openedStream = sourceUrl.openStream();
@@ -24,6 +26,7 @@ public final class UrlStreamReceiver implements AutoCloseable {
     public void closeStream() throws Exception {
         openedStream.close();
     }
+
 
     @Override
     public void close() throws Exception {
