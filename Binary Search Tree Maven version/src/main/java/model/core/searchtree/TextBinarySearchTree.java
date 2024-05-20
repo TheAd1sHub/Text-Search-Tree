@@ -1,4 +1,4 @@
-package model.text.searchtree;
+package model.core.searchtree;
 
 import java.util.ArrayList;
 import java.util.List;

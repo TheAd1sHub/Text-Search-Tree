@@ -6,11 +6,11 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
 
-public final class MainMenu extends Menu<TextSourcesOptions> {
+public final class MainMenu extends Menu<SupportedTextSources> {
 
     private static MainMenu instance;
 
-    public MainMenu(String title, Map<TextSourcesOptions, String> optionsNames) {
+    public MainMenu(String title, Map<SupportedTextSources, String> optionsNames) {
         super(title, optionsNames);
     }
 
@@ -21,10 +21,10 @@ public final class MainMenu extends Menu<TextSourcesOptions> {
                     "THE ULTIMATE TEXT PARSER v. M4V3N",
                     new HashMap<>() {
                         {
-                            put(TextSourcesOptions.LOCAL_FILE, TextSourcesOptions.LOCAL_FILE.textVersion);
-                            put(TextSourcesOptions.EXTERNAL_FILE, TextSourcesOptions.EXTERNAL_FILE.textVersion);
-                            put(TextSourcesOptions.WEB_PAGE_CONTENTS, TextSourcesOptions.WEB_PAGE_CONTENTS.textVersion);
-                            put(TextSourcesOptions.WEB_PAGE_CONTENTS_RAW, TextSourcesOptions.WEB_PAGE_CONTENTS_RAW.textVersion);
+                            put(SupportedTextSources.LOCAL_FILE, SupportedTextSources.LOCAL_FILE.textVersion);
+                            put(SupportedTextSources.EXTERNAL_FILE, SupportedTextSources.EXTERNAL_FILE.textVersion);
+                            put(SupportedTextSources.WEB_PAGE_CONTENTS, SupportedTextSources.WEB_PAGE_CONTENTS.textVersion);
+                            put(SupportedTextSources.WEB_PAGE_CONTENTS_RAW, SupportedTextSources.WEB_PAGE_CONTENTS_RAW.textVersion);
                         }
                     }
             );
@@ -45,7 +45,12 @@ public final class MainMenu extends Menu<TextSourcesOptions> {
         sb.append(title);
         sb.append('\n');
 
-        for (TextSourcesOptions option : EnumSet.allOf(TextSourcesOptions.class)) {
+        for (SupportedTextSources option : EnumSet.allOf(SupportedTextSources.class)) {
+            if (option == SupportedTextSources.NONE) {
+
+                continue;
+            }
+
             sb.append(option.value);
             sb.append(". ");
             sb.append(optionsNames.get(option));

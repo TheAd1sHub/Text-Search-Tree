@@ -1,4 +1,4 @@
-package model.text.searchtree;
+package model.core.searchtree;
 
 public final class SearchResultData {
     public final String value;

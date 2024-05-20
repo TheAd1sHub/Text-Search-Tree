@@ -1,5 +1,7 @@
 package model.states;
 
+import model.states.exceptions.InternalStateErrorException;
+
 public abstract class StateMachineState<TMachine extends StateMachine> {
 
     protected final TMachine stateMachine;
@@ -12,7 +14,7 @@ public abstract class StateMachineState<TMachine extends StateMachine> {
 
     public abstract void enter();
 
-    public abstract void update();
+    public abstract void update() throws InternalStateErrorException;
 
     public abstract void exit();
 

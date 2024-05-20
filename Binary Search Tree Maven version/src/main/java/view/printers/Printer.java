@@ -1,6 +1,7 @@
 package view.printers;
 
-public abstract class Printer<TMessage> {
+public abstract class Printer<TPrinted> {
 
-    public abstract void print(TMessage message);
+    public abstract void print(TPrinted printed);
+
 }

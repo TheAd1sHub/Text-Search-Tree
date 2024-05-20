@@ -1,7 +1,8 @@
-package model.text.searchtree;
+package model.core.searchtree;
 
 
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -64,6 +65,7 @@ public final class TextBinarySearchTreeTest {
 
 
     @Test
+    @DisplayName("Empty tree size() test #1 (Empty constructor)")
     public void testEmptyTreeSizeMethod() {
         //Arrange
         TextBinarySearchTree tree = new TextBinarySearchTree();
@@ -77,6 +79,7 @@ public final class TextBinarySearchTreeTest {
     }
 
     @Test
+    @DisplayName("Empty tree size() test #1 (Empty collection given in constructor)")
     public void testTreeConstructedWithEmptyCollectionSizeMethod() {
         //Arrange
         TextBinarySearchTree tree = new TextBinarySearchTree(List.of(emptyDataset));
@@ -90,6 +93,7 @@ public final class TextBinarySearchTreeTest {
     }
 
     @Test
+    @DisplayName("Non-empty tree size test (Alphabet given in constructor)")
     public void testNonEmptyTreeSizeMethod() {
         //Arrange
         TextBinarySearchTree tree = new TextBinarySearchTree(List.of(alphabetDataset));
@@ -103,7 +107,8 @@ public final class TextBinarySearchTreeTest {
     }
 
     @Test
-    public void testOneElementTreeSuccessfulSearch() {
+    @DisplayName("Successful search in a tree of capital alphabet letters test")
+    public void testAlphabetLetterSuccessfulSearch() {
         //Arrange
         TextBinarySearchTree tree = new TextBinarySearchTree(List.of(alphabetDataset));
         final String searchedValue = capitalMLetterToken;
@@ -117,7 +122,8 @@ public final class TextBinarySearchTreeTest {
     }
 
     @Test
-    public void testOneElementTreeUnsuccessfulSearch() {
+    @DisplayName("Unsuccessful search in a tree of capital alphabet letters test")
+    public void testAlphabetLetterUnsuccessfulSearch() {
         //Arrange
         TextBinarySearchTree tree = new TextBinarySearchTree(List.of(alphabetDataset));
         final String searchedValue = smallMLetterToken;
@@ -131,6 +137,7 @@ public final class TextBinarySearchTreeTest {
     }
 
     @Test
+    @DisplayName("Successful search in a tree of lorem ipsum sentences test")
     public void testLoremIpsumTextSuccessfulSearch() {
         //Arrange
         TextBinarySearchTree tree = new TextBinarySearchTree(List.of(loremIpsumDataset));
@@ -145,6 +152,7 @@ public final class TextBinarySearchTreeTest {
     }
 
     @Test
+    @DisplayName("Unsuccessful search in a tree of lorem ipsum sentences test")
     public void testLoremIpsumTextUnsuccessfulSearch() {
         //Arrange
         TextBinarySearchTree tree = new TextBinarySearchTree(List.of(loremIpsumDataset));
@@ -159,6 +167,7 @@ public final class TextBinarySearchTreeTest {
     }
 
     @Test
+    @DisplayName("Successful element removal in a tree of capital alphabet letters test")
     public void testRemovalFunctionWithAlphabetLetter() {
         //Arrange
         TextBinarySearchTree tree = new TextBinarySearchTree(List.of(alphabetDataset));
@@ -174,6 +183,7 @@ public final class TextBinarySearchTreeTest {
     }
 
     @Test
+    @DisplayName("Successful element removal in a tree of lorem ipsum sentences test")
     public void testRemovalFunctionWithLoremIpsumText() {
         //Arrange
         TextBinarySearchTree tree = new TextBinarySearchTree(List.of(loremIpsumDataset));
@@ -189,6 +199,7 @@ public final class TextBinarySearchTreeTest {
     }
 
     @Test
+    @DisplayName("All values output test in a tree of cities")
     public void testGetContentsFunctionWithCities() {
         //Arrange
         TextBinarySearchTree tree = new TextBinarySearchTree(List.of(citiesDataset));

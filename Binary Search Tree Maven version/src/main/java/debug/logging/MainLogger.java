@@ -44,8 +44,8 @@ public final class MainLogger {
         logger.log(Level.INFO, message);
     }
 
-    public static void logWarning(String message) {
-        logger.log(Level.WARNING, message);
+    public static void logWarning(String warningMessage) {
+        logger.log(Level.WARNING, warningMessage);
     }
 
     public static void logSevere(Throwable ex) {

@@ -12,7 +12,7 @@ public final class RawUrlDataReader implements ExternalTextDataReader {
     private final URL sourceUrl;
 
     private InputStream inputStream;
-    private BufferedReader reader;
+    private BufferedReader bufferedReader;
 
     private String currentLine;
     private boolean hasReadAll = false;
@@ -33,7 +33,7 @@ public final class RawUrlDataReader implements ExternalTextDataReader {
          }
 
          inputStream = sourceUrl.openStream();
-         reader = new BufferedReader(new InputStreamReader(inputStream));
+         bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
     }
 
     public void closeReadingStream() throws IOException {
@@ -42,16 +42,16 @@ public final class RawUrlDataReader implements ExternalTextDataReader {
         }
 
         inputStream = null;
-        reader.close();
+        bufferedReader.close();
     }
 
     public String readNextLine() throws IOException {
 
-        if (reader == null) {
+        if (bufferedReader == null) {
             openReadingStream();
         }
 
-        currentLine = reader.readLine();
+        currentLine = bufferedReader.readLine();
         if (currentLine == null) {
             hasReadAll = true;
         }
