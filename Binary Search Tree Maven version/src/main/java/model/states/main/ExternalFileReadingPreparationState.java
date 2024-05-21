@@ -14,7 +14,8 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
-public final class ExternalFileReadingPreparationState extends MainFSMState {
+public final class ExternalFileReadingPreparationState extends MainFSMState
+                                                        implements ProcessingState {
 
     private final static Map<String, ExternalFileReadingPreparationState> urlReadingInstances = new HashMap<>();
 

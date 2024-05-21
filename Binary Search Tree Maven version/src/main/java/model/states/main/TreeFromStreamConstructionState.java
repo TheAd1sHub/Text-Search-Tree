@@ -9,7 +9,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public final class TreeFromStreamConstructionState extends MainFSMState {
+public final class TreeFromStreamConstructionState extends MainFSMState
+                                                    implements ProcessingState {
 
     private final static Map<ExternalTextDataReader, TreeFromStreamConstructionState> urlReadingInstances = new HashMap<>();
 
@@ -38,19 +39,28 @@ public final class TreeFromStreamConstructionState extends MainFSMState {
 
         List<String> words;
         while (reader.hasNext()) {
-            words = TextParser.getWords(reader.next());
-            tree.insertAll(words);
+            String nextLine = reader.next();
+            
+            if (nextLine != null) {
+                words = TextParser.getWords(nextLine);
+                tree.insertAll(words);
+            }
         }
+
     }
 
     @Override
     public void update() throws InternalStateErrorException {
 
-
+        stateMachine.setState(SoughtForTokenRequestState.getInstance(tree));
     }
 
     @Override
     public void exit() {
-        reader.close();
+        try {
+            reader.close();
+        } catch (Exception ex) {
+            throw new InternalStateErrorException(new RuntimeException(ex));
+        }
     }
 }

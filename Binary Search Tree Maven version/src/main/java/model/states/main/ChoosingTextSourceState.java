@@ -12,7 +12,8 @@ import view.printers.MessagePrinter;
 
 import java.util.InputMismatchException;
 
-public final class ChoosingTextSourceState extends MainFSMState {
+public final class ChoosingTextSourceState extends MainFSMState
+                                            implements CheckpointState {
 
     private static ChoosingTextSourceState instance;
 

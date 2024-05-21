@@ -11,7 +11,8 @@ import view.printers.MessagePrinter;
 
 import java.io.IOException;
 
-public final class LocalFileReadingPreparationState extends MainFSMState {
+public final class LocalFileReadingPreparationState extends MainFSMState
+                                                    implements CheckpointState {
 
     private static LocalFileReadingPreparationState instance;
 
@@ -52,6 +53,8 @@ public final class LocalFileReadingPreparationState extends MainFSMState {
 
         try {
             ExternalTextDataReader reader = new FileDataReader(userInput);
+
+            stateMachine.setState(TreeFromStreamConstructionState.getInstance(reader));
 
         } catch (IOException ex) {
             throw new InternalStateErrorException(new InvalidInputException("Unable to read the file. Please, check your input or try again later."));

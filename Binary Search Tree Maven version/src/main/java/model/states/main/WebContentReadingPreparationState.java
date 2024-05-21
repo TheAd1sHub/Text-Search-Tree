@@ -8,7 +8,8 @@ import model.states.exceptions.InternalStateErrorException;
 import model.ui.menu.main.SupportedTextSources;
 import view.printers.MessagePrinter;
 
-public final class WebContentReadingPreparationState extends MainFSMState {
+public final class WebContentReadingPreparationState extends MainFSMState
+                                                    implements CheckpointState {
 
     private static WebContentReadingPreparationState instance;
 
@@ -76,6 +77,8 @@ public final class WebContentReadingPreparationState extends MainFSMState {
                 break;
 
             case WEB_PAGE_CONTENTS:
+                throw new UnsupportedOperationException("Not implemented");
+
             case WEB_PAGE_CONTENTS_RAW:
                 stateMachine.setState(RawWebPageContentsReadingPreparationState.getInstance(userInput));
                 break;

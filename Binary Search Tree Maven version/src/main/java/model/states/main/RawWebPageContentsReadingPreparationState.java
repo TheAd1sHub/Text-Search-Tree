@@ -10,7 +10,8 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-public final class RawWebPageContentsReadingPreparationState extends MainFSMState {
+public final class RawWebPageContentsReadingPreparationState extends MainFSMState
+                                                                implements ProcessingState {
 
     private final static Map<String, RawWebPageContentsReadingPreparationState> urlReadingInstances = new HashMap<>();
 
@@ -44,6 +45,8 @@ public final class RawWebPageContentsReadingPreparationState extends MainFSMStat
         try {
             URL sourceUrl = new URL(targetUrl);
             ExternalTextDataReader reader = new RawUrlDataReader(sourceUrl);
+
+            stateMachine.setState(TreeFromStreamConstructionState.getInstance(reader));
 
         } catch (MalformedURLException ex) {
 
