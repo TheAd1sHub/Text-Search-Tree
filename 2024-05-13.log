@@ -1,0 +1,23 @@
+May 13, 2024 10:07:22 AM debug.logs.MainLogger logMessage
+INFO: Application launched.
+May 13, 2024 10:07:22 AM debug.logs.MainLogger logSevere
+SEVERE: Exception occurred!
+
+java.nio.file.NoSuchFileException: C:\Users\Ad1s\AppData\Local\Programs\Java\Projects\Text-Search-Tree\src\testfile.txt
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(WindowsFileSystemProvider.java:236)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:380)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:432)
+	at java.base/java.nio.file.Files.readAllBytes(Files.java:3288)
+	at java.base/java.nio.file.Files.readString(Files.java:3366)
+	at java.base/java.nio.file.Files.readString(Files.java:3325)
+	at TestSearcher/main.Main.main(Main.java:24)
+
+May 13, 2024 10:07:22 AM debug.logs.MainLogger logMessage
+INFO: Application work finished.
+May 13, 2024 10:08:08 AM debug.logs.MainLogger logMessage
+INFO: Application launched.
+May 13, 2024 10:08:08 AM debug.logs.MainLogger logMessage
+INFO: Application work finished.

@@ -1,0 +1,114 @@
+May 17, 2024 9:38:16 AM debug.logs.MainLogger logMessage
+INFO: Application launched.
+May 17, 2024 9:38:28 AM debug.logs.MainLogger logMessage
+INFO: Application work finished.
+May 17, 2024 9:47:30 AM debug.logs.MainLogger logMessage
+INFO: Application launched.
+May 17, 2024 9:47:43 AM debug.logs.MainLogger logMessage
+INFO: Application work finished.
+May 17, 2024 9:47:43 AM debug.logs.MainLogger logMessage
+INFO: Exit code: -3 (UNKNOWN_ERROR)
+May 17, 2024 9:52:21 AM debug.logs.MainLogger logMessage
+INFO: Application launched.
+May 17, 2024 9:52:41 AM debug.logs.MainLogger logSevere
+SEVERE: Exception occurred!
+
+debug.exceptions.ReadingSessionFailException: The reading session failed due to an unknown reason!
+	at TestSearcher/model.readers.filework.InputStreamFileDownloader.download(InputStreamFileDownloader.java:31)
+	at TestSearcher/main.Main.launch(Main.java:117)
+	at TestSearcher/main.Main.main(Main.java:177)
+
+May 17, 2024 9:52:41 AM debug.logs.MainLogger logMessage
+INFO: Application work finished.
+May 17, 2024 9:52:41 AM debug.logs.MainLogger logMessage
+INFO: Exit code: -3 (UNKNOWN_ERROR)
+May 17, 2024 9:54:15 AM debug.logs.MainLogger logMessage
+INFO: Application launched.
+May 17, 2024 9:54:26 AM debug.logs.MainLogger logMessage
+INFO: Wrong input by user! Stopping work!
+May 17, 2024 9:54:26 AM debug.logs.MainLogger logMessage
+INFO: Application work finished.
+May 17, 2024 9:54:26 AM debug.logs.MainLogger logMessage
+INFO: Exit code: 1 (INVALID_INPUT)
+May 17, 2024 9:54:39 AM debug.logs.MainLogger logMessage
+INFO: Application launched.
+May 17, 2024 9:55:02 AM debug.logs.MainLogger logSevere
+SEVERE: Exception occurred!
+
+java.nio.file.NoSuchFileException: %Temp%\BTS-source.txt
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(WindowsFileSystemProvider.java:236)
+	at java.base/java.nio.file.spi.FileSystemProvider.newOutputStream(FileSystemProvider.java:484)
+	at java.base/java.nio.file.Files.newOutputStream(Files.java:228)
+	at java.base/java.nio.file.Files.copy(Files.java:3160)
+	at TestSearcher/model.readers.filework.InputStreamFileDownloader.download(InputStreamFileDownloader.java:24)
+	at TestSearcher/main.Main.launch(Main.java:117)
+	at TestSearcher/main.Main.main(Main.java:180)
+
+May 17, 2024 9:55:02 AM debug.logs.MainLogger logMessage
+INFO: Application work finished.
+May 17, 2024 9:55:02 AM debug.logs.MainLogger logMessage
+INFO: Exit code: 0 (SUCCESS)
+May 17, 2024 9:56:39 AM debug.logs.MainLogger logMessage
+INFO: Application launched.
+May 17, 2024 9:56:52 AM debug.logs.MainLogger logSevere
+SEVERE: Exception occurred!
+
+java.lang.IllegalArgumentException: Argument for @NotNull parameter 'leftBorder' of model/readers/iterators/BorderedHttpResponseStreamIterator.<init> must not be null
+	at TestSearcher/model.readers.iterators.BorderedHttpResponseStreamIterator.$$$reportNull$$$0(BorderedHttpResponseStreamIterator.java)
+	at TestSearcher/model.readers.iterators.BorderedHttpResponseStreamIterator.<init>(BorderedHttpResponseStreamIterator.java)
+	at TestSearcher/model.readers.http.UrlDataReader.<init>(UrlDataReader.java:20)
+	at TestSearcher/model.readers.http.UrlDataReader.<init>(UrlDataReader.java:24)
+	at TestSearcher/main.Main.launch(Main.java:123)
+	at TestSearcher/main.Main.main(Main.java:180)
+
+May 17, 2024 9:56:52 AM debug.logs.MainLogger logMessage
+INFO: Application work finished.
+May 17, 2024 9:56:52 AM debug.logs.MainLogger logMessage
+INFO: Exit code: -3 (UNKNOWN_ERROR)
+May 17, 2024 9:57:35 AM debug.logs.MainLogger logMessage
+INFO: Application launched.
+May 17, 2024 9:57:45 AM debug.logs.MainLogger logMessage
+INFO: Application work finished.
+May 17, 2024 9:57:45 AM debug.logs.MainLogger logMessage
+INFO: Exit code: 0 (SUCCESS)
+May 17, 2024 10:01:23 AM debug.logs.MainLogger logMessage
+INFO: Application launched.
+May 17, 2024 10:01:33 AM debug.logs.MainLogger logMessage
+INFO: Application work finished.
+May 17, 2024 10:01:33 AM debug.logs.MainLogger logMessage
+INFO: Exit code: 0 (SUCCESS)
+May 17, 2024 10:40:36 AM debug.logs.MainLogger logMessage
+INFO: Application launched.
+May 17, 2024 10:41:34 AM debug.logs.MainLogger logMessage
+INFO: Application work finished.
+May 17, 2024 10:41:34 AM debug.logs.MainLogger logMessage
+INFO: Exit code: 0 (SUCCESS)
+May 17, 2024 10:41:44 AM debug.logs.MainLogger logMessage
+INFO: Application launched.
+May 17, 2024 10:41:55 AM debug.logs.MainLogger logMessage
+INFO: Application work finished.
+May 17, 2024 10:41:55 AM debug.logs.MainLogger logMessage
+INFO: Exit code: 0 (SUCCESS)
+May 17, 2024 10:42:05 AM debug.logs.MainLogger logMessage
+INFO: Application launched.
+May 17, 2024 10:42:25 AM debug.logs.MainLogger logMessage
+INFO: Application launched.
+May 17, 2024 10:42:38 AM debug.logs.MainLogger logMessage
+INFO: Application work finished.
+May 17, 2024 10:42:38 AM debug.logs.MainLogger logMessage
+INFO: Exit code: 0 (SUCCESS)
+May 17, 2024 10:43:06 AM debug.logs.MainLogger logMessage
+INFO: Application launched.
+May 17, 2024 10:43:18 AM debug.logs.MainLogger logMessage
+INFO: Application work finished.
+May 17, 2024 10:43:18 AM debug.logs.MainLogger logMessage
+INFO: Exit code: 0 (SUCCESS)
+May 17, 2024 10:44:31 AM debug.logs.MainLogger logMessage
+INFO: Application launched.
+May 17, 2024 10:44:45 AM debug.logs.MainLogger logMessage
+INFO: Application work finished.
+May 17, 2024 10:44:45 AM debug.logs.MainLogger logMessage
+INFO: Exit code: 0 (SUCCESS)
