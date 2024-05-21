@@ -4,13 +4,13 @@ import model.constants.SavePaths;
 import model.data.loaders.UrlFileDownloader;
 import model.data.readers.FileDataReader;
 import model.input.exceptions.InvalidInputException;
+import model.states.ProcessingState;
 import model.states.exceptions.InternalStateErrorException;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 

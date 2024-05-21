@@ -1,8 +1,9 @@
 package model.states.main;
 
-import model.constants.ExitStatuses;
 import model.core.searchtree.SearchResultData;
+import model.states.ProcessingState;
 import model.states.exceptions.InternalStateErrorException;
+import org.w3c.dom.ls.LSOutput;
 import view.printers.SearchResultDataPrinter;
 
 import java.util.HashMap;
@@ -10,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 public class ResultsPrintingState extends MainFSMState
-                                    implements ProcessingState{
+                                    implements ProcessingState {
 
     private final static Map<List<SearchResultData>, ResultsPrintingState> resultsPrintingInstances = new HashMap<>();
 
@@ -39,16 +40,7 @@ public class ResultsPrintingState extends MainFSMState
     public void enter() {
         printer.printAll(data);
 
-        System.exit(ExitStatuses.SUCCESS.code);
+        stateMachine.terminate();
     }
 
-    @Override
-    public void update() throws InternalStateErrorException {
-
-    }
-
-    @Override
-    public void exit() {
-
-    }
 }

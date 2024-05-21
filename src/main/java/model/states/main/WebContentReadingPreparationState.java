@@ -4,6 +4,7 @@ import controller.ConsoleInputReader;
 import model.constants.MessageTexts;
 import model.data.validators.UrlValidator;
 import model.input.exceptions.InvalidInputException;
+import model.states.CheckpointState;
 import model.states.exceptions.InternalStateErrorException;
 import model.ui.menu.main.SupportedTextSources;
 import view.printers.MessagePrinter;

@@ -2,14 +2,16 @@ package model.states.main;
 
 import model.core.searchtree.SearchResultData;
 import model.core.searchtree.TextBinarySearchTree;
+import model.states.ProcessingState;
 import model.states.exceptions.InternalStateErrorException;
+import org.w3c.dom.ls.LSOutput;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public final class TreeSearchingState extends MainFSMState
-                                            implements ProcessingState{
+                                            implements ProcessingState {
 
     private final static Map<TreeAndTokenPackage, TreeSearchingState> treeSearchingInstances = new HashMap<>();
 
@@ -36,20 +38,10 @@ public final class TreeSearchingState extends MainFSMState
 
 
     @Override
-    public void enter() {
-
-    }
-
-    @Override
     public void update() throws InternalStateErrorException {
         List<SearchResultData> hits = searchComponents.tree.findWith(searchComponents.searchToken);
 
         stateMachine.setState(ResultsPrintingState.getInstance(hits));
-    }
-
-    @Override
-    public void exit() {
-
     }
 
 

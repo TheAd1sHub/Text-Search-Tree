@@ -1,7 +1,7 @@
-package model.states.main;
+package model.states;
 
-/*
- * This interface is implemented by {@code StateMachineState} objects which are responsible for handling the information,
+/**
+ * This marker interface is implemented by {@code StateMachineState} objects which are responsible for handling the information,
  * but cannot fix the problems arising in case the provided data is invalid on their own.
  * In this case such methods should throw an exception signalising their {@code StateMachine} that they cannot finish the
  * assigned task with the current data.

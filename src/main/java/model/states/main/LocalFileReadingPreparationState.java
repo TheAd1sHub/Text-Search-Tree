@@ -6,6 +6,7 @@ import model.data.readers.ExternalTextDataReader;
 import model.data.readers.FileDataReader;
 import model.data.validators.FileNameValidator;
 import model.input.exceptions.InvalidInputException;
+import model.states.CheckpointState;
 import model.states.exceptions.InternalStateErrorException;
 import view.printers.MessagePrinter;
 

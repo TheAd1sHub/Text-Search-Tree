@@ -3,6 +3,7 @@ package model.states.main;
 import model.data.readers.ExternalTextDataReader;
 import model.data.readers.RawUrlDataReader;
 import model.input.exceptions.InvalidInputException;
+import model.states.ProcessingState;
 import model.states.exceptions.InternalStateErrorException;
 
 import java.net.MalformedURLException;

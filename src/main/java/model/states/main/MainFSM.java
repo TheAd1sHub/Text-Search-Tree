@@ -1,11 +1,11 @@
 package model.states.main;
 
 import model.constants.MessageTexts;
+import model.states.ProcessingState;
 import model.states.StateMachine;
 import model.states.exceptions.InternalStateErrorException;
 import view.printers.MessagePrinter;
 
-import java.io.IOException;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
@@ -79,11 +79,17 @@ public final class MainFSM extends StateMachine<MainFSMState> {
     public void setState(MainFSMState nextState) {
         super.setState(nextState);
 
-        statesStack.push(nextState);
+        if (isInitialized) {
+            statesStack.push(nextState);
+        }
     }
 
     @Override
     public void update() {
+        if (!isInitialized) {
+            return;
+        }
+
         try {
 
             super.update();
@@ -100,7 +106,6 @@ public final class MainFSM extends StateMachine<MainFSMState> {
             }
         }
     }
-
 
     private void rollBackToLastCheckpointState() {
         if (statesStack.size() <= 1) {

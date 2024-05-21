@@ -3,6 +3,7 @@ package model.states.main;
 import model.core.searchtree.TextBinarySearchTree;
 import model.data.parsers.TextParser;
 import model.data.readers.ExternalTextDataReader;
+import model.states.ProcessingState;
 import model.states.exceptions.InternalStateErrorException;
 
 import java.util.HashMap;

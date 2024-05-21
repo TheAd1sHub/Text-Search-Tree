@@ -3,6 +3,7 @@ package model.states.main;
 import controller.ConsoleInputReader;
 import model.constants.MessageTexts;
 import model.core.searchtree.TextBinarySearchTree;
+import model.states.CheckpointState;
 import model.states.exceptions.InternalStateErrorException;
 import org.jetbrains.annotations.NotNull;
 import view.printers.MessagePrinter;
@@ -52,8 +53,4 @@ public final class SoughtForTokenRequestState extends MainFSMState
         stateMachine.setState(TreeSearchingState.getInstance(tree, userInput));
     }
 
-    @Override
-    public void exit() {
-
-    }
 }

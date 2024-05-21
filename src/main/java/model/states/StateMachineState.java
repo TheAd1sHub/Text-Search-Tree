@@ -12,10 +12,10 @@ public abstract class StateMachineState<TMachine extends StateMachine> {
     }
 
 
-    public abstract void enter();
+    public void enter() { }
 
-    public abstract void update() throws InternalStateErrorException;
+    public void update() throws InternalStateErrorException { }
 
-    public abstract void exit();
+    public void exit() { }
 
 }

@@ -4,6 +4,7 @@ import controller.ConsoleInputReader;
 import model.input.exceptions.InputValueOutOfRangeException;
 import model.input.exceptions.InvalidInputException;
 import model.input.interpreters.IntegerInputInterpreter;
+import model.states.CheckpointState;
 import model.states.exceptions.InternalStateErrorException;
 import model.ui.menu.main.MainMenu;
 import model.ui.menu.main.SupportedTextSources;
