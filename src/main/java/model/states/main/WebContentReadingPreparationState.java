@@ -78,7 +78,9 @@ public final class WebContentReadingPreparationState extends MainFSMState
                 break;
 
             case WEB_PAGE_CONTENTS:
-                throw new UnsupportedOperationException("Not implemented");
+                stateMachine.setState(WebPageContentsReadingPreparationState.getInstance(userInput));
+                break;
+                //throw new UnsupportedOperationException("Not implemented");
 
             case WEB_PAGE_CONTENTS_RAW:
                 stateMachine.setState(RawWebPageContentsReadingPreparationState.getInstance(userInput));

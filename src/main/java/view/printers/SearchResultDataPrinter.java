@@ -8,6 +8,12 @@ public final class SearchResultDataPrinter extends MassPrinter<SearchResultData>
 
     @Override
     public void printAll(Collection<SearchResultData> data) {
+        if (data.size() == 0) {
+            printNoHitsMessage();
+            
+            return;
+        }
+
         for (SearchResultData result : data) {
             print(result);
         }
@@ -16,7 +22,7 @@ public final class SearchResultDataPrinter extends MassPrinter<SearchResultData>
     @Override
     public void print(SearchResultData data) {
         if (data == null) {
-            System.out.println("No hits!");
+            printNoHitsMessage();
 
             return;
         }
@@ -24,4 +30,8 @@ public final class SearchResultDataPrinter extends MassPrinter<SearchResultData>
         System.out.println("Found '" + data.value + "' at #" + data.index + '.');
     }
 
+
+    private void printNoHitsMessage() {
+        System.out.println("No hits!");
+    }
 }

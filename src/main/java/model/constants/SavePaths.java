@@ -6,5 +6,7 @@ public final class SavePaths {
         ;
     }
 
-    public static final String temp = System.getProperty("java.io.tmpdir") + "\\BTS-source.txt";
+    public static final String temp = System.getProperty("java.io.tmpdir");
+
+    public static final String tempPageContents = temp + "\\BTS-source.txt";
 }

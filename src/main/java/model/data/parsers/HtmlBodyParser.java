@@ -55,6 +55,11 @@ public final class HtmlBodyParser {
             indexOfLastClosedBracket = result.lastIndexOf(">");
         }
 
+        if (result.isEmpty()) {
+
+            return result.toString();
+        }
+
         while (result.substring(result.length() - 1).equals("\n")) {
             result.replace(result.length() - 1, result.length(), "");
         }

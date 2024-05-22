@@ -48,7 +48,7 @@ public final class ExternalFileReadingPreparationState extends MainFSMState
 
         try {
             URL sourceUrl = new URL(targetUrl);
-            String tempFilePath = SavePaths.temp;
+            String tempFilePath = SavePaths.tempPageContents;
 
             UrlFileDownloader downloader = new UrlFileDownloader(sourceUrl, tempFilePath);
             downloader.download();
