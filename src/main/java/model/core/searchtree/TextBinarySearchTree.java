@@ -40,12 +40,12 @@ public final class TextBinarySearchTree {
         }
     }
 
-    public ArrayList<SearchResultData> remove(String value) {
+    public List<SearchResultData> remove(String value) {
         if (root == null) {
             return new ArrayList<SearchResultData>();
         }
 
-        ArrayList<Node> nodesToRemove = findWithRaw(value);
+        List<Node> nodesToRemove = findWithRaw(value);
         if (nodesToRemove.isEmpty()) {
             return new ArrayList<SearchResultData>();
         }
@@ -59,12 +59,12 @@ public final class TextBinarySearchTree {
         return removedNodesData;
     }
 
-    public ArrayList<SearchResultData> findWith(String value) {
+    public List<SearchResultData> findWith(String value) {
         if (root == null) {
             return new ArrayList<SearchResultData>();
         }
 
-        ArrayList<Node> rawSearchHits = findWithRaw(value);
+        List<Node> rawSearchHits = findWithRaw(value);
 
         ArrayList<SearchResultData> result = new ArrayList<>(rawSearchHits.size());
         
@@ -75,7 +75,7 @@ public final class TextBinarySearchTree {
         return result;
     }
 
-    public ArrayList<SearchResultData> getAllValues() {
+    public List<SearchResultData> getAllValues() {
         if (root == null) {
             return new ArrayList<SearchResultData>();
         }
@@ -110,8 +110,8 @@ public final class TextBinarySearchTree {
                 return false;
             }
 
-            ArrayList<SearchResultData> thisContents = this.getAllValues(),
-                                        otherContents = other.getAllValues();
+            List<SearchResultData> thisContents = this.getAllValues(),
+                                    otherContents = other.getAllValues();
 
             for (int i = 0; i < thisContents.size(); i++) {
                 SearchResultData thisElement = thisContents.get(i),
@@ -132,7 +132,7 @@ public final class TextBinarySearchTree {
     public int hashCode() {
         int hash = 0;
 
-        ArrayList<SearchResultData> allNodesData = getAllValues();
+        List<SearchResultData> allNodesData = getAllValues();
         for (int i = 0; i < allNodesData.size(); i++) {
             if (i % 2 == 0) {
                 hash |= allNodesData.get(i).hashCode();
@@ -145,7 +145,7 @@ public final class TextBinarySearchTree {
     }
 
 
-    private ArrayList<Node> findWithRaw(String value) {
+    private List<Node> findWithRaw(String value) {
         if (root == null) {
             return new ArrayList<Node>();
         }
@@ -240,7 +240,7 @@ public final class TextBinarySearchTree {
             return this;
         }
 
-        private ArrayList<Node> getChildNodesWithValue(String value) {
+        private List<Node> getChildNodesWithValue(String value) {
             ArrayList<Node> result = new ArrayList<>();
 
             if (this.value.compareTo(value) == 0) {
@@ -256,7 +256,7 @@ public final class TextBinarySearchTree {
             return result;
         }
 
-        private ArrayList<Node> getAllChildNodes(boolean addSelf) {
+        private List<Node> getAllChildNodes(boolean addSelf) {
             ArrayList<Node> result = new ArrayList<>(size());
 
             if (addSelf) {

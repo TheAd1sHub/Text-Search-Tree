@@ -115,7 +115,7 @@ public final class TextBinarySearchTreeTest {
         final SearchResultData[] expectedReturn = capitalMLetterInstancesSearchResultData;
 
         //Act
-        ArrayList<SearchResultData> result = tree.findWith(searchedValue);
+        List<SearchResultData> result = tree.findWith(searchedValue);
 
         //Assert
         assertArrayEquals(expectedReturn, result.toArray());
@@ -130,7 +130,7 @@ public final class TextBinarySearchTreeTest {
         final SearchResultData[] expectedReturn = smallMLetterInstancesSearchResultData;
 
         //Act
-        ArrayList<SearchResultData> result = tree.findWith(searchedValue);
+        List<SearchResultData> result = tree.findWith(searchedValue);
 
         //Assert
         assertArrayEquals(expectedReturn, result.toArray());
@@ -145,7 +145,7 @@ public final class TextBinarySearchTreeTest {
         final SearchResultData[] expectedReturn = inWordInstancesSearchResultData;
 
         //Act
-        ArrayList<SearchResultData> result = tree.findWith(searchedValue);
+        List<SearchResultData> result = tree.findWith(searchedValue);
 
         //Assert
         assertArrayEquals(expectedReturn, result.toArray());
@@ -160,7 +160,7 @@ public final class TextBinarySearchTreeTest {
         final SearchResultData[] expectedReturn = nonExistingWordInstancesSearchResultData;
 
         //Act
-        ArrayList<SearchResultData> result = tree.findWith(searchedValue);
+        List<SearchResultData> result = tree.findWith(searchedValue);
 
         //Assert
         assertArrayEquals(expectedReturn, result.toArray());
@@ -176,7 +176,7 @@ public final class TextBinarySearchTreeTest {
 
         //Act
         tree.remove(searchedValue);
-        ArrayList<SearchResultData> result = tree.findWith(searchedValue);
+        List<SearchResultData> result = tree.findWith(searchedValue);
 
         //Assert
         assertArrayEquals(expectedReturn, result.toArray());
@@ -192,7 +192,7 @@ public final class TextBinarySearchTreeTest {
 
         //Act
         tree.remove(searchedValue);
-        ArrayList<SearchResultData> result = tree.findWith(searchedValue);
+        List<SearchResultData> result = tree.findWith(searchedValue);
 
         //Assert
         assertArrayEquals(expectedReturn, result.toArray());
@@ -206,7 +206,7 @@ public final class TextBinarySearchTreeTest {
         final SearchResultData[] expectedReturn = citiesInstancesSearchResultData;
 
         //Act
-        ArrayList<SearchResultData> result = tree.getAllValues();
+        List<SearchResultData> result = tree.getAllValues();
 
         //Assert
         assertArrayEquals(expectedReturn, result.toArray());

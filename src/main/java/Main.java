@@ -1,8 +1,5 @@
 import debug.logging.MainLogger;
 import model.states.main.MainFSM;
-import view.printers.NativePrinter;
-
-import java.sql.SQLSyntaxErrorException;
 
 public final class Main {
 
