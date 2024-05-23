@@ -40,15 +40,22 @@ public final class WebPageContentsReadingPreparationState extends MainFSMState
     }
 
 
-    // TODO: Implement this part or whatever
     @Override
     public void update() throws InternalStateErrorException {
         try {
             URL sourceUrl = new URL(targetUrl);
             HtmlBodyParser parser = new HtmlBodyParser();
-            String htmlContentsRaw = sourceUrl.getContent().toString();
-            System.out.println(htmlContentsRaw);
-            String pageContents = parser.getContents(htmlContentsRaw);
+
+
+            // TODO: Resolve this kostyl' to not compile HTML into one big String in the end
+            StringBuilder htmlContentsRaw = new StringBuilder();
+            RawUrlDataReader rawReader = new RawUrlDataReader(sourceUrl);
+            rawReader.openReadingStream();
+            while (rawReader.hasNext()) {
+                htmlContentsRaw.append(rawReader.next());
+            }
+
+            String pageContents = parser.getContents(htmlContentsRaw.toString());
             StringToFileLoader fileWriter = new StringToFileLoader(pageContents);
 
             fileWriter.loadInto(SavePaths.tempPageContents, true);
