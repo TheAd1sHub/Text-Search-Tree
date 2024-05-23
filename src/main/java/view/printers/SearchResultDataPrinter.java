@@ -9,7 +9,7 @@ public final class SearchResultDataPrinter
 
     @Override
     public void printAll(Collection<SearchResultData> data) {
-        if (data.size() == 0) {
+        if (data.isEmpty()) {
             printNoHitsMessage();
             
             return;
