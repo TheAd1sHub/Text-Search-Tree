@@ -10,6 +10,7 @@ public final class StringToFileLoader {
 
     private final Iterator<String> dataIterator;
 
+
     public StringToFileLoader(String data) {
         this.dataIterator = new Iterator<String>() {
             private String contents = data;

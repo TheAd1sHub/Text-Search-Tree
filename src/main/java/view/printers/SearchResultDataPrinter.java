@@ -4,7 +4,8 @@ import model.core.searchtree.SearchResultData;
 
 import java.util.Collection;
 
-public final class SearchResultDataPrinter extends MassPrinter<SearchResultData> {
+public final class SearchResultDataPrinter
+        implements Printer<SearchResultData>, MassPrinter<SearchResultData> {
 
     @Override
     public void printAll(Collection<SearchResultData> data) {

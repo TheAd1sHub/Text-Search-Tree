@@ -1,6 +1,6 @@
 package view.printers;
 
-public final class MessagePrinter extends Printer<String> {
+public final class MessagePrinter implements Printer<String> {
 
     private final String inputRequestIndication = "> ";
 
