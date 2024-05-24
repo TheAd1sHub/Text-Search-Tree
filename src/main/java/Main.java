@@ -15,7 +15,7 @@ public final class Main {
             throw ex;
         }
 
-        MainLogger.logMessage("App work finished");
+        MainLogger.logMessage("App work finished\n");
     }
 
     public static void init() {

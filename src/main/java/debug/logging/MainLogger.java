@@ -1,5 +1,7 @@
 package debug.logging;
 
+import model.constants.SavePaths;
+
 import java.io.IOException;
 
 import java.time.LocalDate;
@@ -54,7 +56,7 @@ public final class MainLogger {
 
 
     private static String constructLogFilename() {
-        return LocalDate.now() + ".log";
+        return SavePaths.logsFolder + LocalDate.now() + ".log";
     }
 
 }

@@ -48,7 +48,6 @@ public final class TreeFromStreamConstructionState extends MainFSMState
             }
         }
 
-        System.out.println(tree);
     }
 
     @Override
