@@ -98,7 +98,7 @@ public final class MainFSM extends StateMachine<MainFSMState> {
             if (ex.getInternalException() != null) {
                 messagePrinter.print(ex.getInternalException().getLocalizedMessage());
             } else {
-                messagePrinter.print(MessageTexts.unknownErrorNotificationText);
+                messagePrinter.print(MessageTexts.getUnknownErrorNotificationText());
             }
 
             if (currentState instanceof ProcessingState) {

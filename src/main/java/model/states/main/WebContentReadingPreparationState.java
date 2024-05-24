@@ -59,7 +59,7 @@ public final class WebContentReadingPreparationState extends MainFSMState
     public void enter() {
         isActive = true;
 
-        messagePrinter.print(MessageTexts.webPageUrlAddressRequestText);
+        messagePrinter.print(MessageTexts.getWebPageUrlAddressRequestText());
     }
 
     @Override

@@ -1,13 +1,13 @@
 import debug.logging.MainLogger;
 import model.states.main.MainFSM;
 
+
 public final class Main {
 
     public static void main(String[] args) {
         MainLogger.logMessage("App initialized");
 
         try {
-
             init();
         } catch (RuntimeException ex) {
 

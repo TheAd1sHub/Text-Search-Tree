@@ -10,8 +10,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ResultsPrintingState extends MainFSMState
-                                    implements ProcessingState {
+public final class ResultsPrintingState extends MainFSMState
+                                        implements ProcessingState {
 
     private final static Map<List<SearchResultData>, ResultsPrintingState> resultsPrintingInstances = new HashMap<>();
 

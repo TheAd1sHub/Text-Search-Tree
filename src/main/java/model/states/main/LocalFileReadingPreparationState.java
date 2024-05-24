@@ -40,9 +40,8 @@ public final class LocalFileReadingPreparationState extends MainFSMState
 
     @Override
     public void enter() {
-        messagePrinter.print(MessageTexts.localFilePathRequestText);
+        messagePrinter.print(MessageTexts.getLocalFilePathRequestText());
     }
-
     @Override
     public void update() throws InternalStateErrorException {
         messagePrinter.printInputRequest();

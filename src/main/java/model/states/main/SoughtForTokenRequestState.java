@@ -42,7 +42,7 @@ public final class SoughtForTokenRequestState extends MainFSMState
 
     @Override
     public void enter() {
-        messagePrinter.print(MessageTexts.soughtForTokenRequestText);
+        messagePrinter.print(MessageTexts.getSoughtForTokenRequestText());
     }
 
     @Override

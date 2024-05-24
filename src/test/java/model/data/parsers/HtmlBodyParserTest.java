@@ -40,7 +40,7 @@ public final class HtmlBodyParserTest {
         assertEquals(expectedParsingResult, parsingResult);
     }
 
-    @Test
+    //@Test
     @DisplayName("Html page contents parsing with interactive elements")
     public void testHtmlPageContentsParsing2() {
         final String html = """

@@ -1,0 +1,115 @@
+May 24, 2024 9:13:33 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 24, 2024 9:13:51 AM debug.logging.MainLogger logMessage
+INFO: App work finished
+May 24, 2024 9:14:04 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 24, 2024 9:14:51 AM debug.logging.MainLogger logMessage
+INFO: App work finished
+May 24, 2024 9:16:47 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 24, 2024 9:17:12 AM debug.logging.MainLogger logMessage
+INFO: App work finished
+May 24, 2024 9:17:28 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 24, 2024 9:17:58 AM debug.logging.MainLogger logMessage
+INFO: App work finished
+May 24, 2024 9:18:25 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 24, 2024 9:18:55 AM debug.logging.MainLogger logMessage
+INFO: App work finished
+May 24, 2024 9:19:09 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 24, 2024 9:19:18 AM debug.logging.MainLogger logMessage
+INFO: App work finished
+May 24, 2024 9:21:59 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 24, 2024 9:22:12 AM debug.logging.MainLogger logMessage
+INFO: App work finished
+May 24, 2024 10:27:17 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 24, 2024 10:28:01 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 24, 2024 10:28:44 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 24, 2024 10:33:03 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 24, 2024 10:44:00 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 24, 2024 10:44:25 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 24, 2024 10:44:45 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 24, 2024 11:01:40 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 24, 2024 11:07:59 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 24, 2024 11:11:28 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 24, 2024 11:11:28 AM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+org.json.JSONException: JSONObject["localFilePathRequestText"] not found.
+	at org.json.JSONObject.get(JSONObject.java:596)
+	at org.json.JSONObject.getString(JSONObject.java:883)
+	at model.constants.MessageTexts.loadLocalisationDataFromJson(MessageTexts.java:54)
+	at Main.init(Main.java:25)
+	at Main.main(Main.java:13)
+
+May 24, 2024 11:12:02 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 24, 2024 11:12:02 AM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+java.lang.RuntimeException: Unable to set the values to fields of the class due to access restriction.
+	at model.constants.MessageTexts.loadLocalisationDataFromJson(MessageTexts.java:63)
+	at Main.init(Main.java:25)
+	at Main.main(Main.java:13)
+Caused by: java.lang.IllegalAccessException: Can not set static final java.lang.String field model.constants.MessageTexts.localFilePathRequestText to java.lang.String
+	at java.base/jdk.internal.reflect.UnsafeFieldAccessorImpl.throwFinalFieldIllegalAccessException(UnsafeFieldAccessorImpl.java:76)
+	at java.base/jdk.internal.reflect.UnsafeFieldAccessorImpl.throwFinalFieldIllegalAccessException(UnsafeFieldAccessorImpl.java:80)
+	at java.base/jdk.internal.reflect.UnsafeQualifiedStaticObjectFieldAccessorImpl.set(UnsafeQualifiedStaticObjectFieldAccessorImpl.java:77)
+	at java.base/java.lang.reflect.Field.set(Field.java:799)
+	at model.constants.MessageTexts.loadLocalisationDataFromJson(MessageTexts.java:55)
+	... 2 more
+
+May 24, 2024 11:13:51 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 24, 2024 11:18:23 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 24, 2024 11:19:30 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 24, 2024 11:20:34 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 24, 2024 11:24:10 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 24, 2024 11:24:39 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 24, 2024 11:25:10 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 24, 2024 11:27:17 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 24, 2024 11:29:40 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 24, 2024 11:31:27 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 24, 2024 11:38:01 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 24, 2024 11:43:24 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 24, 2024 12:02:48 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 24, 2024 12:13:38 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 24, 2024 12:13:41 PM debug.logging.MainLogger logWarning
+WARNING: The value for 'invalidInputNotificationText' field was not found in C:\Users\yusere\Documents\Java Projects\Text Search Tree\src\main\java\model\constants\message_texts.json config file.
+May 24, 2024 12:17:42 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 24, 2024 12:18:29 PM debug.logging.MainLogger logMessage
+INFO: App work finished
+May 24, 2024 12:18:49 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 24, 2024 12:19:36 PM debug.logging.MainLogger logMessage
+INFO: App work finished
+May 24, 2024 12:19:44 PM debug.logging.MainLogger logMessage
+INFO: App initialized

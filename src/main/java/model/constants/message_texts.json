@@ -1,0 +1,9 @@
+{
+  "localFilePathRequestText": "Please, state the path to the text file. LOL",
+  "webPageUrlAddressRequestText": "Please, state the URL of the source website.",
+  "soughtForTokenRequestText": "State the sought-for word.",
+
+  "invalidInputNotificationText": "Unfortunately, we cannot interpret your input.\nPlease, check its consistency and try again.",
+  "readingSessionFailureNotificationText": "Attempt to receive data from the given source resulted in a failure.\nPlease, try again later!",
+  "unknownErrorNotificationText": "Something went wrong whilst processing your request.\nPlease, check the consistency of your input or try again later!"
+}
