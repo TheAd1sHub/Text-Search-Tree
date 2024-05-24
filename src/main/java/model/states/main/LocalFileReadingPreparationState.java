@@ -2,6 +2,7 @@ package model.states.main;
 
 import controller.ConsoleInputReader;
 import model.constants.MessageTexts;
+import model.data.database.connectors.concrete.SearchTreeDBConnector;
 import model.data.readers.ExternalTextDataReader;
 import model.data.readers.FileDataReader;
 import model.data.validators.FileNameValidator;
@@ -11,6 +12,8 @@ import model.states.exceptions.InternalStateErrorException;
 import view.printers.MessagePrinter;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.time.LocalDate;
 
 public final class LocalFileReadingPreparationState extends MainFSMState
                                                     implements CheckpointState {
@@ -50,6 +53,8 @@ public final class LocalFileReadingPreparationState extends MainFSMState
         if (!inputValidator.isValid(userInput)) {
             throw new InternalStateErrorException(new InvalidInputException("The file at '" + userInput + "' does not exist or has unsupported format."));
         }
+
+        stateMachine.database.getConstructedEntry().source = userInput;
 
         try {
             ExternalTextDataReader reader = new FileDataReader(userInput);

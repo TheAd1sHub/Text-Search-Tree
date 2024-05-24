@@ -50,6 +50,7 @@ public final class SoughtForTokenRequestState extends MainFSMState
         messagePrinter.printInputRequest();
         String userInput = inputReader.readLine();
 
+        stateMachine.database.getConstructedEntry().token = userInput;
         stateMachine.setState(TreeSearchingState.getInstance(tree, userInput));
     }
 

@@ -1,15 +1,21 @@
 package model.states.main;
 
 import model.constants.MessageTexts;
+import model.data.database.connectors.DatabaseConnector;
+import model.data.database.connectors.SQLiteConnector;
+import model.data.database.connectors.concrete.SearchTreeDBConnector;
 import model.states.ProcessingState;
 import model.states.StateMachine;
 import model.states.exceptions.InternalStateErrorException;
 import view.printers.MessagePrinter;
 
+import java.sql.SQLException;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
 public final class MainFSM extends StateMachine<MainFSMState> {
+
+    public SearchTreeDBConnector database = SearchTreeDBConnector.getInstance();
 
     private static MainFSM instance;
 
@@ -18,7 +24,6 @@ public final class MainFSM extends StateMachine<MainFSMState> {
     private Deque<MainFSMState> statesStack;
 
     private MessagePrinter messagePrinter = new MessagePrinter();
-
 
     private MainFSM() {
         ;
@@ -43,6 +48,13 @@ public final class MainFSM extends StateMachine<MainFSMState> {
 
         MainFSMState initialState = ChoosingTextSourceState.getInstance();
 
+        try {
+            database.init();
+        } catch (SQLException ex) {
+            // TODO: Add handling logic here
+        }
+
+
         addState(initialState);
 
         setState(initialState);
@@ -53,6 +65,12 @@ public final class MainFSM extends StateMachine<MainFSMState> {
     public void terminate() {
         currentState.exit();
         currentState = null;
+
+        try {
+            database.closeConnection();
+        } catch (SQLException ex) {
+            // TODO: Add handling logic here
+        }
 
         statesStack = null;
 

@@ -72,6 +72,8 @@ public final class WebContentReadingPreparationState extends MainFSMState
             throw new InternalStateErrorException(new InvalidInputException("Cannot find '" + userInput + "' file."));
         }
 
+        stateMachine.database.getConstructedEntry().source = userInput;
+
         switch (dataReadingSource) {
             case EXTERNAL_FILE:
                 stateMachine.setState(ExternalFileReadingPreparationState.getInstance(userInput));

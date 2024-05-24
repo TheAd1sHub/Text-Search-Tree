@@ -11,6 +11,8 @@ import model.ui.menu.main.SupportedTextSources;
 import view.printers.MenuPrinter;
 import view.printers.MessagePrinter;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.InputMismatchException;
 
 public final class ChoosingTextSourceState extends MainFSMState
@@ -83,6 +85,7 @@ public final class ChoosingTextSourceState extends MainFSMState
 
     @Override
     public void exit() {
-
+        stateMachine.database.createNewEntry();
+        stateMachine.database.getConstructedEntry().date = Date.valueOf(LocalDate.now());
     }
 }

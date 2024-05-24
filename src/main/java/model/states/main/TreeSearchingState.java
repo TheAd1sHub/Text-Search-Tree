@@ -1,11 +1,13 @@
 package model.states.main;
 
+import debug.logging.MainLogger;
 import model.core.searchtree.SearchResultData;
 import model.core.searchtree.TextBinarySearchTree;
 import model.states.ProcessingState;
 import model.states.exceptions.InternalStateErrorException;
 import org.w3c.dom.ls.LSOutput;
 
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,6 +42,15 @@ public final class TreeSearchingState extends MainFSMState
     @Override
     public void update() throws InternalStateErrorException {
         List<SearchResultData> hits = searchComponents.tree.findWith(searchComponents.searchToken);
+
+        // TODO: Insert REAL formatted search result data
+        try {
+            stateMachine.database.getConstructedEntry().result = "To be added";
+            stateMachine.database.addEntry(stateMachine.database.getConstructedEntry());
+        } catch (SQLException ex) {
+
+            MainLogger.logSevere(ex);
+        }
 
         stateMachine.setState(ResultsPrintingState.getInstance(hits));
     }

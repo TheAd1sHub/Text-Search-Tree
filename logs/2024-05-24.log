@@ -118,3 +118,31 @@ INFO: App initialized
 May 24, 2024 2:17:45 PM debug.logging.MainLogger logMessage
 INFO: App work finished
 
+May 24, 2024 5:37:19 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 24, 2024 5:37:35 PM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+java.lang.NullPointerException: Cannot invoke "java.sql.Connection.createStatement()" because "this.connection" is null
+	at model.data.database.connectors.DatabaseConnector.execute(DatabaseConnector.java:27)
+	at model.data.database.connectors.concrete.SearchTreeDBConnector.addEntry(SearchTreeDBConnector.java:55)
+	at model.states.main.TreeSearchingState.update(TreeSearchingState.java:49)
+	at model.states.StateMachine.update(StateMachine.java:46)
+	at model.states.main.MainFSM.update(MainFSM.java:113)
+	at Main.init(Main.java:27)
+	at Main.main(Main.java:11)
+
+May 24, 2024 5:38:14 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 24, 2024 5:38:26 PM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+java.lang.NullPointerException: Cannot invoke "java.sql.Connection.createStatement()" because "this.connection" is null
+	at model.data.database.connectors.DatabaseConnector.execute(DatabaseConnector.java:27)
+	at model.data.database.connectors.concrete.SearchTreeDBConnector.addEntry(SearchTreeDBConnector.java:55)
+	at model.states.main.TreeSearchingState.update(TreeSearchingState.java:49)
+	at model.states.StateMachine.update(StateMachine.java:46)
+	at model.states.main.MainFSM.update(MainFSM.java:113)
+	at Main.init(Main.java:27)
+	at Main.main(Main.java:11)
+
