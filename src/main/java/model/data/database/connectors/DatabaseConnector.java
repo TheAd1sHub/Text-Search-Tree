@@ -23,12 +23,12 @@ public abstract class DatabaseConnector {
         connection.close();
     }
 
-    public void execute(String query) throws SQLException {
+    public void execute(@NotNull String query) throws SQLException {
         Statement statement = connection.createStatement();
         statement.executeUpdate(query);
     }
 
-    public ResultSet executeAndGetResults(String query) throws SQLException {
+    public ResultSet executeAndGetResults(@NotNull String query) throws SQLException {
         Statement statement = connection.createStatement();
 
         return statement.executeQuery(query);

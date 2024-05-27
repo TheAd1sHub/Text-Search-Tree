@@ -28,3 +28,274 @@ May 27, 2024 12:12:57 PM debug.logging.MainLogger logMessage
 INFO: App initialized
 May 27, 2024 12:16:00 PM debug.logging.MainLogger logMessage
 INFO: App initialized
+May 27, 2024 12:30:14 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 27, 2024 12:30:30 PM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such table: Searches)
+	at org.sqlite.core.DB.newSQLException(DB.java:1179)
+	at org.sqlite.core.DB.newSQLException(DB.java:1190)
+	at org.sqlite.core.DB.throwex(DB.java:1150)
+	at org.sqlite.core.NativeDB._exec_utf8(Native Method)
+	at org.sqlite.core.NativeDB._exec(NativeDB.java:97)
+	at org.sqlite.jdbc3.JDBC3Statement.lambda$executeLargeUpdate$2(JDBC3Statement.java:135)
+	at org.sqlite.jdbc3.JDBC3Statement.withConnectionTimeout(JDBC3Statement.java:454)
+	at org.sqlite.jdbc3.JDBC3Statement.executeLargeUpdate(JDBC3Statement.java:122)
+	at org.sqlite.jdbc3.JDBC3Statement.executeUpdate(JDBC3Statement.java:109)
+	at model.data.database.connectors.DatabaseConnector.execute(DatabaseConnector.java:28)
+	at model.data.database.connectors.concrete.SearchTreeDBConnector.addEntry(SearchTreeDBConnector.java:53)
+	at model.states.main.TreeSearchingState.update(TreeSearchingState.java:49)
+	at model.states.StateMachine.update(StateMachine.java:46)
+	at model.states.main.MainFSM.update(MainFSM.java:113)
+	at Main.init(Main.java:27)
+	at Main.main(Main.java:11)
+
+May 27, 2024 12:30:30 PM debug.logging.MainLogger logMessage
+INFO: App work finished
+
+May 27, 2024 12:48:13 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 27, 2024 12:48:38 PM debug.logging.MainLogger logMessage
+INFO: App work finished
+
+May 27, 2024 12:52:38 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 27, 2024 12:52:56 PM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such table: Searches)
+	at org.sqlite.core.DB.newSQLException(DB.java:1179)
+	at org.sqlite.core.DB.newSQLException(DB.java:1190)
+	at org.sqlite.core.DB.throwex(DB.java:1150)
+	at org.sqlite.core.NativeDB._exec_utf8(Native Method)
+	at org.sqlite.core.NativeDB._exec(NativeDB.java:97)
+	at org.sqlite.jdbc3.JDBC3Statement.lambda$executeLargeUpdate$2(JDBC3Statement.java:135)
+	at org.sqlite.jdbc3.JDBC3Statement.withConnectionTimeout(JDBC3Statement.java:454)
+	at org.sqlite.jdbc3.JDBC3Statement.executeLargeUpdate(JDBC3Statement.java:122)
+	at org.sqlite.jdbc3.JDBC3Statement.executeUpdate(JDBC3Statement.java:109)
+	at model.data.database.connectors.DatabaseConnector.execute(DatabaseConnector.java:28)
+	at model.data.database.connectors.concrete.SearchTreeDBConnector.addEntry(SearchTreeDBConnector.java:52)
+	at model.states.main.TreeSearchingState.update(TreeSearchingState.java:49)
+	at model.states.StateMachine.update(StateMachine.java:46)
+	at model.states.main.MainFSM.update(MainFSM.java:113)
+	at Main.init(Main.java:27)
+	at Main.main(Main.java:11)
+
+May 27, 2024 12:52:56 PM debug.logging.MainLogger logMessage
+INFO: App work finished
+
+May 27, 2024 12:53:42 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 27, 2024 12:53:53 PM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such table: Searches)
+	at org.sqlite.core.DB.newSQLException(DB.java:1179)
+	at org.sqlite.core.DB.newSQLException(DB.java:1190)
+	at org.sqlite.core.DB.throwex(DB.java:1150)
+	at org.sqlite.core.NativeDB._exec_utf8(Native Method)
+	at org.sqlite.core.NativeDB._exec(NativeDB.java:97)
+	at org.sqlite.jdbc3.JDBC3Statement.lambda$executeLargeUpdate$2(JDBC3Statement.java:135)
+	at org.sqlite.jdbc3.JDBC3Statement.withConnectionTimeout(JDBC3Statement.java:454)
+	at org.sqlite.jdbc3.JDBC3Statement.executeLargeUpdate(JDBC3Statement.java:122)
+	at org.sqlite.jdbc3.JDBC3Statement.executeUpdate(JDBC3Statement.java:109)
+	at model.data.database.connectors.DatabaseConnector.execute(DatabaseConnector.java:28)
+	at model.data.database.connectors.concrete.SearchTreeDBConnector.addEntry(SearchTreeDBConnector.java:55)
+	at model.states.main.TreeSearchingState.update(TreeSearchingState.java:49)
+	at model.states.StateMachine.update(StateMachine.java:46)
+	at model.states.main.MainFSM.update(MainFSM.java:113)
+	at Main.init(Main.java:27)
+	at Main.main(Main.java:11)
+
+May 27, 2024 12:53:53 PM debug.logging.MainLogger logMessage
+INFO: App work finished
+
+May 27, 2024 12:58:06 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 27, 2024 12:58:16 PM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such table: Searches)
+	at org.sqlite.core.DB.newSQLException(DB.java:1179)
+	at org.sqlite.core.DB.newSQLException(DB.java:1190)
+	at org.sqlite.core.DB.throwex(DB.java:1150)
+	at org.sqlite.core.NativeDB._exec_utf8(Native Method)
+	at org.sqlite.core.NativeDB._exec(NativeDB.java:97)
+	at org.sqlite.jdbc3.JDBC3Statement.lambda$executeLargeUpdate$2(JDBC3Statement.java:135)
+	at org.sqlite.jdbc3.JDBC3Statement.withConnectionTimeout(JDBC3Statement.java:454)
+	at org.sqlite.jdbc3.JDBC3Statement.executeLargeUpdate(JDBC3Statement.java:122)
+	at org.sqlite.jdbc3.JDBC3Statement.executeUpdate(JDBC3Statement.java:109)
+	at model.data.database.connectors.DatabaseConnector.execute(DatabaseConnector.java:28)
+	at model.data.database.connectors.concrete.SearchTreeDBConnector.addEntry(SearchTreeDBConnector.java:53)
+	at model.states.main.TreeSearchingState.update(TreeSearchingState.java:49)
+	at model.states.StateMachine.update(StateMachine.java:46)
+	at model.states.main.MainFSM.update(MainFSM.java:114)
+	at Main.init(Main.java:27)
+	at Main.main(Main.java:11)
+
+May 27, 2024 12:58:16 PM debug.logging.MainLogger logMessage
+INFO: App work finished
+
+May 27, 2024 2:17:27 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 27, 2024 2:18:45 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 27, 2024 2:19:22 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 27, 2024 2:20:16 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 27, 2024 2:20:46 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 27, 2024 2:21:07 PM debug.logging.MainLogger logMessage
+INFO: App work finished
+
+May 27, 2024 2:22:22 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 27, 2024 2:22:38 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 27, 2024 2:23:04 PM debug.logging.MainLogger logMessage
+INFO: App work finished
+
+May 27, 2024 2:38:39 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 27, 2024 2:39:04 PM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "где": syntax error)
+	at org.sqlite.core.DB.newSQLException(DB.java:1179)
+	at org.sqlite.core.DB.newSQLException(DB.java:1190)
+	at org.sqlite.core.DB.throwex(DB.java:1150)
+	at org.sqlite.core.NativeDB._exec_utf8(Native Method)
+	at org.sqlite.core.NativeDB._exec(NativeDB.java:97)
+	at org.sqlite.jdbc3.JDBC3Statement.lambda$executeLargeUpdate$2(JDBC3Statement.java:135)
+	at org.sqlite.jdbc3.JDBC3Statement.withConnectionTimeout(JDBC3Statement.java:454)
+	at org.sqlite.jdbc3.JDBC3Statement.executeLargeUpdate(JDBC3Statement.java:122)
+	at org.sqlite.jdbc3.JDBC3Statement.executeUpdate(JDBC3Statement.java:109)
+	at model.data.database.connectors.DatabaseConnector.execute(DatabaseConnector.java:28)
+	at model.data.database.connectors.concrete.SearchTreeDBConnector.addEntry(SearchTreeDBConnector.java:54)
+	at model.states.main.TreeSearchingState.update(TreeSearchingState.java:53)
+	at model.states.StateMachine.update(StateMachine.java:46)
+	at model.states.main.MainFSM.update(MainFSM.java:114)
+	at Main.init(Main.java:27)
+	at Main.main(Main.java:11)
+
+May 27, 2024 2:39:04 PM debug.logging.MainLogger logMessage
+INFO: App work finished
+
+May 27, 2024 2:40:17 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 27, 2024 2:40:29 PM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "это": syntax error)
+	at org.sqlite.core.DB.newSQLException(DB.java:1179)
+	at org.sqlite.core.DB.newSQLException(DB.java:1190)
+	at org.sqlite.core.DB.throwex(DB.java:1150)
+	at org.sqlite.core.NativeDB._exec_utf8(Native Method)
+	at org.sqlite.core.NativeDB._exec(NativeDB.java:97)
+	at org.sqlite.jdbc3.JDBC3Statement.lambda$executeLargeUpdate$2(JDBC3Statement.java:135)
+	at org.sqlite.jdbc3.JDBC3Statement.withConnectionTimeout(JDBC3Statement.java:454)
+	at org.sqlite.jdbc3.JDBC3Statement.executeLargeUpdate(JDBC3Statement.java:122)
+	at org.sqlite.jdbc3.JDBC3Statement.executeUpdate(JDBC3Statement.java:109)
+	at model.data.database.connectors.DatabaseConnector.execute(DatabaseConnector.java:28)
+	at model.data.database.connectors.concrete.SearchTreeDBConnector.addEntry(SearchTreeDBConnector.java:54)
+	at model.states.main.TreeSearchingState.update(TreeSearchingState.java:53)
+	at model.states.StateMachine.update(StateMachine.java:46)
+	at model.states.main.MainFSM.update(MainFSM.java:114)
+	at Main.init(Main.java:27)
+	at Main.main(Main.java:11)
+
+May 27, 2024 2:40:29 PM debug.logging.MainLogger logMessage
+INFO: App work finished
+
+May 27, 2024 2:43:53 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 27, 2024 2:44:04 PM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "это": syntax error)
+	at org.sqlite.core.DB.newSQLException(DB.java:1179)
+	at org.sqlite.core.DB.newSQLException(DB.java:1190)
+	at org.sqlite.core.DB.throwex(DB.java:1150)
+	at org.sqlite.core.NativeDB._exec_utf8(Native Method)
+	at org.sqlite.core.NativeDB._exec(NativeDB.java:97)
+	at org.sqlite.jdbc3.JDBC3Statement.lambda$executeLargeUpdate$2(JDBC3Statement.java:135)
+	at org.sqlite.jdbc3.JDBC3Statement.withConnectionTimeout(JDBC3Statement.java:454)
+	at org.sqlite.jdbc3.JDBC3Statement.executeLargeUpdate(JDBC3Statement.java:122)
+	at org.sqlite.jdbc3.JDBC3Statement.executeUpdate(JDBC3Statement.java:109)
+	at model.data.database.connectors.DatabaseConnector.execute(DatabaseConnector.java:28)
+	at model.data.database.connectors.concrete.SearchTreeDBConnector.addEntry(SearchTreeDBConnector.java:54)
+	at model.states.main.TreeSearchingState.update(TreeSearchingState.java:53)
+	at model.states.StateMachine.update(StateMachine.java:46)
+	at model.states.main.MainFSM.update(MainFSM.java:114)
+	at Main.init(Main.java:27)
+	at Main.main(Main.java:11)
+
+May 27, 2024 2:44:04 PM debug.logging.MainLogger logMessage
+INFO: App work finished
+
+May 27, 2024 2:44:32 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 27, 2024 2:44:57 PM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "Папа": syntax error)
+	at org.sqlite.core.DB.newSQLException(DB.java:1179)
+	at org.sqlite.core.DB.newSQLException(DB.java:1190)
+	at org.sqlite.core.DB.throwex(DB.java:1150)
+	at org.sqlite.core.NativeDB._exec_utf8(Native Method)
+	at org.sqlite.core.NativeDB._exec(NativeDB.java:97)
+	at org.sqlite.jdbc3.JDBC3Statement.lambda$executeLargeUpdate$2(JDBC3Statement.java:135)
+	at org.sqlite.jdbc3.JDBC3Statement.withConnectionTimeout(JDBC3Statement.java:454)
+	at org.sqlite.jdbc3.JDBC3Statement.executeLargeUpdate(JDBC3Statement.java:122)
+	at org.sqlite.jdbc3.JDBC3Statement.executeUpdate(JDBC3Statement.java:109)
+	at model.data.database.connectors.DatabaseConnector.execute(DatabaseConnector.java:28)
+	at model.data.database.connectors.concrete.SearchTreeDBConnector.addEntry(SearchTreeDBConnector.java:54)
+	at model.states.main.TreeSearchingState.update(TreeSearchingState.java:53)
+	at model.states.StateMachine.update(StateMachine.java:46)
+	at model.states.main.MainFSM.update(MainFSM.java:114)
+	at Main.init(Main.java:27)
+	at Main.main(Main.java:11)
+
+May 27, 2024 2:44:57 PM debug.logging.MainLogger logMessage
+INFO: App work finished
+
+May 27, 2024 2:46:26 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 27, 2024 2:46:43 PM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "Папа": syntax error)
+	at org.sqlite.core.DB.newSQLException(DB.java:1179)
+	at org.sqlite.core.DB.newSQLException(DB.java:1190)
+	at org.sqlite.core.DB.throwex(DB.java:1150)
+	at org.sqlite.core.NativeDB._exec_utf8(Native Method)
+	at org.sqlite.core.NativeDB._exec(NativeDB.java:97)
+	at org.sqlite.jdbc3.JDBC3Statement.lambda$executeLargeUpdate$2(JDBC3Statement.java:135)
+	at org.sqlite.jdbc3.JDBC3Statement.withConnectionTimeout(JDBC3Statement.java:454)
+	at org.sqlite.jdbc3.JDBC3Statement.executeLargeUpdate(JDBC3Statement.java:122)
+	at org.sqlite.jdbc3.JDBC3Statement.executeUpdate(JDBC3Statement.java:109)
+	at model.data.database.connectors.DatabaseConnector.execute(DatabaseConnector.java:28)
+	at model.data.database.connectors.concrete.SearchTreeDBConnector.addEntry(SearchTreeDBConnector.java:58)
+	at model.states.main.TreeSearchingState.update(TreeSearchingState.java:53)
+	at model.states.StateMachine.update(StateMachine.java:46)
+	at model.states.main.MainFSM.update(MainFSM.java:114)
+	at Main.init(Main.java:27)
+	at Main.main(Main.java:11)
+
+May 27, 2024 2:46:43 PM debug.logging.MainLogger logMessage
+INFO: App work finished
+
+May 27, 2024 2:48:03 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 27, 2024 2:48:26 PM debug.logging.MainLogger logMessage
+INFO: App work finished
+
+May 27, 2024 2:49:05 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+May 27, 2024 2:49:17 PM debug.logging.MainLogger logMessage
+INFO: App work finished
+
+May 27, 2024 2:51:00 PM debug.logging.MainLogger logMessage
+INFO: App initialized

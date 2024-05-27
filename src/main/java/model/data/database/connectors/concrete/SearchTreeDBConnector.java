@@ -5,6 +5,7 @@ import model.data.database.entries.SearchRequestEntry;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLOutput;
 
 public final class SearchTreeDBConnector extends SQLiteConnector {
 
@@ -37,9 +38,10 @@ public final class SearchTreeDBConnector extends SQLiteConnector {
         String tableExistenceCheckQuery = "SELECT name FROM sqlite_master WHERE type='table' AND name='" + MAIN_TABLE_NAME + "';\n";
 
         ResultSet tableSearchResults = executeAndGetResults(tableExistenceCheckQuery);
-        if (doesTableExist(MAIN_TABLE_NAME)) {
+        if (!doesTableExist(MAIN_TABLE_NAME)) {
             createTable();
         }
+
         tableSearchResults.close();
 
     }
@@ -49,7 +51,8 @@ public final class SearchTreeDBConnector extends SQLiteConnector {
     }
 
     public void addEntry(SearchRequestEntry entry) throws SQLException {
-        execute("INSERT INTO " + MAIN_TABLE_NAME + " VALUES " + entry.toSQL() + ";");
+        String query = "INSERT INTO " + MAIN_TABLE_NAME + " VALUES " + entry.toSQL() + ";";
+        execute(query);
     }
 
     public void createNewEntry() {

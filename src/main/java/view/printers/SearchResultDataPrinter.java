@@ -1,11 +1,14 @@
 package view.printers;
 
 import model.core.searchtree.SearchResultData;
+import model.data.formatters.SearchResultDataFormatter;
 
 import java.util.Collection;
 
 public final class SearchResultDataPrinter
         implements Printer<SearchResultData>, MassPrinter<SearchResultData> {
+
+    private final SearchResultDataFormatter formatter = new SearchResultDataFormatter();
 
     @Override
     public void printAll(Collection<SearchResultData> data) {
@@ -28,7 +31,7 @@ public final class SearchResultDataPrinter
             return;
         }
 
-        System.out.println("Found '" + data.value + "' at #" + data.index + '.');
+        System.out.println(formatter.format(data));
     }
 
 

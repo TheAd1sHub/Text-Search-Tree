@@ -1,5 +1,6 @@
 package model.states.main;
 
+import debug.logging.MainLogger;
 import model.constants.MessageTexts;
 import model.data.database.connectors.DatabaseConnector;
 import model.data.database.connectors.SQLiteConnector;
@@ -52,8 +53,8 @@ public final class MainFSM extends StateMachine<MainFSMState> {
             database.init();
         } catch (SQLException ex) {
             // TODO: Add handling logic here
+            MainLogger.logSevere(ex);
         }
-
 
         addState(initialState);
 

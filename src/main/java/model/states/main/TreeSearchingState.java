@@ -3,6 +3,8 @@ package model.states.main;
 import debug.logging.MainLogger;
 import model.core.searchtree.SearchResultData;
 import model.core.searchtree.TextBinarySearchTree;
+import model.data.formatters.MassFormatter;
+import model.data.formatters.SearchResultDataFormatter;
 import model.states.ProcessingState;
 import model.states.exceptions.InternalStateErrorException;
 import org.w3c.dom.ls.LSOutput;
@@ -18,6 +20,8 @@ public final class TreeSearchingState extends MainFSMState
     private final static Map<TreeAndTokenPackage, TreeSearchingState> treeSearchingInstances = new HashMap<>();
 
     private final TreeAndTokenPackage searchComponents;
+
+    private final MassFormatter<SearchResultData> formatter = new SearchResultDataFormatter();
 
 
     private TreeSearchingState(MainFSM stateMachine, TextBinarySearchTree tree, String soughtForToken) {
@@ -45,7 +49,7 @@ public final class TreeSearchingState extends MainFSMState
 
         // TODO: Insert REAL formatted search result data
         try {
-            stateMachine.database.getConstructedEntry().result = "To be added";
+            stateMachine.database.getConstructedEntry().result = formatter.formatAll(hits);
             stateMachine.database.addEntry(stateMachine.database.getConstructedEntry());
         } catch (SQLException ex) {
 
