@@ -8,24 +8,14 @@ import java.sql.SQLException;
 
 public final class SearchTreeDBConnector extends SQLiteConnector {
 
-    public static final String SEARCHTREE_DB_PATH = "C:\\searchtree.sqlite";
+    public static final String SEARCHTREE_DB_PATH = "searchtree.db";
     public static final String MAIN_TABLE_NAME = "Searches";
 
-    private static final SQLiteConnector dbConnector = new SQLiteConnector(SEARCHTREE_DB_PATH);
 
     private static SearchTreeDBConnector instance;
 
     private SearchRequestEntry nextEntry;
 
-
-    static {
-        //try {
-        //    Class.forName("org.sqlite.jdbc3-");
-        //} catch (ClassNotFoundException e) {
-        //
-        //    throw new RuntimeException(e);
-        //}
-    }
 
     private SearchTreeDBConnector() {
         super(SEARCHTREE_DB_PATH);
@@ -47,7 +37,7 @@ public final class SearchTreeDBConnector extends SQLiteConnector {
         String tableExistenceCheckQuery = "SELECT name FROM sqlite_master WHERE type='table' AND name='" + MAIN_TABLE_NAME + "';\n";
 
         ResultSet tableSearchResults = executeAndGetResults(tableExistenceCheckQuery);
-        if (tableSearchResults.wasNull()) {
+        if (doesTableExist(MAIN_TABLE_NAME)) {
             createTable();
         }
         tableSearchResults.close();
@@ -55,7 +45,7 @@ public final class SearchTreeDBConnector extends SQLiteConnector {
     }
 
     public void createTable() throws SQLException {
-        execute("CREATE TABLE " + MAIN_TABLE_NAME +"(search_date DATE, token VARCHAR, source VARCHAR, result VARCHAR);");
+        execute("CREATE TABLE " + MAIN_TABLE_NAME + " (search_date DATE, token VARCHAR, source VARCHAR, result VARCHAR);");
     }
 
     public void addEntry(SearchRequestEntry entry) throws SQLException {

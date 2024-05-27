@@ -5,9 +5,9 @@ import org.jetbrains.annotations.NotNull;
 import java.sql.*;
 
 public abstract class DatabaseConnector {
-    private final String jdbcUrl;
+    protected final String jdbcUrl;
 
-    private Connection connection;
+    protected Connection connection;
 
 
     public DatabaseConnector(@NotNull String jdbcUrl) {
@@ -32,5 +32,13 @@ public abstract class DatabaseConnector {
         Statement statement = connection.createStatement();
 
         return statement.executeQuery(query);
+    }
+
+    public boolean doesTableExist(String tableName) throws SQLException {
+
+        DatabaseMetaData meta = connection.getMetaData();
+        ResultSet resultSet = meta.getTables(null, null, tableName, new String[] {"TABLE"});
+
+        return resultSet.next();
     }
 }
