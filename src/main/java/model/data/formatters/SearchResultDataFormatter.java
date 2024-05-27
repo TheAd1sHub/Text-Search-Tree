@@ -10,13 +10,18 @@ public final class SearchResultDataFormatter
 
     @Override
     public String format(@NotNull SearchResultData data) {
-
+        if (data == null) {
+            throw new IllegalArgumentException("Non-null value expected. null received.");
+        }
 
         return "Found \"" + data.value + "\" at #" + data.index + ';';
     }
 
     @Override
     public String formatAll(@NotNull Collection<SearchResultData> data) {
+        if (data == null) {
+            throw new IllegalArgumentException("Non-null value expected. null received.");
+        }
 
         StringBuilder buffer = new StringBuilder();
         for (SearchResultData formatted : data) {
