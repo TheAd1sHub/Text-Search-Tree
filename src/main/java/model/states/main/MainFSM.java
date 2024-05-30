@@ -2,9 +2,8 @@ package model.states.main;
 
 import debug.logging.MainLogger;
 import model.constants.MessageTexts;
-import model.data.database.connectors.DatabaseConnector;
-import model.data.database.connectors.SQLiteConnector;
 import model.data.database.connectors.concrete.SearchTreeDBConnector;
+import model.data.database.migrators.concrete.SearchTreeDBMigrator;
 import model.states.ProcessingState;
 import model.states.StateMachine;
 import model.states.exceptions.InternalStateErrorException;
@@ -12,11 +11,13 @@ import view.printers.MessagePrinter;
 
 import java.sql.SQLException;
 import java.util.ArrayDeque;
+import java.util.Arrays;
 import java.util.Deque;
 
 public final class MainFSM extends StateMachine<MainFSMState> {
 
     public SearchTreeDBConnector database = SearchTreeDBConnector.getInstance();
+    private SearchTreeDBMigrator migrator = SearchTreeDBMigrator.getInstance();
 
     private static MainFSM instance;
 
@@ -49,12 +50,20 @@ public final class MainFSM extends StateMachine<MainFSMState> {
 
         MainFSMState initialState = ChoosingTextSourceState.getInstance();
 
+        Arrays.stream(migrator.getMigrator().getConfiguration().getLocations()).forEach(System.out::println);
+
+        migrator.getMigrator().baseline();
+        migrator.getMigrator().migrate();
+
         try {
             database.init();
         } catch (SQLException ex) {
             // TODO: Add handling logic here
             MainLogger.logSevere(ex);
         }
+
+
+
 
         addState(initialState);
 
@@ -71,6 +80,7 @@ public final class MainFSM extends StateMachine<MainFSMState> {
             database.closeConnection();
         } catch (SQLException ex) {
             // TODO: Add handling logic here
+            throw new RuntimeException("Something's wrong with SQL!\n" + ex.getMessage());
         }
 
         statesStack = null;

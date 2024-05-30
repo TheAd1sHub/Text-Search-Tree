@@ -51,6 +51,12 @@
             <version>2.20.0</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.flywaydb/flyway-maven-plugin -->
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-maven-plugin</artifactId>
+            <version>10.13.0</version>
+        </dependency>
 
     </dependencies>
 </project>
