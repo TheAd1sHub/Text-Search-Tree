@@ -10,7 +10,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
-public final class UrlFileDownloader {
+public final class UrlFileDownloader implements Loader {
 
     private final String resultingFilePath;
     private final URL readingSourceUrl;

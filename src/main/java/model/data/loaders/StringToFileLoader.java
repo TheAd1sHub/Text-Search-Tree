@@ -6,14 +6,14 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Iterator;
 
-public final class StringToFileLoader {
+public final class StringToFileLoader implements Loader {
 
     private final Iterator<String> dataIterator;
 
 
     public StringToFileLoader(String data) {
         this.dataIterator = new Iterator<String>() {
-            private String contents = data;
+            private final String contents = data;
             private boolean wasStringRead = false;
 
             @Override
