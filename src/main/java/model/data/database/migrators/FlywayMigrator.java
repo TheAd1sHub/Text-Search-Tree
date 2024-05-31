@@ -6,10 +6,11 @@ import org.jetbrains.annotations.Nullable;
 
 public class FlywayMigrator extends DatabaseMigrator<Flyway> {
 
-    private final Flyway flyway;
+    protected final Flyway flyway;
 
 
     public FlywayMigrator(@NotNull String dataSource,
+                          @NotNull String workingDirectory,
                           @Nullable String username,
                           @Nullable String password) {
 
@@ -25,6 +26,8 @@ public class FlywayMigrator extends DatabaseMigrator<Flyway> {
 
         flyway = Flyway
                 .configure()
+                .locations(workingDirectory)
+                //.workingDirectory(workingDirectory)
                 .dataSource(dataSource, username, password)
                 .load();
     }

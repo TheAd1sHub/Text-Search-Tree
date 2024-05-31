@@ -50,10 +50,13 @@ public final class MainFSM extends StateMachine<MainFSMState> {
 
         MainFSMState initialState = ChoosingTextSourceState.getInstance();
 
-        Arrays.stream(migrator.getMigrator().getConfiguration().getLocations()).forEach(System.out::println);
 
         migrator.getMigrator().baseline();
-        migrator.getMigrator().migrate();
+        migrator.getMigrator().migrate().migrations.forEach(System.out::println);
+
+        //migrator.getMigrator().migrate();
+
+        //System.out.println(migrator.getMigrator().getConfiguration().getWorkingDirectory());
 
         try {
             database.init();
