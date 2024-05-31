@@ -9,6 +9,7 @@ public final class SearchRequestEntry extends DatabaseEntry {
     public String token;
     public String source;
     public String result;
+    public int id;
 
 
     public SearchRequestEntry() {
@@ -16,19 +17,20 @@ public final class SearchRequestEntry extends DatabaseEntry {
     }
 
     public SearchRequestEntry(String destinationTableName, Date searchDate, String soughtForToken,
-                                        String searchSource, String searchResult) {
+                                        String searchSource, String searchResult, int entryId) {
         //super(destinationTableName);
 
         date = searchDate;
         token = soughtForToken;
         source = searchSource;
         result = searchResult;
+        id = entryId;
     }
 
     @Override
     public String toSQL() {
         return "('" + date.toString() + "', '" +
-                token + "', '" + source + "', '" +
-                result + "')";
+                token + "', '" + source + "','" +
+                result + "', " + id + ")";
     }
 }

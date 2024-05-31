@@ -1,0 +1,129 @@
+мая 31, 2024 9:18:35 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+мая 31, 2024 9:20:05 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+мая 31, 2024 9:23:08 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+мая 31, 2024 9:54:59 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+мая 31, 2024 9:57:17 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+мая 31, 2024 9:59:37 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+мая 31, 2024 10:00:32 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+мая 31, 2024 10:07:36 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+мая 31, 2024 10:09:50 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+мая 31, 2024 10:29:01 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+мая 31, 2024 10:31:04 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+мая 31, 2024 10:34:55 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+мая 31, 2024 10:41:32 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+мая 31, 2024 10:48:15 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+мая 31, 2024 10:50:08 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+мая 31, 2024 10:55:51 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+мая 31, 2024 11:08:12 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+мая 31, 2024 11:27:50 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+мая 31, 2024 11:35:18 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+мая 31, 2024 11:35:39 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+мая 31, 2024 11:35:42 AM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+org.flywaydb.core.api.FlywayException: Found more than one migration with version 2
+Offenders:
+-> C:\Users\yusere\Documents\Java Projects\Text Search Tree\src\main\resources\db\migration\V2_2__add_indexes_column.sql (SQL)
+-> C:\Users\yusere\Documents\Java Projects\Text Search Tree\src\main\resources\db\migration\V2_1__add_indexes_column.sql (SQL)
+	at org.flywaydb.core.internal.resolver.CompositeMigrationResolver.checkForIncompatibilities(CompositeMigrationResolver.java:94)
+	at org.flywaydb.core.internal.resolver.CompositeMigrationResolver.doFindAvailableMigrations(CompositeMigrationResolver.java:127)
+	at org.flywaydb.core.internal.resolver.CompositeMigrationResolver.resolveMigrations(CompositeMigrationResolver.java:114)
+	at org.flywaydb.core.internal.resolver.CompositeMigrationResolver.resolveMigrations(CompositeMigrationResolver.java:120)
+	at org.flywaydb.core.internal.info.MigrationInfoServiceImpl.refresh(MigrationInfoServiceImpl.java:86)
+	at org.flywaydb.core.internal.command.DbValidate.lambda$validate$0(DbValidate.java:112)
+	at org.flywaydb.core.internal.jdbc.TransactionalExecutionTemplate.execute(TransactionalExecutionTemplate.java:59)
+	at org.flywaydb.core.internal.command.DbValidate.validate(DbValidate.java:105)
+	at org.flywaydb.core.Flyway.doValidate(Flyway.java:428)
+	at org.flywaydb.core.Flyway.lambda$migrate$0(Flyway.java:167)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:210)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:156)
+	at model.states.main.MainFSM.initialize(MainFSM.java:55)
+	at Main.init(Main.java:24)
+	at Main.main(Main.java:11)
+
+мая 31, 2024 11:36:44 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+мая 31, 2024 12:12:49 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+мая 31, 2024 12:13:05 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+мая 31, 2024 12:13:26 PM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such column: search_date)
+	at org.sqlite.core.DB.newSQLException(DB.java:1179)
+	at org.sqlite.core.DB.newSQLException(DB.java:1190)
+	at org.sqlite.core.DB.throwex(DB.java:1150)
+	at org.sqlite.core.NativeDB._exec_utf8(Native Method)
+	at org.sqlite.core.NativeDB._exec(NativeDB.java:97)
+	at org.sqlite.jdbc3.JDBC3Statement.lambda$executeLargeUpdate$2(JDBC3Statement.java:135)
+	at org.sqlite.jdbc3.JDBC3Statement.withConnectionTimeout(JDBC3Statement.java:454)
+	at org.sqlite.jdbc3.JDBC3Statement.executeLargeUpdate(JDBC3Statement.java:122)
+	at org.sqlite.jdbc3.JDBC3Statement.executeUpdate(JDBC3Statement.java:109)
+	at model.data.database.connectors.DatabaseConnector.execute(DatabaseConnector.java:28)
+	at model.data.database.connectors.concrete.SearchTreeDBConnector.addEntry(SearchTreeDBConnector.java:63)
+	at model.states.main.TreeSearchingState.update(TreeSearchingState.java:53)
+	at model.states.StateMachine.update(StateMachine.java:46)
+	at model.states.main.MainFSM.update(MainFSM.java:127)
+	at Main.init(Main.java:27)
+	at Main.main(Main.java:11)
+
+мая 31, 2024 12:13:26 PM debug.logging.MainLogger logMessage
+INFO: App work finished
+
+мая 31, 2024 12:15:05 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+мая 31, 2024 12:15:17 PM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such column: token)
+	at org.sqlite.core.DB.newSQLException(DB.java:1179)
+	at org.sqlite.core.DB.newSQLException(DB.java:1190)
+	at org.sqlite.core.DB.throwex(DB.java:1150)
+	at org.sqlite.core.NativeDB._exec_utf8(Native Method)
+	at org.sqlite.core.NativeDB._exec(NativeDB.java:97)
+	at org.sqlite.jdbc3.JDBC3Statement.lambda$executeLargeUpdate$2(JDBC3Statement.java:135)
+	at org.sqlite.jdbc3.JDBC3Statement.withConnectionTimeout(JDBC3Statement.java:454)
+	at org.sqlite.jdbc3.JDBC3Statement.executeLargeUpdate(JDBC3Statement.java:122)
+	at org.sqlite.jdbc3.JDBC3Statement.executeUpdate(JDBC3Statement.java:109)
+	at model.data.database.connectors.DatabaseConnector.execute(DatabaseConnector.java:28)
+	at model.data.database.connectors.concrete.SearchTreeDBConnector.addEntry(SearchTreeDBConnector.java:63)
+	at model.states.main.TreeSearchingState.update(TreeSearchingState.java:53)
+	at model.states.StateMachine.update(StateMachine.java:46)
+	at model.states.main.MainFSM.update(MainFSM.java:127)
+	at Main.init(Main.java:27)
+	at Main.main(Main.java:11)
+
+мая 31, 2024 12:15:17 PM debug.logging.MainLogger logMessage
+INFO: App work finished
+
+мая 31, 2024 12:15:42 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+мая 31, 2024 12:15:56 PM debug.logging.MainLogger logMessage
+INFO: App work finished
+
+мая 31, 2024 12:27:38 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+мая 31, 2024 12:28:17 PM debug.logging.MainLogger logMessage
+INFO: App work finished
+
