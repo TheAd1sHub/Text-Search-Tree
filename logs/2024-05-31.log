@@ -63,3 +63,67 @@ Offenders:
 
 мая 31, 2024 11:36:44 AM debug.logging.MainLogger logMessage
 INFO: App initialized
+мая 31, 2024 12:12:49 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+мая 31, 2024 12:13:05 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+мая 31, 2024 12:13:26 PM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such column: search_date)
+	at org.sqlite.core.DB.newSQLException(DB.java:1179)
+	at org.sqlite.core.DB.newSQLException(DB.java:1190)
+	at org.sqlite.core.DB.throwex(DB.java:1150)
+	at org.sqlite.core.NativeDB._exec_utf8(Native Method)
+	at org.sqlite.core.NativeDB._exec(NativeDB.java:97)
+	at org.sqlite.jdbc3.JDBC3Statement.lambda$executeLargeUpdate$2(JDBC3Statement.java:135)
+	at org.sqlite.jdbc3.JDBC3Statement.withConnectionTimeout(JDBC3Statement.java:454)
+	at org.sqlite.jdbc3.JDBC3Statement.executeLargeUpdate(JDBC3Statement.java:122)
+	at org.sqlite.jdbc3.JDBC3Statement.executeUpdate(JDBC3Statement.java:109)
+	at model.data.database.connectors.DatabaseConnector.execute(DatabaseConnector.java:28)
+	at model.data.database.connectors.concrete.SearchTreeDBConnector.addEntry(SearchTreeDBConnector.java:63)
+	at model.states.main.TreeSearchingState.update(TreeSearchingState.java:53)
+	at model.states.StateMachine.update(StateMachine.java:46)
+	at model.states.main.MainFSM.update(MainFSM.java:127)
+	at Main.init(Main.java:27)
+	at Main.main(Main.java:11)
+
+мая 31, 2024 12:13:26 PM debug.logging.MainLogger logMessage
+INFO: App work finished
+
+мая 31, 2024 12:15:05 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+мая 31, 2024 12:15:17 PM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such column: token)
+	at org.sqlite.core.DB.newSQLException(DB.java:1179)
+	at org.sqlite.core.DB.newSQLException(DB.java:1190)
+	at org.sqlite.core.DB.throwex(DB.java:1150)
+	at org.sqlite.core.NativeDB._exec_utf8(Native Method)
+	at org.sqlite.core.NativeDB._exec(NativeDB.java:97)
+	at org.sqlite.jdbc3.JDBC3Statement.lambda$executeLargeUpdate$2(JDBC3Statement.java:135)
+	at org.sqlite.jdbc3.JDBC3Statement.withConnectionTimeout(JDBC3Statement.java:454)
+	at org.sqlite.jdbc3.JDBC3Statement.executeLargeUpdate(JDBC3Statement.java:122)
+	at org.sqlite.jdbc3.JDBC3Statement.executeUpdate(JDBC3Statement.java:109)
+	at model.data.database.connectors.DatabaseConnector.execute(DatabaseConnector.java:28)
+	at model.data.database.connectors.concrete.SearchTreeDBConnector.addEntry(SearchTreeDBConnector.java:63)
+	at model.states.main.TreeSearchingState.update(TreeSearchingState.java:53)
+	at model.states.StateMachine.update(StateMachine.java:46)
+	at model.states.main.MainFSM.update(MainFSM.java:127)
+	at Main.init(Main.java:27)
+	at Main.main(Main.java:11)
+
+мая 31, 2024 12:15:17 PM debug.logging.MainLogger logMessage
+INFO: App work finished
+
+мая 31, 2024 12:15:42 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+мая 31, 2024 12:15:56 PM debug.logging.MainLogger logMessage
+INFO: App work finished
+
+мая 31, 2024 12:27:38 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+мая 31, 2024 12:28:17 PM debug.logging.MainLogger logMessage
+INFO: App work finished
+
