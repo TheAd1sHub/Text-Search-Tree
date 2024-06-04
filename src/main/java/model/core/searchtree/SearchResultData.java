@@ -11,7 +11,7 @@ public final class SearchResultData {
 
     @Override
     public boolean equals(Object o) {
-        if (obj instanceof SearchResultData other) {
+        if (o instanceof SearchResultData other) {
             
             return this.value.equals(other.value) && this.index == other.index;
         }

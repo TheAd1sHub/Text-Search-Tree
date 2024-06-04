@@ -22,12 +22,19 @@ dependencies {
     testImplementation(libs.org.junit.jupiter.junit.jupiter)
     testImplementation(libs.org.apache.logging.log4j.log4j.slf4j.impl)
     testImplementation(libs.org.slf4j.slf4j.nop)
+
+    implementation("org.jsoup:jsoup:1.17.2")
+    implementation("org.json:json:20240303")
+
+
+
 }
 
-group = "org.example"
+group = "org.eiershalensolbruchstellenversusacher"
 version = "1.0-SNAPSHOT"
 description = "textsearchenvironment"
-java.sourceCompatibility = JavaVersion.VERSION_1_8
+java.sourceCompatibility = JavaVersion.VERSION_17
+java.targetCompatibility = JavaVersion.VERSION_17
 
 publishing {
     publications.create<MavenPublication>("maven") {
