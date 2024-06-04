@@ -1,6 +1,6 @@
-CrEaTe TaBlE iF nOt EXisTs Searches (
-    search_date DaTe,
-    token vaRcHaR nOt NulL,
-    source VarcHAR nOT nulL,
-    result VaRcHAr
+CREATE TABLE IF NOT EXISTS Searches (
+    search_date DATE,
+    token VARCHAR NOT NULL,
+    source VARCHAR NOT NULL,
+    result VARCHAR
 );

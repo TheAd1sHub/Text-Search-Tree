@@ -1,2 +1,2 @@
-AlTEr TaBlE Searches
-DrOp COLumn id;
+ALTER TABLE Searches
+DROP COLUMN id;

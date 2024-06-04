@@ -1,1 +1,1 @@
-DrOp tAbLE Searches;
+DROP TABLE Searches;

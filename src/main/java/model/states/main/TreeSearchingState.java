@@ -47,7 +47,6 @@ public final class TreeSearchingState extends MainFSMState
     public void update() throws InternalStateErrorException {
         List<SearchResultData> hits = searchComponents.tree.findWith(searchComponents.searchToken);
 
-        // TODO: Insert REAL formatted search result data
         try {
             stateMachine.database.getConstructedEntry().result = formatter.formatAll(hits);
             stateMachine.database.addEntry(stateMachine.database.getConstructedEntry());

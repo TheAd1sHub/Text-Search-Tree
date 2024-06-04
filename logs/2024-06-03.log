@@ -1,0 +1,446 @@
+июн. 03, 2024 10:22:33 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+июн. 03, 2024 10:22:46 AM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+org.flywaydb.core.api.FlywayException: Unable to parse statement in src\main\resources\db\migration\V3\V3__set_id_primary_key.sql at line 1 col 1. See https://rd.gt/3ipi7Pm for more information. Incomplete statement at line 1 col 1: BeGiN TraNsAcTiON;
+
+AlTeR TaBlE Searches ReNamE tO Searches_old;
+
+CReAtE TaBlE Searches (
+    id IntEgER nOT NuLL PriMaRy KeY,
+    search_date DaTe,
+    token vaRcHaR nOt NulL,
+    source VarcHAR nOT nUlL,
+    result VaRcHAr
+);
+
+InsErt IntO Searches selEcT * fRoM Searches_old;
+
+CommiT;
+	at org.flywaydb.core.internal.parser.Parser.getNextStatement(Parser.java:303)
+	at org.flywaydb.core.internal.parser.Parser$ParserSqlStatementIterator.next(Parser.java:737)
+	at org.flywaydb.core.internal.parser.Parser$ParserSqlStatementIterator.next(Parser.java:702)
+	at org.flywaydb.core.internal.sqlscript.ParserSqlScript.parse(ParserSqlScript.java:75)
+	at org.flywaydb.core.internal.sqlscript.ParserSqlScript.validate(ParserSqlScript.java:116)
+	at org.flywaydb.core.internal.sqlscript.ParserSqlScript.executeInTransaction(ParserSqlScript.java:181)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.canExecuteInTransaction(SqlMigrationExecutor.java:74)
+	at org.flywaydb.core.internal.command.DbMigrate.isExecuteGroupInTransaction(DbMigrate.java:307)
+	at org.flywaydb.core.internal.command.DbMigrate.applyMigrations(DbMigrate.java:272)
+	at org.flywaydb.core.internal.command.DbMigrate.migrateGroup(DbMigrate.java:249)
+	at org.flywaydb.core.internal.command.DbMigrate.lambda$migrateAll$0(DbMigrate.java:144)
+	at org.flywaydb.core.internal.jdbc.TableLockingExecutionTemplate$1.call(TableLockingExecutionTemplate.java:40)
+	at org.flywaydb.core.internal.jdbc.TransactionalExecutionTemplate.execute(TransactionalExecutionTemplate.java:59)
+	at org.flywaydb.core.internal.jdbc.TableLockingExecutionTemplate.execute(TableLockingExecutionTemplate.java:35)
+	at org.flywaydb.core.internal.database.base.Connection.lock(Connection.java:106)
+	at org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory.lock(JdbcTableSchemaHistory.java:149)
+	at org.flywaydb.core.internal.command.DbMigrate.migrateAll(DbMigrate.java:144)
+	at org.flywaydb.core.internal.command.DbMigrate.migrate(DbMigrate.java:102)
+	at org.flywaydb.core.Flyway.lambda$migrate$0(Flyway.java:211)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:210)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:156)
+	at model.states.main.MainFSM.initialize(MainFSM.java:55)
+	at Main.init(Main.java:24)
+	at Main.main(Main.java:11)
+Caused by: org.flywaydb.core.api.FlywayException: Incomplete statement at line 1 col 1: BeGiN TraNsAcTiON;
+
+AlTeR TaBlE Searches ReNamE tO Searches_old;
+
+CReAtE TaBlE Searches (
+    id IntEgER nOT NuLL PriMaRy KeY,
+    search_date DaTe,
+    token vaRcHaR nOt NulL,
+    source VarcHAR nOT nUlL,
+    result VaRcHAr
+);
+
+InsErt IntO Searches selEcT * fRoM Searches_old;
+
+CommiT;
+	at org.flywaydb.core.internal.parser.Parser.getNextStatement(Parser.java:239)
+	... 23 more
+
+июн. 03, 2024 10:25:12 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+июн. 03, 2024 10:25:16 AM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+org.flywaydb.core.api.FlywayException: Unable to parse statement in src\main\resources\db\migration\V3\V3__set_id_primary_key.sql at line 3 col 1. See https://rd.gt/3ipi7Pm for more information. Incomplete statement at line 3 col 1: 
+
+BeGiN TraNsAcTiON;
+
+AlTeR TaBlE Searches ReNamE tO Searches_old;
+
+CReAtE TaBlE Searches (
+    id IntEgER nOT NuLL PriMaRy KeY,
+    search_date DaTe,
+    token vaRcHaR nOt NulL,
+    source VarcHAR nOT nUlL,
+    result VaRcHAr
+);
+
+InsErt IntO Searches selEcT * fRoM Searches_old;
+
+CommiT;
+
+PrAgmA foreign_keys=oN;
+
+	at org.flywaydb.core.internal.parser.Parser.getNextStatement(Parser.java:303)
+	at org.flywaydb.core.internal.parser.Parser$ParserSqlStatementIterator.next(Parser.java:737)
+	at org.flywaydb.core.internal.parser.Parser$ParserSqlStatementIterator.next(Parser.java:702)
+	at org.flywaydb.core.internal.sqlscript.ParserSqlScript.parse(ParserSqlScript.java:75)
+	at org.flywaydb.core.internal.sqlscript.ParserSqlScript.validate(ParserSqlScript.java:116)
+	at org.flywaydb.core.internal.sqlscript.ParserSqlScript.executeInTransaction(ParserSqlScript.java:181)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.canExecuteInTransaction(SqlMigrationExecutor.java:74)
+	at org.flywaydb.core.internal.command.DbMigrate.isExecuteGroupInTransaction(DbMigrate.java:307)
+	at org.flywaydb.core.internal.command.DbMigrate.applyMigrations(DbMigrate.java:272)
+	at org.flywaydb.core.internal.command.DbMigrate.migrateGroup(DbMigrate.java:249)
+	at org.flywaydb.core.internal.command.DbMigrate.lambda$migrateAll$0(DbMigrate.java:144)
+	at org.flywaydb.core.internal.jdbc.TableLockingExecutionTemplate$1.call(TableLockingExecutionTemplate.java:40)
+	at org.flywaydb.core.internal.jdbc.TransactionalExecutionTemplate.execute(TransactionalExecutionTemplate.java:59)
+	at org.flywaydb.core.internal.jdbc.TableLockingExecutionTemplate.execute(TableLockingExecutionTemplate.java:35)
+	at org.flywaydb.core.internal.database.base.Connection.lock(Connection.java:106)
+	at org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory.lock(JdbcTableSchemaHistory.java:149)
+	at org.flywaydb.core.internal.command.DbMigrate.migrateAll(DbMigrate.java:144)
+	at org.flywaydb.core.internal.command.DbMigrate.migrate(DbMigrate.java:102)
+	at org.flywaydb.core.Flyway.lambda$migrate$0(Flyway.java:211)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:210)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:156)
+	at model.states.main.MainFSM.initialize(MainFSM.java:55)
+	at Main.init(Main.java:24)
+	at Main.main(Main.java:11)
+Caused by: org.flywaydb.core.api.FlywayException: Incomplete statement at line 3 col 1: 
+
+BeGiN TraNsAcTiON;
+
+AlTeR TaBlE Searches ReNamE tO Searches_old;
+
+CReAtE TaBlE Searches (
+    id IntEgER nOT NuLL PriMaRy KeY,
+    search_date DaTe,
+    token vaRcHaR nOt NulL,
+    source VarcHAR nOT nUlL,
+    result VaRcHAr
+);
+
+InsErt IntO Searches selEcT * fRoM Searches_old;
+
+CommiT;
+
+PrAgmA foreign_keys=oN;
+
+	at org.flywaydb.core.internal.parser.Parser.getNextStatement(Parser.java:239)
+	... 23 more
+
+июн. 03, 2024 10:27:03 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+июн. 03, 2024 10:27:07 AM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+org.flywaydb.core.api.FlywayException: Detected both transactional and non-transactional statements within the same migration (even though mixed is false). Offending statement found at line 5: -- BeGiN TraNsAcTiON; --
+
+AlTeR TaBlE Searches ReNamE tO Searches_old
+	at org.flywaydb.core.internal.sqlscript.ParserSqlScript.parse(ParserSqlScript.java:93)
+	at org.flywaydb.core.internal.sqlscript.ParserSqlScript.validate(ParserSqlScript.java:116)
+	at org.flywaydb.core.internal.sqlscript.ParserSqlScript.executeInTransaction(ParserSqlScript.java:181)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.canExecuteInTransaction(SqlMigrationExecutor.java:74)
+	at org.flywaydb.core.internal.command.DbMigrate.isExecuteGroupInTransaction(DbMigrate.java:307)
+	at org.flywaydb.core.internal.command.DbMigrate.applyMigrations(DbMigrate.java:272)
+	at org.flywaydb.core.internal.command.DbMigrate.migrateGroup(DbMigrate.java:249)
+	at org.flywaydb.core.internal.command.DbMigrate.lambda$migrateAll$0(DbMigrate.java:144)
+	at org.flywaydb.core.internal.jdbc.TableLockingExecutionTemplate$1.call(TableLockingExecutionTemplate.java:40)
+	at org.flywaydb.core.internal.jdbc.TransactionalExecutionTemplate.execute(TransactionalExecutionTemplate.java:59)
+	at org.flywaydb.core.internal.jdbc.TableLockingExecutionTemplate.execute(TableLockingExecutionTemplate.java:35)
+	at org.flywaydb.core.internal.database.base.Connection.lock(Connection.java:106)
+	at org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory.lock(JdbcTableSchemaHistory.java:149)
+	at org.flywaydb.core.internal.command.DbMigrate.migrateAll(DbMigrate.java:144)
+	at org.flywaydb.core.internal.command.DbMigrate.migrate(DbMigrate.java:102)
+	at org.flywaydb.core.Flyway.lambda$migrate$0(Flyway.java:211)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:210)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:156)
+	at model.states.main.MainFSM.initialize(MainFSM.java:55)
+	at Main.init(Main.java:24)
+	at Main.main(Main.java:11)
+
+июн. 03, 2024 10:27:31 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+июн. 03, 2024 10:27:34 AM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+org.flywaydb.core.api.FlywayException: Detected both transactional and non-transactional statements within the same migration (even though mixed is false). Offending statement found at line 3: AlTeR TaBlE Searches ReNamE tO Searches_old
+	at org.flywaydb.core.internal.sqlscript.ParserSqlScript.parse(ParserSqlScript.java:93)
+	at org.flywaydb.core.internal.sqlscript.ParserSqlScript.validate(ParserSqlScript.java:116)
+	at org.flywaydb.core.internal.sqlscript.ParserSqlScript.executeInTransaction(ParserSqlScript.java:181)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.canExecuteInTransaction(SqlMigrationExecutor.java:74)
+	at org.flywaydb.core.internal.command.DbMigrate.isExecuteGroupInTransaction(DbMigrate.java:307)
+	at org.flywaydb.core.internal.command.DbMigrate.applyMigrations(DbMigrate.java:272)
+	at org.flywaydb.core.internal.command.DbMigrate.migrateGroup(DbMigrate.java:249)
+	at org.flywaydb.core.internal.command.DbMigrate.lambda$migrateAll$0(DbMigrate.java:144)
+	at org.flywaydb.core.internal.jdbc.TableLockingExecutionTemplate$1.call(TableLockingExecutionTemplate.java:40)
+	at org.flywaydb.core.internal.jdbc.TransactionalExecutionTemplate.execute(TransactionalExecutionTemplate.java:59)
+	at org.flywaydb.core.internal.jdbc.TableLockingExecutionTemplate.execute(TableLockingExecutionTemplate.java:35)
+	at org.flywaydb.core.internal.database.base.Connection.lock(Connection.java:106)
+	at org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory.lock(JdbcTableSchemaHistory.java:149)
+	at org.flywaydb.core.internal.command.DbMigrate.migrateAll(DbMigrate.java:144)
+	at org.flywaydb.core.internal.command.DbMigrate.migrate(DbMigrate.java:102)
+	at org.flywaydb.core.Flyway.lambda$migrate$0(Flyway.java:211)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:210)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:156)
+	at model.states.main.MainFSM.initialize(MainFSM.java:55)
+	at Main.init(Main.java:24)
+	at Main.main(Main.java:11)
+
+июн. 03, 2024 10:27:42 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+июн. 03, 2024 10:27:45 AM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+org.flywaydb.core.api.FlywayException: Detected both transactional and non-transactional statements within the same migration (even though mixed is false). Offending statement found at line 3: AlTeR TaBlE Searches ReNamE tO Searches_old
+	at org.flywaydb.core.internal.sqlscript.ParserSqlScript.parse(ParserSqlScript.java:93)
+	at org.flywaydb.core.internal.sqlscript.ParserSqlScript.validate(ParserSqlScript.java:116)
+	at org.flywaydb.core.internal.sqlscript.ParserSqlScript.executeInTransaction(ParserSqlScript.java:181)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.canExecuteInTransaction(SqlMigrationExecutor.java:74)
+	at org.flywaydb.core.internal.command.DbMigrate.isExecuteGroupInTransaction(DbMigrate.java:307)
+	at org.flywaydb.core.internal.command.DbMigrate.applyMigrations(DbMigrate.java:272)
+	at org.flywaydb.core.internal.command.DbMigrate.migrateGroup(DbMigrate.java:249)
+	at org.flywaydb.core.internal.command.DbMigrate.lambda$migrateAll$0(DbMigrate.java:144)
+	at org.flywaydb.core.internal.jdbc.TableLockingExecutionTemplate$1.call(TableLockingExecutionTemplate.java:40)
+	at org.flywaydb.core.internal.jdbc.TransactionalExecutionTemplate.execute(TransactionalExecutionTemplate.java:59)
+	at org.flywaydb.core.internal.jdbc.TableLockingExecutionTemplate.execute(TableLockingExecutionTemplate.java:35)
+	at org.flywaydb.core.internal.database.base.Connection.lock(Connection.java:106)
+	at org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory.lock(JdbcTableSchemaHistory.java:149)
+	at org.flywaydb.core.internal.command.DbMigrate.migrateAll(DbMigrate.java:144)
+	at org.flywaydb.core.internal.command.DbMigrate.migrate(DbMigrate.java:102)
+	at org.flywaydb.core.Flyway.lambda$migrate$0(Flyway.java:211)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:210)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:156)
+	at model.states.main.MainFSM.initialize(MainFSM.java:55)
+	at Main.init(Main.java:24)
+	at Main.main(Main.java:11)
+
+июн. 03, 2024 10:32:04 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+июн. 03, 2024 10:32:07 AM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+org.flywaydb.core.api.FlywayException: Unable to parse statement in src\main\resources\db\migration\V3\V3__set_id_primary_key.sql at line 3 col 1. See https://rd.gt/3ipi7Pm for more information. Incomplete statement at line 3 col 1: 
+
+BeGiN TraNsAcTiON;
+
+AlTeR TaBlE Searches
+    ReNamE tO Searches_old;
+
+CReAtE TaBlE Searches (
+    id IntEgER nOT NuLL PriMaRy KeY,
+    search_date DaTe,
+    token vaRcHaR nOt NulL,
+    source VarcHAR nOT nUlL,
+    result VaRcHAr
+);
+
+InsErt IntO Searches selEcT * fRoM Searches_old;
+
+CommiT;
+
+PrAgmA foreign_keys=oN;
+
+	at org.flywaydb.core.internal.parser.Parser.getNextStatement(Parser.java:303)
+	at org.flywaydb.core.internal.parser.Parser$ParserSqlStatementIterator.next(Parser.java:737)
+	at org.flywaydb.core.internal.parser.Parser$ParserSqlStatementIterator.next(Parser.java:702)
+	at org.flywaydb.core.internal.sqlscript.ParserSqlScript.parse(ParserSqlScript.java:75)
+	at org.flywaydb.core.internal.sqlscript.ParserSqlScript.validate(ParserSqlScript.java:116)
+	at org.flywaydb.core.internal.sqlscript.ParserSqlScript.executeInTransaction(ParserSqlScript.java:181)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.canExecuteInTransaction(SqlMigrationExecutor.java:74)
+	at org.flywaydb.core.internal.command.DbMigrate.isExecuteGroupInTransaction(DbMigrate.java:307)
+	at org.flywaydb.core.internal.command.DbMigrate.applyMigrations(DbMigrate.java:272)
+	at org.flywaydb.core.internal.command.DbMigrate.migrateGroup(DbMigrate.java:249)
+	at org.flywaydb.core.internal.command.DbMigrate.lambda$migrateAll$0(DbMigrate.java:144)
+	at org.flywaydb.core.internal.jdbc.TableLockingExecutionTemplate$1.call(TableLockingExecutionTemplate.java:40)
+	at org.flywaydb.core.internal.jdbc.TransactionalExecutionTemplate.execute(TransactionalExecutionTemplate.java:59)
+	at org.flywaydb.core.internal.jdbc.TableLockingExecutionTemplate.execute(TableLockingExecutionTemplate.java:35)
+	at org.flywaydb.core.internal.database.base.Connection.lock(Connection.java:106)
+	at org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory.lock(JdbcTableSchemaHistory.java:149)
+	at org.flywaydb.core.internal.command.DbMigrate.migrateAll(DbMigrate.java:144)
+	at org.flywaydb.core.internal.command.DbMigrate.migrate(DbMigrate.java:102)
+	at org.flywaydb.core.Flyway.lambda$migrate$0(Flyway.java:211)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:210)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:156)
+	at model.states.main.MainFSM.initialize(MainFSM.java:55)
+	at Main.init(Main.java:24)
+	at Main.main(Main.java:11)
+Caused by: org.flywaydb.core.api.FlywayException: Incomplete statement at line 3 col 1: 
+
+BeGiN TraNsAcTiON;
+
+AlTeR TaBlE Searches
+    ReNamE tO Searches_old;
+
+CReAtE TaBlE Searches (
+    id IntEgER nOT NuLL PriMaRy KeY,
+    search_date DaTe,
+    token vaRcHaR nOt NulL,
+    source VarcHAR nOT nUlL,
+    result VaRcHAr
+);
+
+InsErt IntO Searches selEcT * fRoM Searches_old;
+
+CommiT;
+
+PrAgmA foreign_keys=oN;
+
+	at org.flywaydb.core.internal.parser.Parser.getNextStatement(Parser.java:239)
+	... 23 more
+
+июн. 03, 2024 10:32:25 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+июн. 03, 2024 10:32:29 AM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+org.flywaydb.core.internal.command.DbMigrate$FlywayMigrateException: Script V3__set_id_primary_key.sql failed
+----------------------------------------
+SQL State  : null
+Error Code : 20
+Message    : [SQLITE_MISMATCH] Data type mismatch (datatype mismatch)
+Location   : src\main\resources\db\migration\V3\V3__set_id_primary_key.sql (C:\Users\yusere\Documents\Java Projects\Text Search Tree\src\main\resources\db\migration\V3\V3__set_id_primary_key.sql)
+Line       : 14
+Statement  : Run Flyway with -X option to see the actual statement causing the problem
+
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:387)
+	at org.flywaydb.core.internal.command.DbMigrate.applyMigrations(DbMigrate.java:281)
+	at org.flywaydb.core.internal.command.DbMigrate.migrateGroup(DbMigrate.java:249)
+	at org.flywaydb.core.internal.command.DbMigrate.lambda$migrateAll$0(DbMigrate.java:144)
+	at org.flywaydb.core.internal.jdbc.TableLockingExecutionTemplate$1.call(TableLockingExecutionTemplate.java:40)
+	at org.flywaydb.core.internal.jdbc.TransactionalExecutionTemplate.execute(TransactionalExecutionTemplate.java:59)
+	at org.flywaydb.core.internal.jdbc.TableLockingExecutionTemplate.execute(TableLockingExecutionTemplate.java:35)
+	at org.flywaydb.core.internal.database.base.Connection.lock(Connection.java:106)
+	at org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory.lock(JdbcTableSchemaHistory.java:149)
+	at org.flywaydb.core.internal.command.DbMigrate.migrateAll(DbMigrate.java:144)
+	at org.flywaydb.core.internal.command.DbMigrate.migrate(DbMigrate.java:102)
+	at org.flywaydb.core.Flyway.lambda$migrate$0(Flyway.java:211)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:210)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:156)
+	at model.states.main.MainFSM.initialize(MainFSM.java:55)
+	at Main.init(Main.java:24)
+	at Main.main(Main.java:11)
+Caused by: org.flywaydb.core.internal.sqlscript.FlywaySqlScriptException: Script V3__set_id_primary_key.sql failed
+----------------------------------------
+SQL State  : null
+Error Code : 20
+Message    : [SQLITE_MISMATCH] Data type mismatch (datatype mismatch)
+Location   : src\main\resources\db\migration\V3\V3__set_id_primary_key.sql (C:\Users\yusere\Documents\Java Projects\Text Search Tree\src\main\resources\db\migration\V3\V3__set_id_primary_key.sql)
+Line       : 14
+Statement  : Run Flyway with -X option to see the actual statement causing the problem
+
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.handleException(DefaultSqlScriptExecutor.java:252)
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:214)
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.execute(DefaultSqlScriptExecutor.java:136)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.executeOnce(SqlMigrationExecutor.java:69)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.lambda$execute$0(SqlMigrationExecutor.java:61)
+	at org.flywaydb.core.internal.database.DefaultExecutionStrategy.execute(DefaultExecutionStrategy.java:31)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.execute(SqlMigrationExecutor.java:60)
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:379)
+	... 16 more
+Caused by: org.sqlite.SQLiteException: [SQLITE_MISMATCH] Data type mismatch (datatype mismatch)
+	at org.sqlite.core.DB.newSQLException(DB.java:1179)
+	at org.sqlite.core.DB.newSQLException(DB.java:1190)
+	at org.sqlite.core.DB.execute(DB.java:988)
+	at org.sqlite.core.CoreStatement.exec(CoreStatement.java:91)
+	at org.sqlite.jdbc3.JDBC3Statement.lambda$execute$0(JDBC3Statement.java:55)
+	at org.sqlite.jdbc3.JDBC3Statement.withConnectionTimeout(JDBC3Statement.java:454)
+	at org.sqlite.jdbc3.JDBC3Statement.execute(JDBC3Statement.java:43)
+	at org.flywaydb.core.internal.jdbc.JdbcTemplate.executeStatement(JdbcTemplate.java:210)
+	at org.flywaydb.core.internal.sqlscript.ParsedSqlStatement.execute(ParsedSqlStatement.java:88)
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:209)
+	... 22 more
+
+июн. 03, 2024 11:41:59 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+июн. 03, 2024 11:42:01 AM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+org.flywaydb.core.internal.command.DbMigrate$FlywayMigrateException: Script V3__set_id_primary_key.sql failed
+----------------------------------------
+SQL State  : null
+Error Code : 1
+Message    : [SQLITE_ERROR] SQL error or missing database (there is already another table or index with this name: Searches_old)
+Location   : src\main\resources\db\migration\V3\V3__set_id_primary_key.sql (C:\Users\yusere\Documents\Java Projects\Text Search Tree\src\main\resources\db\migration\V3\V3__set_id_primary_key.sql)
+Line       : 3
+Statement  : Run Flyway with -X option to see the actual statement causing the problem
+
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:387)
+	at org.flywaydb.core.internal.command.DbMigrate.applyMigrations(DbMigrate.java:281)
+	at org.flywaydb.core.internal.command.DbMigrate.migrateGroup(DbMigrate.java:249)
+	at org.flywaydb.core.internal.command.DbMigrate.lambda$migrateAll$0(DbMigrate.java:144)
+	at org.flywaydb.core.internal.jdbc.TableLockingExecutionTemplate$1.call(TableLockingExecutionTemplate.java:40)
+	at org.flywaydb.core.internal.jdbc.TransactionalExecutionTemplate.execute(TransactionalExecutionTemplate.java:59)
+	at org.flywaydb.core.internal.jdbc.TableLockingExecutionTemplate.execute(TableLockingExecutionTemplate.java:35)
+	at org.flywaydb.core.internal.database.base.Connection.lock(Connection.java:106)
+	at org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory.lock(JdbcTableSchemaHistory.java:149)
+	at org.flywaydb.core.internal.command.DbMigrate.migrateAll(DbMigrate.java:144)
+	at org.flywaydb.core.internal.command.DbMigrate.migrate(DbMigrate.java:102)
+	at org.flywaydb.core.Flyway.lambda$migrate$0(Flyway.java:211)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:210)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:156)
+	at model.states.main.MainFSM.initialize(MainFSM.java:55)
+	at Main.init(Main.java:24)
+	at Main.main(Main.java:11)
+Caused by: org.flywaydb.core.internal.sqlscript.FlywaySqlScriptException: Script V3__set_id_primary_key.sql failed
+----------------------------------------
+SQL State  : null
+Error Code : 1
+Message    : [SQLITE_ERROR] SQL error or missing database (there is already another table or index with this name: Searches_old)
+Location   : src\main\resources\db\migration\V3\V3__set_id_primary_key.sql (C:\Users\yusere\Documents\Java Projects\Text Search Tree\src\main\resources\db\migration\V3\V3__set_id_primary_key.sql)
+Line       : 3
+Statement  : Run Flyway with -X option to see the actual statement causing the problem
+
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.handleException(DefaultSqlScriptExecutor.java:252)
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:214)
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.execute(DefaultSqlScriptExecutor.java:136)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.executeOnce(SqlMigrationExecutor.java:69)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.lambda$execute$0(SqlMigrationExecutor.java:61)
+	at org.flywaydb.core.internal.database.DefaultExecutionStrategy.execute(DefaultExecutionStrategy.java:31)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.execute(SqlMigrationExecutor.java:60)
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:379)
+	... 16 more
+Caused by: org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (there is already another table or index with this name: Searches_old)
+	at org.sqlite.core.DB.newSQLException(DB.java:1179)
+	at org.sqlite.core.DB.newSQLException(DB.java:1190)
+	at org.sqlite.core.DB.throwex(DB.java:1150)
+	at org.sqlite.core.NativeDB.prepare_utf8(Native Method)
+	at org.sqlite.core.NativeDB.prepare(NativeDB.java:132)
+	at org.sqlite.core.DB.prepare(DB.java:264)
+	at org.sqlite.jdbc3.JDBC3Statement.lambda$execute$0(JDBC3Statement.java:54)
+	at org.sqlite.jdbc3.JDBC3Statement.withConnectionTimeout(JDBC3Statement.java:454)
+	at org.sqlite.jdbc3.JDBC3Statement.execute(JDBC3Statement.java:43)
+	at org.flywaydb.core.internal.jdbc.JdbcTemplate.executeStatement(JdbcTemplate.java:210)
+	at org.flywaydb.core.internal.sqlscript.ParsedSqlStatement.execute(ParsedSqlStatement.java:88)
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:209)
+	... 22 more
+
+июн. 03, 2024 11:43:27 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+июн. 03, 2024 11:43:29 AM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+org.flywaydb.core.api.exception.FlywayValidateException: Validate failed: Migrations have failed validation
+Detected failed migration to version 3 (set id primary key).
+Please remove any half-completed changes then run repair to fix the schema history.
+Need more flexibility with validation rules? Learn more: https://rd.gt/3AbJUZE
+	at org.flywaydb.core.Flyway.lambda$migrate$0(Flyway.java:169)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:210)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:156)
+	at model.states.main.MainFSM.initialize(MainFSM.java:55)
+	at Main.init(Main.java:24)
+	at Main.main(Main.java:11)
+
+июн. 03, 2024 11:44:05 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+июн. 03, 2024 11:44:52 AM debug.logging.MainLogger logMessage
+INFO: App work finished
+
+июн. 03, 2024 11:52:04 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+июн. 03, 2024 11:52:45 AM debug.logging.MainLogger logMessage
+INFO: App work finished
+

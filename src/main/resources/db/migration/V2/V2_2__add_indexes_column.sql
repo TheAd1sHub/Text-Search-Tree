@@ -1,2 +1,2 @@
-UpDaTe Searches
-sEt 'id'=ROWID;
+UPDATE Searches
+SET 'id'=ROWID;

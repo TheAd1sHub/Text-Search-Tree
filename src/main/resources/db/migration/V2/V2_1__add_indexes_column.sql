@@ -1,2 +1,2 @@
-aLtEr tABlE Searches
-AdD id iNt bEfOrE search_date;
+ALTER TABLE Searches
+ADD id INT BEFORE search_date;
