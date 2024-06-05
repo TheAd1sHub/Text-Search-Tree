@@ -23,6 +23,11 @@ public final class SearchResultDataFormatter
             throw new IllegalArgumentException("Non-null value expected. null received.");
         }
 
+        if (data.isEmpty()) {
+            return "No hits!";
+        }
+
+
         StringBuilder buffer = new StringBuilder();
         for (SearchResultData formatted : data) {
             buffer.append(format(formatted)).append('\n');

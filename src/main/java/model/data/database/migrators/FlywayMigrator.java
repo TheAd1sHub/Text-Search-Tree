@@ -16,6 +16,7 @@ public class FlywayMigrator extends DatabaseMigrator<Flyway> {
 
         super(dataSource, username, password);
 
+
         if (username == null) {
             username = "";
         }
@@ -27,7 +28,7 @@ public class FlywayMigrator extends DatabaseMigrator<Flyway> {
         flyway = Flyway
                 .configure()
                 .locations(workingDirectory)
-                //.workingDirectory(workingDirectory)
+                .mixed(true)
                 .dataSource(dataSource, username, password)
                 .load();
     }

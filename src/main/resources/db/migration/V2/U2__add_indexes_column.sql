@@ -1,0 +1,2 @@
+ALTER TABLE Searches
+DROP COLUMN id;
