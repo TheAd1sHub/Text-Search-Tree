@@ -6,6 +6,11 @@ plugins {
     `java-library`
     `maven-publish`
     id("org.flywaydb.flyway") version "10.14.0"
+    base
+}
+
+base {
+
 }
 
 repositories {
@@ -23,14 +28,14 @@ dependencies {
     testImplementation(libs.org.junit.jupiter.junit.jupiter)
     testImplementation(libs.org.apache.logging.log4j.log4j.slf4j.impl)
     testImplementation(libs.org.slf4j.slf4j.nop)
+    testImplementation("org.slf4j:slf4j-simple:2.0.12")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
 
     implementation("org.jsoup:jsoup:1.17.2")
     implementation("org.json:json:20240303")
 
-
-
-
 }
+
 
 group = "org.eiershalensolbruchstellenversusacher"
 version = "1.0-SNAPSHOT"

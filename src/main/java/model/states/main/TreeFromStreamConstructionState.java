@@ -41,6 +41,8 @@ public final class TreeFromStreamConstructionState extends MainFSMState
         List<String> words;
         while (reader.hasNext()) {
             String nextLine = reader.next();
+
+            System.out.println(nextLine);
             
             if (nextLine != null) {
                 words = TextParser.getWords(nextLine);
@@ -48,12 +50,15 @@ public final class TreeFromStreamConstructionState extends MainFSMState
             }
         }
 
+        System.out.println(tree.toString());
+
     }
 
     @Override
     public void update() throws InternalStateErrorException {
 
         stateMachine.setState(SoughtForTokenRequestState.getInstance(tree));
+
     }
 
     @Override

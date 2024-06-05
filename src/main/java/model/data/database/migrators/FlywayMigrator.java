@@ -27,11 +27,9 @@ public class FlywayMigrator extends DatabaseMigrator<Flyway> {
         flyway = Flyway
                 .configure()
                 .locations(workingDirectory)
-                //.workingDirectory(workingDirectory)
                 .dataSource(dataSource, username, password)
+                //.validateMigrationNaming(true) // uncomment to see which scripts are named against the convention
                 .load();
-
-        flyway.repair();
     }
 
     @Override

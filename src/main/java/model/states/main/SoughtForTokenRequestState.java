@@ -48,7 +48,7 @@ public final class SoughtForTokenRequestState extends MainFSMState
     @Override
     public void update() throws InternalStateErrorException {
         messagePrinter.printInputRequest();
-        String userInput = inputReader.readLine();
+        String userInput = inputReader.readLine().trim();
 
         stateMachine.database.getConstructedEntry().token = userInput;
         stateMachine.setState(TreeSearchingState.getInstance(tree, userInput));

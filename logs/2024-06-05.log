@@ -165,3 +165,207 @@ INFO: App initialized
 Jun 05, 2024 12:36:29 PM debug.logging.MainLogger logMessage
 INFO: App work finished
 
+Jun 05, 2024 12:41:35 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+Jun 05, 2024 12:41:50 PM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+java.util.NoSuchElementException: No line found
+	at java.base/java.util.Scanner.nextLine(Scanner.java:1651)
+	at controller.ConsoleInputReader.readLine(ConsoleInputReader.java:15)
+	at model.states.main.ChoosingTextSourceState.update(ChoosingTextSourceState.java:53)
+	at model.states.StateMachine.update(StateMachine.java:46)
+	at model.states.main.MainFSM.update(MainFSM.java:127)
+	at Main.init(Main.java:27)
+	at Main.main(Main.java:11)
+
+Jun 05, 2024 12:41:50 PM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+model.input.exceptions.InvalidInputException: Cannot get correct value from the given input.
+	at model.input.interpreters.IntegerInputInterpreter.interpret(IntegerInputInterpreter.java:13)
+	at model.states.main.ChoosingTextSourceState.update(ChoosingTextSourceState.java:57)
+	at model.states.StateMachine.update(StateMachine.java:46)
+	at model.states.main.MainFSM.update(MainFSM.java:127)
+	at Main.init(Main.java:27)
+	at Main.main(Main.java:11)
+
+Jun 05, 2024 12:53:29 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+Jun 05, 2024 12:53:40 PM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+model.input.exceptions.InvalidInputException: Cannot get correct value from the given input.
+	at model.input.interpreters.IntegerInputInterpreter.interpret(IntegerInputInterpreter.java:13)
+	at model.states.main.ChoosingTextSourceState.update(ChoosingTextSourceState.java:57)
+	at model.states.StateMachine.update(StateMachine.java:46)
+	at model.states.main.MainFSM.update(MainFSM.java:127)
+	at Main.init(Main.java:27)
+	at Main.main(Main.java:11)
+
+Jun 05, 2024 1:05:52 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+Jun 05, 2024 1:11:40 PM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+java.util.NoSuchElementException: No line found
+	at java.base/java.util.Scanner.nextLine(Scanner.java:1651)
+	at controller.ConsoleInputReader.readLine(ConsoleInputReader.java:15)
+	at model.states.main.WebContentReadingPreparationState.update(WebContentReadingPreparationState.java:69)
+	at model.states.StateMachine.update(StateMachine.java:46)
+	at model.states.main.MainFSM.update(MainFSM.java:127)
+	at Main.init(Main.java:27)
+	at Main.main(Main.java:11)
+
+Jun 05, 2024 1:12:02 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+Jun 05, 2024 1:12:07 PM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+org.flywaydb.core.api.FlywayException: Invalid SQL filenames found:
+Unrecognised migration name format: U1__create_searches_table.sql
+Unrecognised migration name format: U2__add_indexes_column.sql
+Unrecognised migration name format: U3__set_id_primary_key.sql
+	at org.flywaydb.core.internal.resource.ResourceNameValidator.validateSQLMigrationNaming(ResourceNameValidator.java:65)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:136)
+	at org.flywaydb.core.Flyway.baseline(Flyway.java:343)
+	at model.states.main.MainFSM.initialize(MainFSM.java:54)
+	at Main.init(Main.java:24)
+	at Main.main(Main.java:11)
+
+Jun 05, 2024 3:05:13 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+Jun 05, 2024 3:07:57 PM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+java.util.NoSuchElementException: No line found
+	at java.base/java.util.Scanner.nextLine(Scanner.java:1651)
+	at controller.ConsoleInputReader.readLine(ConsoleInputReader.java:15)
+	at model.states.main.ChoosingTextSourceState.update(ChoosingTextSourceState.java:53)
+	at model.states.StateMachine.update(StateMachine.java:46)
+	at model.states.main.MainFSM.update(MainFSM.java:127)
+	at Main.init(Main.java:26)
+	at Main.main(Main.java:11)
+
+Jun 05, 2024 3:07:57 PM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+model.input.exceptions.InvalidInputException: Cannot get correct value from the given input.
+	at model.input.interpreters.IntegerInputInterpreter.interpret(IntegerInputInterpreter.java:13)
+	at model.states.main.ChoosingTextSourceState.update(ChoosingTextSourceState.java:57)
+	at model.states.StateMachine.update(StateMachine.java:46)
+	at model.states.main.MainFSM.update(MainFSM.java:127)
+	at Main.init(Main.java:26)
+	at Main.main(Main.java:11)
+
+Jun 05, 2024 3:13:16 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+Jun 05, 2024 3:13:53 PM debug.logging.MainLogger logMessage
+INFO: App work finished
+
+Jun 05, 2024 4:19:56 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+Jun 05, 2024 4:20:28 PM debug.logging.MainLogger logMessage
+INFO: App work finished
+
+Jun 05, 2024 4:27:08 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+Jun 05, 2024 4:27:24 PM debug.logging.MainLogger logMessage
+INFO: App work finished
+
+Jun 05, 2024 4:27:48 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+Jun 05, 2024 4:28:47 PM debug.logging.MainLogger logMessage
+INFO: App work finished
+
+Jun 05, 2024 4:31:14 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+Jun 05, 2024 4:31:48 PM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+java.util.NoSuchElementException: No line found
+	at java.base/java.util.Scanner.nextLine(Scanner.java:1651)
+	at controller.ConsoleInputReader.readLine(ConsoleInputReader.java:15)
+	at model.states.main.SoughtForTokenRequestState.update(SoughtForTokenRequestState.java:51)
+	at model.states.StateMachine.update(StateMachine.java:46)
+	at model.states.main.MainFSM.update(MainFSM.java:127)
+	at Main.init(Main.java:35)
+	at Main.main(Main.java:20)
+
+Jun 05, 2024 4:31:55 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+Jun 05, 2024 4:32:42 PM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+java.util.NoSuchElementException: No line found
+	at java.base/java.util.Scanner.nextLine(Scanner.java:1651)
+	at controller.ConsoleInputReader.readLine(ConsoleInputReader.java:15)
+	at model.states.main.SoughtForTokenRequestState.update(SoughtForTokenRequestState.java:51)
+	at model.states.StateMachine.update(StateMachine.java:46)
+	at model.states.main.MainFSM.update(MainFSM.java:127)
+	at Main.init(Main.java:35)
+	at Main.main(Main.java:20)
+
+Jun 05, 2024 4:32:47 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+Jun 05, 2024 4:33:18 PM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+java.util.NoSuchElementException: No line found
+	at java.base/java.util.Scanner.nextLine(Scanner.java:1651)
+	at controller.ConsoleInputReader.readLine(ConsoleInputReader.java:15)
+	at model.states.main.SoughtForTokenRequestState.update(SoughtForTokenRequestState.java:51)
+	at model.states.StateMachine.update(StateMachine.java:46)
+	at model.states.main.MainFSM.update(MainFSM.java:127)
+	at Main.init(Main.java:35)
+	at Main.main(Main.java:20)
+
+Jun 05, 2024 4:33:32 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+Jun 05, 2024 4:34:45 PM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+java.util.NoSuchElementException: No line found
+	at java.base/java.util.Scanner.nextLine(Scanner.java:1651)
+	at controller.ConsoleInputReader.readLine(ConsoleInputReader.java:15)
+	at model.states.main.SoughtForTokenRequestState.update(SoughtForTokenRequestState.java:51)
+	at model.states.StateMachine.update(StateMachine.java:46)
+	at model.states.main.MainFSM.update(MainFSM.java:127)
+	at Main.init(Main.java:35)
+	at Main.main(Main.java:20)
+
+Jun 05, 2024 4:34:52 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+Jun 05, 2024 4:35:24 PM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+java.util.NoSuchElementException: No line found
+	at java.base/java.util.Scanner.nextLine(Scanner.java:1651)
+	at controller.ConsoleInputReader.readLine(ConsoleInputReader.java:15)
+	at model.states.main.SoughtForTokenRequestState.update(SoughtForTokenRequestState.java:51)
+	at model.states.StateMachine.update(StateMachine.java:46)
+	at model.states.main.MainFSM.update(MainFSM.java:127)
+	at Main.init(Main.java:35)
+	at Main.main(Main.java:20)
+
+Jun 05, 2024 4:35:31 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+Jun 05, 2024 5:19:35 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+Jun 05, 2024 5:24:22 PM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+java.util.NoSuchElementException: No line found
+	at java.base/java.util.Scanner.nextLine(Scanner.java:1651)
+	at controller.ConsoleInputReader.readLine(ConsoleInputReader.java:15)
+	at model.states.main.SoughtForTokenRequestState.update(SoughtForTokenRequestState.java:51)
+	at model.states.StateMachine.update(StateMachine.java:46)
+	at model.states.main.MainFSM.update(MainFSM.java:127)
+	at Main.init(Main.java:35)
+	at Main.main(Main.java:20)
+
+июн. 05, 2024 5:25:08 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+июн. 05, 2024 5:25:39 PM debug.logging.MainLogger logMessage
+INFO: App work finished
+
