@@ -30,6 +30,8 @@ public class FlywayMigrator extends DatabaseMigrator<Flyway> {
                 //.workingDirectory(workingDirectory)
                 .dataSource(dataSource, username, password)
                 .load();
+
+        flyway.
     }
 
     @Override
