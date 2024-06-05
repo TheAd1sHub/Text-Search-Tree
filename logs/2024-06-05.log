@@ -1,0 +1,140 @@
+Jun 05, 2024 10:18:58 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+Jun 05, 2024 10:19:02 AM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+org.flywaydb.core.api.exception.FlywayValidateException: Validate failed: Migrations have failed validation
+Migration checksum mismatch for migration version 2.1
+-> Applied to database : -1769165319
+-> Resolved locally    : -612684510
+Either revert the changes to the migration, or run repair to update the schema history.
+Migration checksum mismatch for migration version 2.2
+-> Applied to database : -1007615497
+-> Resolved locally    : 577597601
+Either revert the changes to the migration, or run repair to update the schema history.
+Need more flexibility with validation rules? Learn more: https://rd.gt/3AbJUZE
+	at org.flywaydb.core.Flyway.lambda$migrate$0(Flyway.java:169)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:210)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:156)
+	at model.states.main.MainFSM.initialize(MainFSM.java:55)
+	at Main.init(Main.java:24)
+	at Main.main(Main.java:11)
+
+Jun 05, 2024 10:19:21 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+Jun 05, 2024 10:19:22 AM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+org.flywaydb.core.api.exception.FlywayValidateException: Validate failed: Migrations have failed validation
+Migration checksum mismatch for migration version 2.1
+-> Applied to database : -1769165319
+-> Resolved locally    : -612684510
+Either revert the changes to the migration, or run repair to update the schema history.
+Migration checksum mismatch for migration version 2.2
+-> Applied to database : -1007615497
+-> Resolved locally    : 577597601
+Either revert the changes to the migration, or run repair to update the schema history.
+Need more flexibility with validation rules? Learn more: https://rd.gt/3AbJUZE
+	at org.flywaydb.core.Flyway.lambda$migrate$0(Flyway.java:169)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:210)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:156)
+	at model.states.main.MainFSM.initialize(MainFSM.java:55)
+	at Main.init(Main.java:24)
+	at Main.main(Main.java:11)
+
+Jun 05, 2024 10:20:28 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+Jun 05, 2024 10:20:30 AM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+org.flywaydb.core.api.exception.FlywayValidateException: Validate failed: Migrations have failed validation
+Migration checksum mismatch for migration version 2.1
+-> Applied to database : -1769165319
+-> Resolved locally    : -612684510
+Either revert the changes to the migration, or run repair to update the schema history.
+Migration checksum mismatch for migration version 2.2
+-> Applied to database : -1007615497
+-> Resolved locally    : 577597601
+Either revert the changes to the migration, or run repair to update the schema history.
+Need more flexibility with validation rules? Learn more: https://rd.gt/3AbJUZE
+	at org.flywaydb.core.Flyway.lambda$migrate$0(Flyway.java:169)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:210)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:156)
+	at model.states.main.MainFSM.initialize(MainFSM.java:55)
+	at Main.init(Main.java:24)
+	at Main.main(Main.java:11)
+
+Jun 05, 2024 10:23:37 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+Jun 05, 2024 10:23:38 AM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+org.flywaydb.core.api.exception.FlywayValidateException: Validate failed: Migrations have failed validation
+Migration checksum mismatch for migration version 2.1
+-> Applied to database : -1769165319
+-> Resolved locally    : -612684510
+Either revert the changes to the migration, or run repair to update the schema history.
+Migration checksum mismatch for migration version 2.2
+-> Applied to database : -1007615497
+-> Resolved locally    : 577597601
+Either revert the changes to the migration, or run repair to update the schema history.
+Need more flexibility with validation rules? Learn more: https://rd.gt/3AbJUZE
+	at org.flywaydb.core.Flyway.lambda$migrate$0(Flyway.java:169)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:210)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:156)
+	at model.states.main.MainFSM.initialize(MainFSM.java:55)
+	at Main.init(Main.java:24)
+	at Main.main(Main.java:11)
+
+Jun 05, 2024 10:30:25 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+Jun 05, 2024 10:30:27 AM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+org.flywaydb.core.api.exception.FlywayValidateException: Validate failed: Migrations have failed validation
+Migration checksum mismatch for migration version 2.1
+-> Applied to database : -1769165319
+-> Resolved locally    : -612684510
+Either revert the changes to the migration, or run repair to update the schema history.
+Migration checksum mismatch for migration version 2.2
+-> Applied to database : -1007615497
+-> Resolved locally    : 577597601
+Either revert the changes to the migration, or run repair to update the schema history.
+Need more flexibility with validation rules? Learn more: https://rd.gt/3AbJUZE
+	at org.flywaydb.core.Flyway.lambda$migrate$0(Flyway.java:169)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:210)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:156)
+	at model.states.main.MainFSM.initialize(MainFSM.java:55)
+	at Main.init(Main.java:24)
+	at Main.main(Main.java:11)
+
+Jun 05, 2024 10:32:02 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+Jun 05, 2024 10:32:33 AM debug.logging.MainLogger logMessage
+INFO: App work finished
+
+Jun 05, 2024 10:33:16 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+Jun 05, 2024 10:34:41 AM debug.logging.MainLogger logMessage
+INFO: App work finished
+
+Jun 05, 2024 10:38:06 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+Jun 05, 2024 10:39:14 AM debug.logging.MainLogger logMessage
+INFO: App work finished
+
+Jun 05, 2024 10:55:48 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+Jun 05, 2024 10:56:05 AM debug.logging.MainLogger logMessage
+INFO: App work finished
+
+Jun 05, 2024 11:08:36 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+Jun 05, 2024 11:09:08 AM debug.logging.MainLogger logMessage
+INFO: App work finished
+
+Jun 05, 2024 11:18:04 AM debug.logging.MainLogger logMessage
+INFO: App initialized
+Jun 05, 2024 11:19:15 AM debug.logging.MainLogger logMessage
+INFO: App work finished
+

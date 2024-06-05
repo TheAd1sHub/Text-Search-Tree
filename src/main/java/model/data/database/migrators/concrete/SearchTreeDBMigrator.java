@@ -10,7 +10,6 @@ public final class SearchTreeDBMigrator extends FlywayMigrator {
 
     private static SearchTreeDBMigrator instance;
 
-
     private SearchTreeDBMigrator() {
         super(SEARCHES_DB_PATH, MIGRATION_SCRIPTS_PATH, null, null);
     }

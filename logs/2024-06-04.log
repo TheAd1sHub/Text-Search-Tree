@@ -1,0 +1,66 @@
+Jun 04, 2024 4:06:21 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+Jun 04, 2024 4:06:23 PM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+org.flywaydb.core.api.exception.FlywayValidateException: Validate failed: Migrations have failed validation
+Migration checksum mismatch for migration version 2.1
+-> Applied to database : -1769165319
+-> Resolved locally    : -612684510
+Either revert the changes to the migration, or run repair to update the schema history.
+Migration checksum mismatch for migration version 2.2
+-> Applied to database : -1007615497
+-> Resolved locally    : 577597601
+Either revert the changes to the migration, or run repair to update the schema history.
+Need more flexibility with validation rules? Learn more: https://rd.gt/3AbJUZE
+	at org.flywaydb.core.Flyway.lambda$migrate$0(Flyway.java:169)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:210)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:156)
+	at model.states.main.MainFSM.initialize(MainFSM.java:55)
+	at Main.init(Main.java:24)
+	at Main.main(Main.java:11)
+
+Jun 04, 2024 4:07:23 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+Jun 04, 2024 4:07:28 PM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+org.flywaydb.core.api.exception.FlywayValidateException: Validate failed: Migrations have failed validation
+Migration checksum mismatch for migration version 2.1
+-> Applied to database : -1769165319
+-> Resolved locally    : -612684510
+Either revert the changes to the migration, or run repair to update the schema history.
+Migration checksum mismatch for migration version 2.2
+-> Applied to database : -1007615497
+-> Resolved locally    : 577597601
+Either revert the changes to the migration, or run repair to update the schema history.
+Need more flexibility with validation rules? Learn more: https://rd.gt/3AbJUZE
+	at org.flywaydb.core.Flyway.lambda$migrate$0(Flyway.java:169)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:210)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:156)
+	at model.states.main.MainFSM.initialize(MainFSM.java:55)
+	at Main.init(Main.java:24)
+	at Main.main(Main.java:11)
+
+Jun 04, 2024 4:13:49 PM debug.logging.MainLogger logMessage
+INFO: App initialized
+Jun 04, 2024 4:13:53 PM debug.logging.MainLogger logSevere
+SEVERE: Exception occurred!
+
+org.flywaydb.core.api.exception.FlywayValidateException: Validate failed: Migrations have failed validation
+Migration checksum mismatch for migration version 2.1
+-> Applied to database : -1769165319
+-> Resolved locally    : -612684510
+Either revert the changes to the migration, or run repair to update the schema history.
+Migration checksum mismatch for migration version 2.2
+-> Applied to database : -1007615497
+-> Resolved locally    : 577597601
+Either revert the changes to the migration, or run repair to update the schema history.
+Need more flexibility with validation rules? Learn more: https://rd.gt/3AbJUZE
+	at org.flywaydb.core.Flyway.lambda$migrate$0(Flyway.java:169)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:210)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:156)
+	at model.states.main.MainFSM.initialize(MainFSM.java:55)
+	at Main.init(Main.java:24)
+	at Main.main(Main.java:11)
+
