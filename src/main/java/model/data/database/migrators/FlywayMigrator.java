@@ -31,7 +31,7 @@ public class FlywayMigrator extends DatabaseMigrator<Flyway> {
                 .dataSource(dataSource, username, password)
                 .load();
 
-        flyway.
+        flyway.repair();
     }
 
     @Override

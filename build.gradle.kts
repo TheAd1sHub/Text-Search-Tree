@@ -5,6 +5,7 @@
 plugins {
     `java-library`
     `maven-publish`
+    id("org.flywaydb.flyway") version "10.14.0"
 }
 
 repositories {
@@ -25,6 +26,7 @@ dependencies {
 
     implementation("org.jsoup:jsoup:1.17.2")
     implementation("org.json:json:20240303")
+
 
 
 
